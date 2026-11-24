@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Typography</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:1440px;height:1780px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);padding:96px;display:flex;flex-direction:column;gap:48px;position:relative;overflow:hidden;">
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:820px;">
+    <span style="font-family:var(--font-body);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pine-dark);font-weight:600;">Foundations — 03 · Revision 2</span>
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:56px;letter-spacing:-0.02em;">Typography</h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:var(--ink-700);">One family carries headings, numerals and the wordmark — Space Grotesk, geometric enough to feel considered without turning cold. Inter sets everything a coach has to read quickly: rosters, notes, receipts.</p>
+  </div>
+
+  <!-- Scale -->
+  <div style="display:flex;flex-direction:column;gap:22px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Display — Space Grotesk</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Display XL / 700</span>
+        <span style="font-family:var(--font-display);font-weight:700;font-size:64px;letter-spacing:-0.02em;">Good morning, Taylor</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Heading / 600</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:36px;letter-spacing:-0.01em;">Your clients this week</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Subhead / 500</span>
+        <span style="font-family:var(--font-display);font-weight:500;font-size:22px;">Check-in activity</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div style="display:flex;flex-direction:column;gap:22px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Body — Inter</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Body / 400 · 17px</span>
+        <span style="font-size:17px;line-height:1.6;max-width:620px;color:var(--ink-700);">Alex Romero completed 6 of 6 sessions this week and logged three body-metric check-ins.</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Small / 400 · 14px</span>
+        <span style="font-size:14px;line-height:1.6;max-width:620px;color:var(--ink-500);">12-Week Strength Reset · last check-in 2h ago</span>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:24px;border-bottom:1px solid var(--stone-300);padding-bottom:18px;">
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);width:150px;flex-shrink:0;">Label / 600 · 12px</span>
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-700);">Active clients</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Numerals + in context -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div style="display:flex;flex-direction:column;gap:22px;">
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Numerals</h2>
+      <p style="margin:0;font-size:14px;line-height:1.6;color:var(--ink-500);max-width:480px;">Stat tiles, prices and percentages set in Space Grotesk too — the same family carries the product's voice all the way down to a single figure.</p>
+      <div style="display:flex;gap:28px;align-items:baseline;">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:44px;color:var(--ink-900);">82%</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:44px;color:var(--ink-900);">$66.00</span>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:44px;color:var(--ink-900);">19</span>
+      </div>
+    </div>
+
+    <div style="background:var(--sage);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;">
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--pine-dark);">In context</span>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--ink-900);">Avg. adherence</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:52px;color:var(--pine-dark);">82%</span>
+      <span style="font-size:14px;color:var(--ink-700);">Across 24 active clients, last 7 days</span>
+    </div>
+  </div>
+
+  <!-- Rules -->
+  <div style="background:var(--stone-150);border-radius:20px;padding:32px;display:flex;gap:48px;">
+    <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+      <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--pine-dark);font-weight:600;">Do</span>
+      <span style="font-size:14px;line-height:1.6;color:var(--ink-700);">Set body copy no smaller than 14px. Keep line length under ~70 characters. Let numerals breathe at large sizes.</span>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+      <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--danger);font-weight:600;">Don't</span>
+      <span style="font-size:14px;line-height:1.6;color:var(--ink-700);">Don't set long paragraphs in Space Grotesk, or headlines in Inter — each face has one job.</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1780}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

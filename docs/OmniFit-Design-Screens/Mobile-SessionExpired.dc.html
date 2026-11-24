@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Session expired</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter:#F3D97A; --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:20px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:9px;opacity:0.5;">
+    <svg width="20" height="20" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:15px;">OmniFit</span>
+  </div>
+
+  <div style="flex-grow:1;overflow:hidden;padding:0 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+
+    <span style="width:76px;height:76px;border-radius:50%;background:var(--butter-tint);display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><polyline points="12,7 12,12 15.5,14"></polyline></svg>
+    </span>
+
+    <h1 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.01em;">Session expired</h1>
+    <p style="margin:0 0 28px;font-size:14px;color:var(--ink-500);line-height:1.6;max-width:260px;">Please sign in again to keep going.</p>
+
+    <button style="width:100%;max-width:220px;height:46px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;">Log in</button>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

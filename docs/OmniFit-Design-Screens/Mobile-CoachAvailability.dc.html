@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Weekly availability</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-toggle{appearance:none;-webkit-appearance:none;width:40px;height:23px;border-radius:999px;background:var(--stone-300);position:relative;cursor:pointer;flex-shrink:0;outline:none;}
+.of-toggle:checked{background:var(--pine);}
+.of-toggle::after{content:"";position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .12s;}
+.of-toggle:checked::after{left:19.5px;}
+.of-day{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:11px;}
+.of-day.on{background:var(--surface);border:1px solid var(--stone-300);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:32px 24px 18px;display:flex;flex-direction:column;gap:14px;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 4 of 7</span>
+        <a href="#skip" style="font-size:12px;font-weight:600;color:var(--ink-500);text-decoration:none;">Skip</a>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:57%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <div>
+      <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;text-wrap:balance;">Your weekly availability</h1>
+      <p style="margin:0;font-size:13.5px;color:var(--ink-500);line-height:1.4;">Clients can only book sessions in these windows.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:3px;">
+
+      <div class="of-day on"><span style="width:74px;font-weight:600;font-size:13.5px;">Monday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">9:00 AM – 5:00 PM</span><input type="checkbox" class="of-toggle" checked="" aria-label="Monday"></div>
+      <div class="of-day on"><span style="width:74px;font-weight:600;font-size:13.5px;">Tuesday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">9:00 AM – 5:00 PM</span><input type="checkbox" class="of-toggle" checked="" aria-label="Tuesday"></div>
+      <div class="of-day on"><span style="width:74px;font-weight:600;font-size:13.5px;">Wednesday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">9:00 AM – 5:00 PM</span><input type="checkbox" class="of-toggle" checked="" aria-label="Wednesday"></div>
+      <div class="of-day on"><span style="width:74px;font-weight:600;font-size:13.5px;">Thursday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">9:00 AM – 5:00 PM</span><input type="checkbox" class="of-toggle" checked="" aria-label="Thursday"></div>
+      <div class="of-day on"><span style="width:74px;font-weight:600;font-size:13.5px;">Friday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">9:00 AM – 3:00 PM</span><input type="checkbox" class="of-toggle" checked="" aria-label="Friday"></div>
+      <div class="of-day"><span style="width:74px;font-weight:600;font-size:13.5px;color:var(--ink-500);">Saturday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">Unavailable</span><input type="checkbox" class="of-toggle" aria-label="Saturday"></div>
+      <div class="of-day"><span style="width:74px;font-weight:600;font-size:13.5px;color:var(--ink-500);">Sunday</span><span style="flex-grow:1;font-size:13px;color:var(--ink-500);">Unavailable</span><input type="checkbox" class="of-toggle" aria-label="Sunday"></div>
+
+    </div>
+
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 14px;background:var(--pine-tint);border-radius:12px;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><circle cx="12" cy="12" r="9"></circle><polyline points="12,7 12,12 16,14"></polyline></svg>
+      <span style="font-size:12.5px;color:var(--pine-dark);line-height:1.4;">Time zone set to Eastern (ET), based on your device.</span>
+    </div>
+
+    <div style="flex-grow:1;"></div>
+
+    <button style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Continue</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

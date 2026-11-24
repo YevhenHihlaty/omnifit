@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — My Clients</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --lilac-tint:#F1EBFA; --plum-dark:#5C4E78;
+  --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --sky-tint:#EAF3F8;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-navitem{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:9px;color:#9CA69C;text-decoration:none;font-size:13.5px;font-weight:600;}
+.of-navitem.active{background:rgba(255,255,255,0.08);color:#FBF7EF;}
+.of-row{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--stone-150);cursor:pointer;}
+.of-row.selected{background:var(--pine-tint);}
+.of-avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--ink-900);}
+.of-pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+</style>
+</helmet>
+<div style="width:1440px;height:900px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <div style="width:240px;flex-shrink:0;background:var(--ink-900);color:#EDEAE0;display:flex;flex-direction:column;padding:24px 16px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:9px;padding:0 8px;margin-bottom:32px;">
+      <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#8FB89B" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="#8FB89B"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:17px;color:#FBF7EF;">OmniFit</span>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:3px;">
+      <a class="of-navitem" href="#dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg>Dashboard</a>
+      <a class="of-navitem active" href="#clients"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5,20 c0,-4 3,-6.5 6.5,-6.5 s6.5,2.5 6.5,6.5"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M15.5,13.3 c2.8,0.3 5,2.6 5,6.7"></path></svg>My Clients</a>
+      <a class="of-navitem" href="#sessions"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>Sessions</a>
+      <a class="of-navitem" href="#programs"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4,4 h13 l3,3 v13 H4 Z"></path><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line></svg>Programs</a>
+      <a class="of-navitem" href="#messages"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>Messages</a>
+    </nav>
+    <div style="margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);display:flex;flex-direction:column;gap:3px;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#6E7268;padding:0 14px;margin-bottom:6px;">General</span>
+      <a class="of-navitem" href="#reports"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4,20 V10 M11,20 V4 M18,20 V13"></path></svg>Reports</a>
+      <a class="of-navitem" href="#settings"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"></circle><path d="M19.4,13 a7.6,7.6 0 0 0 0,-2 l2,-1.5 -2,-3.4 -2.3,1 a7.4,7.4 0 0 0 -1.8,-1 L15,3.5 H9 l-0.3,2.6 a7.4,7.4 0 0 0 -1.8,1 l-2.3,-1 -2,3.4 2,1.5 a7.6,7.6 0 0 0 0,2 l-2,1.5 2,3.4 2.3,-1 a7.4,7.4 0 0 0 1.8,1 L9,20.5 h6 l0.3,-2.6 a7.4,7.4 0 0 0 1.8,-1 l2.3,1 2,-3.4 Z"></path></svg>Settings</a>
+    </div>
+    <div style="flex-grow:1;"></div>
+    <div style="background:rgba(255,255,255,0.06);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;color:#FBF7EF;">Go Pro</span>
+      <span style="font-size:12px;color:#9CA69C;line-height:1.5;">Unlock custom programs and advanced reports.</span>
+      <button style="align-self:flex-start;border:none;border-radius:8px;background:#8FB89B;color:#14181C;font-size:12px;font-weight:700;padding:6px 12px;cursor:pointer;margin-top:2px;">Upgrade</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;padding:8px;">
+      <span style="width:32px;height:32px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:#14181C;">TB</span>
+      <div style="min-width:0;"><div style="font-size:13px;font-weight:600;color:#FBF7EF;">Taylor Brooks</div><div style="font-size:11.5px;color:#6E7268;">Coach</div></div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex-grow:1;display:flex;flex-direction:column;min-width:0;">
+
+    <div style="flex-shrink:0;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--stone-300);">
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">My Clients</h1>
+        <p style="margin:2px 0 0;font-size:13px;color:var(--ink-500);">24 active clients</p>
+      </div>
+      <button style="border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14px;padding:11px 18px;cursor:pointer;display:flex;align-items:center;gap:8px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add client
+      </button>
+    </div>
+
+    <div style="flex-grow:1;display:flex;min-height:0;">
+
+      <!-- List pane -->
+      <div style="width:400px;flex-shrink:0;border-right:1px solid var(--stone-300);display:flex;flex-direction:column;min-height:0;">
+        <div style="padding:16px 16px 12px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;">
+          <div style="position:relative;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" placeholder="Search clients" style="width:100%;height:38px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 12px 0 34px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;">
+          </div>
+          <div role="tablist" aria-label="Filter clients" style="display:flex;gap:8px;">
+            <button role="tab" aria-selected="true" style="border:none;border-radius:999px;background:var(--ink-900);color:var(--cream);font-size:12.5px;font-weight:600;padding:6px 12px;cursor:pointer;">All</button>
+            <button role="tab" aria-selected="false" style="border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:12.5px;font-weight:600;padding:5.5px 11px;cursor:pointer;">Needs attention</button>
+          </div>
+        </div>
+        <div style="overflow:hidden;flex-grow:1;">
+          <div class="of-row">
+            <span class="of-avatar" style="background:var(--sky-tint);">AR</span>
+            <div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:14px;">Alex Romero</div><div style="font-size:12px;color:var(--ink-500);margin-top:1px;">1,840 cal today · 1 workout</div></div>
+            <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+          </div>
+          <div class="of-row selected">
+            <span class="of-avatar" style="background:var(--butter-tint);">PN</span>
+            <div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:14px;">Priya Nair</div><div style="font-size:12px;color:var(--ink-500);margin-top:1px;">No check-in in 6 days</div></div>
+            <span class="of-pill" style="background:var(--butter-tint);color:var(--butter-dark);">At risk</span>
+          </div>
+          <div class="of-row">
+            <span class="of-avatar" style="background:var(--lilac-tint);">DW</span>
+            <div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:14px;">Devon Ward</div><div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Joined 2 days ago</div></div>
+            <span class="of-pill" style="background:var(--lilac-tint);color:var(--plum-dark);">New</span>
+          </div>
+          <div class="of-row">
+            <span class="of-avatar" style="background:#FBEDE1;">SO</span>
+            <div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:14px;">Sam Okafor</div><div style="font-size:12px;color:var(--ink-500);margin-top:1px;">2,150 cal today · 2 workouts</div></div>
+            <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+          </div>
+          <div class="of-row">
+            <span class="of-avatar" style="background:var(--sky-tint);">JB</span>
+            <div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:14px;">Jordan Blake</div><div style="font-size:12px;color:var(--ink-500);margin-top:1px;">1,620 cal today · rest day</div></div>
+            <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview pane -->
+      <div style="flex-grow:1;overflow:hidden;padding:28px 36px;display:flex;flex-direction:column;min-width:0;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <span style="width:56px;height:56px;border-radius:50%;background:var(--butter-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:17px;">PN</span>
+            <div>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">Priya Nair</div>
+              <div style="font-size:13px;color:var(--ink-500);margin-top:2px;">Weight loss · Online coaching</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:9px 16px;cursor:pointer;">Message</button>
+            <button style="border:none;border-radius:9px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:9px 16px;cursor:pointer;">View full profile</button>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;margin-bottom:24px;">
+          <div style="flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;"><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Streak</div><div style="font-family:var(--font-display);font-weight:700;font-size:19px;margin-top:2px;">4 days</div></div>
+          <div style="flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;"><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Weight</div><div style="font-family:var(--font-display);font-weight:700;font-size:19px;margin-top:2px;color:var(--pine-dark);">−3.2 lb</div></div>
+          <div style="flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;"><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Adherence</div><div style="font-family:var(--font-display);font-weight:700;font-size:19px;margin-top:2px;">68%</div></div>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:18px 20px;margin-bottom:24px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:14px;">Weight trend</span>
+            <span style="font-size:11.5px;color:var(--ink-500);">Last 8 weeks</span>
+          </div>
+          <svg viewBox="0 0 700 90" width="100%" height="90">
+            <line x1="0" y1="70" x2="700" y2="70" stroke="var(--stone-150)" stroke-width="1"></line>
+            <polyline points="10,18 100,26 190,34 280,32 370,44 460,50 550,58 640,62" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <circle cx="640" cy="62" r="4" fill="var(--pine)"></circle>
+            <text x="640" y="14" text-anchor="end" font-family="Space Grotesk" font-weight="600" font-size="12" fill="var(--ink-900)">144.8 lb</text>
+          </svg>
+        </div>
+
+        <span style="font-family:var(--font-display);font-weight:600;font-size:14px;margin-bottom:10px;">Recent activity</span>
+        <div style="display:flex;flex-direction:column;">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+            <div style="flex-grow:1;font-size:13.5px;font-weight:500;">Logged breakfast</div>
+            <span style="font-size:12px;color:var(--ink-500);">8:12 AM</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--butter-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="7" x2="12" y2="13"></line></svg></span>
+            <div style="flex-grow:1;font-size:13.5px;font-weight:500;">Missed check-in</div>
+            <span style="font-size:12px;color:var(--ink-500);">Yesterday</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

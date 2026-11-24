@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log training · Select client</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter-tint:#FAF0CE; --butter-dark:#8A6300; --sky-tint:#EAF3F8; --sky-dark:#3A6E8C;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:46px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px 0 38px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.of-crow{display:flex;align-items:center;gap:12px;padding:12px 12px;border-radius:12px;cursor:pointer;border:2px solid transparent;}
+.of-crow.selected{border-color:var(--pine);background:var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+      <button aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+      </button>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Log training</span>
+      <span style="width:32px;"></span>
+    </div>
+
+    <div style="padding:18px 20px 14px;flex-shrink:0;">
+      <p style="margin:0 0 14px;font-size:13.5px;color:var(--ink-500);">Who's this session for?</p>
+      <div style="position:relative;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:13px;top:15.5px;"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" class="of-field" placeholder="Search clients">
+      </div>
+    </div>
+
+    <div style="padding:0 20px 16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:3px;">
+
+      <div class="of-crow selected">
+        <span style="width:40px;height:40px;border-radius:50%;background:var(--sky-tint);color:var(--sky-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">SO</span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14.5px;">Sam Okafor</div><div style="font-size:11.5px;color:var(--pine-dark);margin-top:1px;">Last workout: yesterday</div></div>
+        <span style="width:20px;height:20px;border-radius:50%;background:var(--pine);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg></span>
+      </div>
+
+      <div class="of-crow">
+        <span style="width:40px;height:40px;border-radius:50%;background:var(--butter-tint);color:var(--butter-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">PN</span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14.5px;">Priya Nair</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Last workout: 6 days ago</div></div>
+      </div>
+
+      <div class="of-crow">
+        <span style="width:40px;height:40px;border-radius:50%;background:var(--sky-tint);color:var(--sky-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">DW</span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14.5px;">Devon Ward</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Last workout: never logged</div></div>
+      </div>
+
+      <div class="of-crow">
+        <span style="width:40px;height:40px;border-radius:50%;background:var(--pine-tint);color:var(--pine-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">AR</span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14.5px;">Alex Romero</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Last workout: 2 days ago</div></div>
+      </div>
+
+      <div class="of-crow">
+        <span style="width:40px;height:40px;border-radius:50%;background:var(--pine-tint);color:var(--pine-dark);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">JB</span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14.5px;">Jordan Blake</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Last workout: 3 days ago</div></div>
+      </div>
+
+    </div>
+
+    <div style="flex-shrink:0;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+      <button style="width:100%;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Next — Sam Okafor</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

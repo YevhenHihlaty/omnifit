@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach dashboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --terracotta:#C9884F; --slate-blue:#5B84A8;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-cal-cell{display:flex;align-items:center;justify-content:center;height:34px;font-family:var(--font-body);font-size:12px;color:var(--ink-700);position:relative;}
+.of-cal-muted{color:var(--stone-300);}
+.of-cal-today{width:26px;height:26px;border-radius:50%;background:var(--ink-900);color:var(--cream);display:flex;align-items:center;justify-content:center;}
+.of-cal-dot{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--pine);}
+</style>
+</helmet>
+<div style="width:1440px;height:1600px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <div style="width:260px;flex-shrink:0;background:var(--ink-900);padding:28px 18px;display:flex;flex-direction:column;gap:22px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px;">
+      <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--sage)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--sage)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--cream);">OmniFit</span>
+    </div>
+
+    <nav style="display:flex;flex-direction:column;gap:3px;">
+      <a href="#dashboard" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--pine);color:var(--surface);text-decoration:none;font-size:14px;font-weight:600;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"></rect><polyline points="3,10 12,3 21,10"></polyline></svg>
+        Dashboard
+      </a>
+      <a href="#clients" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 C4,15 8,13 12,13 C16,13 20,15 20,21"></path></svg>
+        My clients
+      </a>
+      <a href="#sessions" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+        Sessions
+      </a>
+      <a href="#programs" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4,19 V5 a1,1 0 0 1 1,-1 H18 l2,3 v12 a1,1 0 0 1 -1,1 H5 a1,1 0 0 1 -1,-1 Z"></path><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="14" y2="14"></line></svg>
+        Programs
+      </a>
+      <a href="#messages" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4,5 H20 V16 H9 L4,20 Z"></path></svg>
+        Messages
+      </a>
+
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7A8074;padding:16px 14px 4px;">General</div>
+      <a href="#reports" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,18 9,11 14,15 20,6"></polyline></svg>
+        Reports
+      </a>
+      <a href="#settings" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="8.2"></circle></svg>
+        Settings
+      </a>
+    </nav>
+
+    <div style="flex-grow:1;"></div>
+
+    <div style="background:rgba(191,224,194,0.1);border:1px solid rgba(191,224,194,0.22);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--cream);">Go Pro</span>
+      <span style="font-size:12px;line-height:1.5;color:#A9AFA0;">Unlimited clients and automated check-ins.</span>
+      <button style="margin-top:4px;height:34px;border:none;border-radius:8px;background:var(--pine);color:var(--surface);font-family:var(--font-body);font-weight:600;font-size:12px;cursor:pointer;">Upgrade</button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 8px;border-top:1px solid rgba(251,247,239,0.14);">
+      <div style="width:34px;height:34px;border-radius:50%;background:var(--sage);color:var(--pine-dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">TB</div>
+      <div>
+        <div style="color:var(--cream);font-size:13px;font-weight:600;">Taylor Brooks</div>
+        <div style="color:#8A8F82;font-size:12px;">Free plan · Coach</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex-grow:1;padding:40px 44px;display:flex;flex-direction:column;gap:24px;box-sizing:border-box;overflow:hidden;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;">
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:30px;letter-spacing:-0.01em;">Good morning, Taylor</h1>
+        <p style="margin:6px 0 0;font-size:14px;color:var(--ink-500);">You have 5 sessions and 12 check-ins to review today. Let's get into it.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:8px;height:42px;padding:0 16px;border-radius:10px;border:1px solid var(--stone-300);background:var(--surface);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+          <span style="font-size:13px;color:var(--ink-500);">Search clients…</span>
+        </div>
+        <button aria-label="Notifications" style="width:42px;height:42px;border-radius:10px;background:var(--surface);border:1px solid var(--stone-300);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;flex-shrink:0;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6,10 a6,6 0 0 1 12,0 c0,5 2,6 2,6 H4 c0,0 2,-1 2,-6 Z"></path><path d="M10,20 a2,2 0 0 0 4,0"></path></svg>
+          <span style="position:absolute;top:8px;right:9px;width:7px;height:7px;border-radius:50%;background:var(--terracotta);"></span>
+        </button>
+        <button style="height:42px;padding:0 20px;background:var(--ink-900);color:var(--cream);border:none;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;flex-shrink:0;">+ New session</button>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;">
+      <div style="background:var(--sage);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:13px;color:var(--pine-dark);opacity:0.85;">Active clients</div>
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--ink-900);">24</span><span style="font-size:12px;color:var(--pine-dark);">+3 this month</span></div>
+        <div style="display:flex;align-items:flex-end;gap:4px;height:24px;">
+          <div style="width:100%;height:45%;background:var(--pine-dark);opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:60%;background:var(--pine-dark);opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:50%;background:var(--pine-dark);opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:75%;background:var(--pine-dark);opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:70%;background:var(--pine-dark);opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:100%;background:var(--pine-dark);border-radius:2px;"></div>
+        </div>
+      </div>
+      <div style="background:var(--peach);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:13px;color:#8A5A2E;opacity:0.85;">Sessions, last 30 days</div>
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--ink-900);">42</span><span style="font-size:12px;color:#8A5A2E;">+6 vs prior</span></div>
+        <div style="display:flex;align-items:flex-end;gap:4px;height:24px;">
+          <div style="width:100%;height:55%;background:#8A5A2E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:40%;background:#8A5A2E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:80%;background:#8A5A2E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:65%;background:#8A5A2E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:90%;background:#8A5A2E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:100%;background:#8A5A2E;border-radius:2px;"></div>
+        </div>
+      </div>
+      <div style="background:var(--butter);border-radius:16px;padding:18px 20px;display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:13px;color:#8A6B1E;opacity:0.85;">Avg. client streak</div>
+        <div style="display:flex;align-items:baseline;gap:8px;"><span style="font-family:var(--font-display);font-weight:700;font-size:30px;color:var(--ink-900);">19</span><span style="font-size:12px;color:#8A6B1E;">days, +2 vs last week</span></div>
+        <div style="display:flex;align-items:flex-end;gap:4px;height:24px;">
+          <div style="width:100%;height:50%;background:#8A6B1E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:65%;background:#8A6B1E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:58%;background:#8A6B1E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:72%;background:#8A6B1E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:85%;background:#8A6B1E;opacity:0.35;border-radius:2px;"></div>
+          <div style="width:100%;height:100%;background:#8A6B1E;border-radius:2px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 400px;gap:24px;flex-grow:1;min-height:0;">
+
+      <!-- Left: chart+donut, then clients -->
+      <div style="display:flex;flex-direction:column;gap:20px;min-width:0;">
+
+        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:18px;">
+
+          <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:16px;">Check-in activity</h2>
+              <div style="display:flex;gap:6px;">
+                <span style="background:var(--pine);color:var(--surface);font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;">This week</span>
+                <span style="background:transparent;color:var(--ink-500);border:1px solid var(--stone-300);font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;">Last week</span>
+              </div>
+            </div>
+
+            <svg viewBox="0 0 680 210" style="width:100%;height:auto;" aria-hidden="true">
+              <line x1="20" y1="170" x2="660" y2="170" stroke="var(--stone-300)" stroke-width="1"></line>
+              <line x1="20" y1="107" x2="660" y2="107" stroke="var(--stone-150)" stroke-width="1"></line>
+              <line x1="20" y1="44" x2="660" y2="44" stroke="var(--stone-150)" stroke-width="1"></line>
+
+              <path d="M20,86 L127,72 L233,107 L340,58 L447,79 L553,44 L660,121 L660,170 L20,170 Z" fill="var(--pine-tint)" opacity="0.7"></path>
+              <polyline points="20,100 127,93 233,100 340,86 447,93 553,72 660,114" fill="none" stroke="var(--stone-300)" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"></polyline>
+              <polyline points="20,86 127,72 233,107 340,58 447,79 553,44 660,121" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+
+              <circle cx="553" cy="44" r="5" fill="var(--pine)" stroke="var(--surface)" stroke-width="2"></circle>
+              <rect x="470" y="6" width="120" height="28" rx="8" fill="var(--ink-900)"></rect>
+              <text x="530" y="24" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="var(--cream)">Sat · 18 check-ins</text>
+
+              <text x="20" y="190" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Mon</text>
+              <text x="127" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Tue</text>
+              <text x="233" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Wed</text>
+              <text x="340" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Thu</text>
+              <text x="447" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Fri</text>
+              <text x="553" y="190" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Sat</text>
+              <text x="660" y="190" text-anchor="end" font-family="Inter, sans-serif" font-size="11" fill="var(--ink-500)">Sun</text>
+            </svg>
+
+            <div style="display:flex;gap:18px;">
+              <div style="display:flex;align-items:center;gap:7px;"><span style="width:16px;height:2.5px;background:var(--pine);border-radius:2px;"></span><span style="font-size:12px;color:var(--ink-500);">This week</span></div>
+              <div style="display:flex;align-items:center;gap:7px;"><span style="width:16px;height:2px;background:var(--stone-300);border-radius:2px;"></span><span style="font-size:12px;color:var(--ink-500);">Last week</span></div>
+            </div>
+          </div>
+
+          <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+            <div>
+              <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:16px;">Client status</h2>
+              <p style="margin:3px 0 0;font-size:11px;color:var(--ink-500);line-height:1.4;">Based on check-in recency &amp; adherence over the last 7 days</p>
+            </div>
+            <div style="align-self:center;width:128px;height:128px;border-radius:50%;background:conic-gradient(var(--pine) 0% 67%, var(--butter) 67% 88%, var(--lilac) 88% 100%);display:flex;align-items:center;justify-content:center;">
+              <div style="width:80px;height:80px;border-radius:50%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+                <span style="font-family:var(--font-display);font-weight:700;font-size:20px;">24</span>
+                <span style="font-size:10px;color:var(--ink-500);">clients</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-700);"><span style="width:9px;height:9px;border-radius:50%;background:var(--pine);"></span>On track</span><span style="font-family:var(--font-display);font-size:12px;font-weight:600;">16 · 67%</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-700);"><span style="width:9px;height:9px;border-radius:50%;background:var(--butter);"></span>At risk</span><span style="font-family:var(--font-display);font-size:12px;font-weight:600;">5 · 21%</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-700);"><span style="width:9px;height:9px;border-radius:50%;background:var(--lilac);"></span>New</span><span style="font-family:var(--font-display);font-size:12px;font-weight:600;">3 · 12%</span></div>
+            </div>
+            <a href="#clients" style="align-self:flex-start;font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">View clients at risk →</a>
+          </div>
+
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;min-height:0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 22px;">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:16px;">Your clients</h2>
+              <div style="display:flex;gap:6px;">
+                <span style="background:var(--ink-900);color:var(--cream);font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;">All</span>
+                <span style="color:var(--ink-500);border:1px solid var(--stone-300);font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;">Needs attention</span>
+              </div>
+            </div>
+            <a href="#clients" style="font-size:13px;color:var(--plum-dark);text-decoration:none;font-weight:600;">View all</a>
+          </div>
+
+          <div style="display:grid;grid-template-columns:2.4fr 1.2fr 1fr 1.1fr;padding:10px 22px;background:var(--stone-150);font-size:11px;color:var(--ink-500);text-transform:uppercase;letter-spacing:0.04em;font-weight:600;">
+            <span>Client</span><span>Last check-in</span><span>Progress</span><span>Status</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:2.4fr 1.2fr 1fr 1.1fr;padding:13px 22px;align-items:center;border-top:1px solid var(--stone-150);">
+            <div style="display:flex;align-items:center;gap:12px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--sage);color:var(--pine-dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;">AR</div><div><div style="font-weight:600;font-size:13px;">Alex Romero</div><div style="font-size:11px;color:var(--ink-500);">12-Week Strength Reset</div></div></div>
+            <span style="font-size:13px;color:var(--ink-500);">2h ago</span>
+            <div style="width:70px;height:5px;border-radius:999px;background:var(--stone-150);"><div style="width:86%;height:100%;border-radius:999px;background:var(--pine);"></div></div>
+            <span style="background:var(--pine-tint);color:var(--pine-dark);font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;width:fit-content;">On track</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.4fr 1.2fr 1fr 1.1fr;padding:13px 22px;align-items:center;border-top:1px solid var(--stone-150);">
+            <div style="display:flex;align-items:center;gap:12px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--peach);color:#8A5A2E;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;">PN</div><div><div style="font-weight:600;font-size:13px;">Priya Nair</div><div style="font-size:11px;color:var(--ink-500);">Marathon Base Build</div></div></div>
+            <span style="font-size:13px;color:var(--ink-500);">2 days ago</span>
+            <div style="width:70px;height:5px;border-radius:999px;background:var(--stone-150);"><div style="width:54%;height:100%;border-radius:999px;background:#B8842A;"></div></div>
+            <span style="background:var(--butter);color:#8A6B1E;font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;width:fit-content;">At risk</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.4fr 1.2fr 1fr 1.1fr;padding:13px 22px;align-items:center;border-top:1px solid var(--stone-150);">
+            <div style="display:flex;align-items:center;gap:12px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--sky);color:#3B5878;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;">DW</div><div><div style="font-weight:600;font-size:13px;">Devon Ward</div><div style="font-size:11px;color:var(--ink-500);">Nutrition Coaching</div></div></div>
+            <span style="font-size:13px;color:var(--ink-500);">Just joined</span>
+            <div style="width:70px;height:5px;border-radius:999px;background:var(--stone-150);"><div style="width:12%;height:100%;border-radius:999px;background:var(--plum);"></div></div>
+            <span style="background:var(--lilac);color:var(--plum-dark);font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;width:fit-content;">New</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2.4fr 1.2fr 1fr 1.1fr;padding:13px 22px;align-items:center;border-top:1px solid var(--stone-150);">
+            <div style="display:flex;align-items:center;gap:12px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--blush);color:#94445F;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;">SO</div><div><div style="font-weight:600;font-size:13px;">Sam Okafor</div><div style="font-size:11px;color:var(--ink-500);">Mobility &amp; Recovery</div></div></div>
+            <span style="font-size:13px;color:var(--ink-500);">5h ago</span>
+            <div style="width:70px;height:5px;border-radius:999px;background:var(--stone-150);"><div style="width:92%;height:100%;border-radius:999px;background:var(--pine);"></div></div>
+            <span style="background:var(--pine-tint);color:var(--pine-dark);font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;width:fit-content;">On track</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: calendar, schedule, messages -->
+      <div style="display:flex;flex-direction:column;gap:18px;min-width:0;">
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:15px;">September 2026</h2>
+            <div style="display:flex;gap:4px;">
+              <button aria-label="Previous month" style="width:26px;height:26px;border-radius:7px;border:1px solid var(--stone-300);background:var(--surface);color:var(--ink-500);cursor:pointer;">‹</button>
+              <button aria-label="Next month" style="width:26px;height:26px;border-radius:7px;border:1px solid var(--stone-300);background:var(--surface);color:var(--ink-500);cursor:pointer;">›</button>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);">
+            <div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Mo</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Tu</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">We</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Th</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Fr</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Sa</div><div class="of-cal-cell" style="color:var(--ink-500);font-weight:600;font-size:11px;">Su</div>
+
+            <div class="of-cal-cell of-cal-muted">31</div><div class="of-cal-cell">1</div><div class="of-cal-cell">2</div><div class="of-cal-cell">3</div><div class="of-cal-cell">4</div><div class="of-cal-cell">5</div><div class="of-cal-cell">6</div>
+            <div class="of-cal-cell">7</div><div class="of-cal-cell">8</div><div class="of-cal-cell">9</div><div class="of-cal-cell">10</div><div class="of-cal-cell">11</div><div class="of-cal-cell">12</div><div class="of-cal-cell">13</div>
+            <div class="of-cal-cell">14</div><div class="of-cal-cell">15</div><div class="of-cal-cell">16</div><div class="of-cal-cell">17</div><div class="of-cal-cell">18</div><div class="of-cal-cell">19</div><div class="of-cal-cell"><span class="of-cal-today">20</span></div>
+            <div class="of-cal-cell">21<span class="of-cal-dot"></span></div><div class="of-cal-cell">22</div><div class="of-cal-cell">23</div><div class="of-cal-cell">24<span class="of-cal-dot"></span></div><div class="of-cal-cell">25</div><div class="of-cal-cell">26</div><div class="of-cal-cell">27<span class="of-cal-dot"></span></div>
+            <div class="of-cal-cell">28</div><div class="of-cal-cell">29</div><div class="of-cal-cell">30</div><div class="of-cal-cell of-cal-muted">1</div><div class="of-cal-cell of-cal-muted">2</div><div class="of-cal-cell of-cal-muted">3</div><div class="of-cal-cell of-cal-muted">4</div>
+          </div>
+          <button style="height:38px;border:none;border-radius:9px;background:var(--pine);color:var(--surface);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">+ Schedule a session</button>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:15px;">Today's schedule</h2><a href="#sessions" style="font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">See all</a></div>
+
+          <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--stone-150);">
+            <span style="font-family:var(--font-display);font-size:12px;color:var(--ink-500);width:46px;">08:00</span>
+            <div style="flex-grow:1;"><div style="font-weight:600;font-size:13px;">Check-in · Alex Romero</div><div style="font-size:11px;color:var(--ink-500);">Video · 30 min</div></div>
+            <span style="background:var(--stone-300);color:var(--ink-700);font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;">Done</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--peach);">
+            <span style="font-family:var(--font-display);font-size:12px;color:#8A5A2E;width:46px;">10:30</span>
+            <div style="flex-grow:1;"><div style="font-weight:600;font-size:13px;">Strength · Sam Okafor</div><div style="font-size:11px;color:#8A5A2E;">In studio · 45 min</div></div>
+            <span style="background:var(--ink-900);color:var(--cream);font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;">Now</span>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;padding:10px 12px;">
+            <span style="font-family:var(--font-display);font-size:12px;color:var(--ink-500);width:46px;">13:00</span>
+            <div style="flex-grow:1;"><div style="font-weight:600;font-size:13px;">Program review · Priya Nair</div><div style="font-size:11px;color:var(--ink-500);">Video · 30 min</div></div>
+            <span style="background:var(--lilac);color:var(--plum-dark);font-size:10px;font-weight:600;padding:3px 8px;border-radius:999px;">Next</span>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;"><h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:15px;">Recent messages</h2><a href="#messages" style="font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">Open inbox</a></div>
+          <div style="display:flex;gap:11px;align-items:flex-start;">
+            <div style="width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--sky);color:#3B5878;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:11px;">SO</div>
+            <div><div style="font-weight:600;font-size:13px;">Sam Okafor</div><div style="font-size:12px;color:var(--ink-500);">Slept 8 hrs three nights running</div></div>
+          </div>
+          <div style="display:flex;gap:11px;align-items:flex-start;">
+            <div style="width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--peach);color:#8A5A2E;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:11px;">PN</div>
+            <div><div style="font-weight:600;font-size:13px;">Priya Nair</div><div style="font-size:12px;color:var(--ink-500);">Can we move tomorrow's session?</div></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

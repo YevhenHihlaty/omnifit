@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Payment Receipt (Mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.m-header{display:flex;align-items:center;padding:46px 16px 10px;flex-shrink:0;position:relative;}
+.m-back{width:34px;height:34px;border-radius:10px;background:transparent;border:none;display:flex;align-items:center;justify-content:center;color:var(--ink-900);cursor:pointer;}
+.m-title{position:absolute;left:0;right:0;text-align:center;font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);pointer-events:none;}
+.m-content{flex:1;overflow:hidden;padding:2px 16px 20px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;}
+.tabs{display:flex;background:var(--stone-150);border-radius:10px;padding:3px;gap:3px;}
+.tab{flex:1;height:32px;border-radius:8px;border:none;font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;}
+.tab[aria-pressed="true"]{background:var(--surface);color:var(--ink-900);box-shadow:0 1px 2px rgba(20,24,28,.08);}
+.tab[aria-pressed="false"]{background:transparent;color:var(--ink-500);}
+.m-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px;box-sizing:border-box;}
+.m-badge{width:44px;height:44px;border-radius:999px;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;color:var(--pine-dark);margin-bottom:12px;}
+.m-heading{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink-900);margin:0 0 3px;}
+.m-sub{font-size:12px;color:var(--ink-500);margin:0 0 16px;}
+.m-session{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--stone-150);border-bottom:1px solid var(--stone-150);padding:12px 0;margin-bottom:14px;}
+.m-session .t{font-family:var(--font-display);font-weight:600;font-size:13.5px;color:var(--ink-900);}
+.m-session .c{font-size:12px;color:var(--ink-700);}
+.m-session .d{font-size:11.5px;color:var(--ink-500);}
+.m-lines{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.m-line{display:flex;justify-content:space-between;font-size:13px;}
+.m-line .l{color:var(--ink-700);}
+.m-line .l small{display:block;color:var(--ink-500);font-size:10.5px;font-weight:400;margin-top:2px;}
+.m-line .v{color:var(--ink-900);font-variant-numeric:tabular-nums;font-weight:500;}
+.m-line.neg .v{color:var(--danger);}
+.m-hr{border:none;border-top:1px solid var(--stone-300);margin:0 0 12px;}
+.m-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+.m-total .l{font-weight:700;font-size:13px;color:var(--ink-900);}
+.m-total .v{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--pine-dark);font-variant-numeric:tabular-nums;}
+.m-total.payout .v{color:var(--plum-dark);}
+.btn-primary{height:46px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+.m-cap{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);margin:0 0 8px;}
+.m-note{font-size:10.5px;color:var(--ink-500);margin:10px 0 0;line-height:1.5;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div class="m-header">
+    <button class="m-back" type="button" aria-label="Go back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="m-title">Receipt</span>
+  </div>
+
+  <div class="m-content">
+    <div class="tabs" role="tablist" aria-label="Receipt view">
+      <button class="tab" type="button" role="tab" aria-pressed="true">Client view</button>
+      <button class="tab" type="button" role="tab" aria-pressed="false">Coach view</button>
+    </div>
+
+    <div class="m-card">
+      <div class="m-badge">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+      </div>
+      <h2 class="m-heading">Payment successful</h2>
+      <p class="m-sub">A copy was emailed to you.</p>
+
+      <div class="m-session">
+        <span class="t">Strength Training — 60 min</span>
+        <span class="c">with Coach Maria Torres</span>
+        <span class="d">Tue, Sep 23, 2026 · 4:00–5:00 PM</span>
+      </div>
+
+      <div class="m-lines">
+        <div class="m-line"><span class="l">Session price</span><span class="v">$80.00</span></div>
+        <div class="m-line"><span class="l">Platform service fee</span><span class="v">$1.50</span></div>
+      </div>
+      <hr class="m-hr">
+      <div class="m-total"><span class="l">Total charged</span><span class="v">$81.50</span></div>
+
+      <button class="btn-primary" type="button">Back to calendar</button>
+    </div>
+
+    <div>
+      <p class="m-cap">State: Coach view (toggled)</p>
+      <div class="m-card">
+        <div class="m-lines">
+          <div class="m-line"><span class="l">Session price</span><span class="v">$80.00</span></div>
+          <div class="m-line neg"><span class="l">Stripe processing fee<small>Example rate: 2.9% + $0.30</small></span><span class="v">−$2.65</span></div>
+        </div>
+        <hr class="m-hr">
+        <div class="m-total payout"><span class="l">Net payout</span><span class="v">$77.35</span></div>
+        <p class="m-note">Platform service fee is paid by the client and does not reduce your payout.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

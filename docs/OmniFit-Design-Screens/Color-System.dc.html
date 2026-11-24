@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Color</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0;
+  --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:1440px;height:1940px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);padding:96px;display:flex;flex-direction:column;gap:48px;position:relative;overflow:hidden;">
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:760px;">
+    <span style="font-family:var(--font-body);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pine-dark);font-weight:600;">Foundations — 02 · Revision 2</span>
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:56px;letter-spacing:-0.02em;">Color</h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:var(--ink-700);">Warm cream replaces stark white. Pine green carries the brand and primary actions; a muted plum sits behind it for secondary use. Six soft pastels — sage, butter, peach, lilac, blush, sky — carry cards, tags and small illustrations without ever competing with client data.</p>
+  </div>
+
+  <!-- Brand -->
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Brand</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="height:140px;border-radius:16px;background:var(--pine);"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:17px;">Pine</span>
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--ink-500);">#3F6B4F</span>
+        </div>
+        <span style="font-size:13px;color:var(--ink-500);">Primary actions — schedule, upgrade, pay, the mark itself. Used once per view.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="height:140px;border-radius:16px;background:var(--plum);"></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:17px;">Plum</span>
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--ink-500);">#7C6A9C</span>
+        </div>
+        <span style="font-size:13px;color:var(--ink-500);">Links, selected states, secondary actions — quieter than pine.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Neutrals -->
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Neutrals</h2>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--ink-900);"></div>
+        <span style="font-size:13px;font-weight:600;">Ink 900</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#14181C</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--ink-700);"></div>
+        <span style="font-size:13px;font-weight:600;">Ink 700</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#3E443F</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--ink-500);"></div>
+        <span style="font-size:13px;font-weight:600;">Ink 500</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#6E7268</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--stone-300);"></div>
+        <span style="font-size:13px;font-weight:600;">Stone 300</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#E3DECF</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--stone-150);border:1px solid var(--stone-300);"></div>
+        <span style="font-size:13px;font-weight:600;">Stone 150</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#F1ECDF</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="height:88px;border-radius:12px;background:var(--cream);border:1px solid var(--stone-300);"></div>
+        <span style="font-size:13px;font-weight:600;">Cream</span>
+        <span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#FBF7EF</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pastel accents -->
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Pastel accents</h2>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;">
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--sage);"></div><span style="font-size:13px;font-weight:600;">Sage</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#BFE0C2</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--butter);"></div><span style="font-size:13px;font-weight:600;">Butter</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#F7E5A0</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--peach);"></div><span style="font-size:13px;font-weight:600;">Peach</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#F8D9BE</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--lilac);"></div><span style="font-size:13px;font-weight:600;">Lilac</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#DDD2F3</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--blush);"></div><span style="font-size:13px;font-weight:600;">Blush</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#F8CFDD</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:88px;border-radius:12px;background:var(--sky);"></div><span style="font-size:13px;font-weight:600;">Sky</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#C3DCF4</span></div>
+    </div>
+    <p style="margin:0;font-size:13px;color:var(--ink-500);max-width:760px;">One pastel per stat tile or card, never two side by side in the same tone family. They carry weight in the background, never in the text sitting on them — text stays Ink 900.</p>
+  </div>
+
+  <!-- Semantic -->
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Semantic</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;">
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+        <span style="align-self:flex-start;background:var(--pine-tint);color:var(--pine-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;">On track</span>
+        <div style="display:flex;justify-content:space-between;"><span style="font-weight:600;font-size:14px;">Pine tint</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#DCEBE0</span></div>
+        <span style="font-size:13px;color:var(--ink-500);">Adherence on track, paid, confirmed.</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+        <span style="align-self:flex-start;background:var(--warning-tint);color:var(--warning);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;">At risk</span>
+        <div style="display:flex;justify-content:space-between;"><span style="font-weight:600;font-size:14px;">Warning</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#B8842A</span></div>
+        <span style="font-size:13px;color:var(--ink-500);">Needs attention, pending payment.</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+        <span style="align-self:flex-start;background:var(--danger-tint);color:var(--danger);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;">Refunded</span>
+        <div style="display:flex;justify-content:space-between;"><span style="font-weight:600;font-size:14px;">Danger</span><span style="font-family:var(--font-body);font-size:12px;color:var(--ink-500);">#C1503D</span></div>
+        <span style="font-size:13px;color:var(--ink-500);">Failed charge, refund, destructive action.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessibility -->
+  <div style="display:flex;flex-direction:column;gap:18px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Text on background — contrast</h2>
+    <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:14px 24px;background:var(--stone-150);font-family:var(--font-body);font-size:12px;color:var(--ink-500);text-transform:uppercase;letter-spacing:0.04em;font-weight:600;">
+        <span>Pair</span><span>Ratio</span><span>Min. size</span><span>Result</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <span style="color:var(--ink-900);">Ink 900 on Cream</span><span style="font-family:var(--font-body);font-size:13px;">15.4:1</span><span style="font-size:13px;color:var(--ink-500);">Any</span><span style="font-size:13px;color:var(--pine-dark);font-weight:600;">Pass</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <span style="color:var(--ink-700);">Ink 700 on Cream</span><span style="font-family:var(--font-body);font-size:13px;">10.2:1</span><span style="font-size:13px;color:var(--ink-500);">Any</span><span style="font-size:13px;color:var(--pine-dark);font-weight:600;">Pass</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <span style="color:var(--surface);background:var(--pine);display:inline-block;padding:2px 10px;border-radius:6px;width:fit-content;">Surface on Pine</span><span style="font-family:var(--font-body);font-size:13px;">6.1:1</span><span style="font-size:13px;color:var(--ink-500);">Any</span><span style="font-size:13px;color:var(--pine-dark);font-weight:600;">Pass</span>
+      </div>
+      <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <span style="color:var(--ink-900);background:var(--sage);display:inline-block;padding:2px 10px;border-radius:6px;width:fit-content;">Ink 900 on Sage</span><span style="font-family:var(--font-body);font-size:13px;">7.8:1</span><span style="font-size:13px;color:var(--ink-500);">Any</span><span style="font-size:13px;color:var(--pine-dark);font-weight:600;">Pass</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1940}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

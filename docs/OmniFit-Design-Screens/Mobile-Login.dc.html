@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78;
+  --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:48px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:56px 28px 24px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:44px;">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:20px;">OmniFit</span>
+    </div>
+
+    <h1 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-0.01em;text-align:center;">Welcome back</h1>
+    <p style="margin:0 0 32px;font-size:14px;color:var(--ink-500);text-align:center;">Log in to run your practice.</p>
+
+    <form style="display:flex;flex-direction:column;gap:18px;">
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <label for="login-email" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Email</label>
+        <input id="login-email" class="of-field" type="email" placeholder="taylor@email.com">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <label for="login-pass" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Password</label>
+          <a href="#reset" style="font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">Forgot password?</a>
+        </div>
+        <div style="position:relative;">
+          <input id="login-pass" class="of-field" type="password" placeholder="••••••••" style="padding-right:44px;">
+          <button type="button" aria-label="Show password" style="position:absolute;right:6px;top:6px;width:36px;height:36px;border:none;background:transparent;color:var(--ink-500);cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2,12 C4,7 8,4 12,4 C16,4 20,7 22,12 C20,17 16,20 12,20 C8,20 4,17 2,12 Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </button>
+        </div>
+      </div>
+
+      <button type="submit" style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;margin-top:8px;">Log in</button>
+    </form>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:28px 0;">
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+      <span style="font-size:12px;color:var(--ink-500);">or</span>
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+    </div>
+
+    <p style="text-align:center;font-size:14px;color:var(--ink-700);margin:0;">Don't have an account? <a href="#signup" style="color:var(--pine-dark);font-weight:600;text-decoration:none;">Sign up</a></p>
+
+    <div style="flex-grow:1;"></div>
+
+    <p style="text-align:center;font-size:11px;color:var(--ink-500);line-height:1.5;margin:0;">By continuing, you agree to OmniFit's Terms and Privacy Policy.</p>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

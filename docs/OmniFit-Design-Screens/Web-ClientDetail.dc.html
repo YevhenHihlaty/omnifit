@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Client snapshot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-navitem{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:9px;color:#9CA69C;text-decoration:none;font-size:13.5px;font-weight:600;}
+.of-navitem.active{background:rgba(255,255,255,0.08);color:#FBF7EF;}
+.of-tab{border:none;background:none;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--ink-500);padding:12px 4px;cursor:pointer;border-bottom:2.5px solid transparent;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-stat{flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:4px;}
+.of-infocard{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;}
+.of-chip{background:var(--stone-150);color:var(--ink-700);font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;}
+</style>
+</helmet>
+<div style="width:1440px;height:1200px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <div style="width:240px;flex-shrink:0;background:var(--ink-900);color:#EDEAE0;display:flex;flex-direction:column;padding:24px 16px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:9px;padding:0 8px;margin-bottom:32px;">
+      <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#8FB89B" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="#8FB89B"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:17px;color:#FBF7EF;">OmniFit</span>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:3px;">
+      <a class="of-navitem" href="#dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg>Dashboard</a>
+      <a class="of-navitem active" href="#clients"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5,20 c0,-4 3,-6.5 6.5,-6.5 s6.5,2.5 6.5,6.5"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M15.5,13.3 c2.8,0.3 5,2.6 5,6.7"></path></svg>My Clients</a>
+      <a class="of-navitem" href="#sessions"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>Sessions</a>
+      <a class="of-navitem" href="#programs"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4,4 h13 l3,3 v13 H4 Z"></path><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line></svg>Programs</a>
+      <a class="of-navitem" href="#messages"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>Messages</a>
+    </nav>
+    <div style="flex-grow:1;"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:8px;">
+      <span style="width:32px;height:32px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:#14181C;">TB</span>
+      <div style="min-width:0;"><div style="font-size:13px;font-weight:600;color:#FBF7EF;">Taylor Brooks</div><div style="font-size:11.5px;color:#6E7268;">Coach</div></div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;min-width:0;">
+
+    <div style="flex-shrink:0;padding:24px 40px 0;">
+      <a href="#clients" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink-500);font-size:13px;font-weight:600;margin-bottom:16px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+        My Clients
+      </a>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <div style="display:flex;align-items:center;gap:16px;">
+          <span style="width:60px;height:60px;border-radius:50%;background:var(--butter-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:19px;">PN</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-family:var(--font-display);font-weight:700;font-size:22px;">Priya Nair</span>
+              <span style="background:var(--butter-tint);color:var(--butter-dark);font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:999px;">At risk</span>
+            </div>
+            <div style="font-size:13.5px;color:var(--ink-500);margin-top:3px;">Weight loss · Online coaching · No check-in in 6 days</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:10px 18px;cursor:pointer;">Message</button>
+          <button style="border:none;border-radius:9px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:10px 18px;cursor:pointer;">Edit plan</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:24px;margin-top:18px;">
+        <button class="of-tab active">Overview</button>
+        <button class="of-tab">Programs</button>
+        <button class="of-tab">Progress</button>
+        <button class="of-tab">Messages</button>
+        <button class="of-tab">Notes</button>
+      </div>
+    </div>
+    <div style="border-bottom:1px solid var(--stone-300);flex-shrink:0;"></div>
+
+    <div style="flex-grow:1;overflow:hidden;display:flex;gap:28px;padding:28px 40px;min-height:0;">
+
+      <!-- Main column -->
+      <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:22px;">
+
+        <div style="display:flex;gap:14px;">
+          <div class="of-stat"><span style="font-size:12px;color:var(--ink-500);font-weight:600;">Streak</span><span style="font-family:var(--font-display);font-weight:700;font-size:22px;">4 days</span></div>
+          <div class="of-stat"><span style="font-size:12px;color:var(--ink-500);font-weight:600;">Weight change</span><span style="font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--pine-dark);">−3.2 lb</span></div>
+          <div class="of-stat"><span style="font-size:12px;color:var(--ink-500);font-weight:600;">Adherence</span><span style="font-family:var(--font-display);font-weight:700;font-size:22px;">68%</span></div>
+          <div class="of-stat"><span style="font-size:12px;color:var(--ink-500);font-weight:600;">Sessions completed</span><span style="font-family:var(--font-display);font-weight:700;font-size:22px;">11 / 14</span></div>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px 22px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Weight trend</span>
+            <span style="font-size:12px;color:var(--ink-500);">Last 8 weeks</span>
+          </div>
+          <svg viewBox="0 0 900 120" width="100%" height="120">
+            <line x1="0" y1="95" x2="900" y2="95" stroke="var(--stone-150)" stroke-width="1"></line>
+            <polyline points="10,24 130,34 250,46 370,42 490,58 610,66 730,78 850,84" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            <circle cx="850" cy="84" r="4.5" fill="var(--pine)"></circle>
+            <text x="850" y="16" text-anchor="end" font-family="Space Grotesk" font-weight="600" font-size="13" fill="var(--ink-900)">144.8 lb</text>
+            <text x="10" y="112" font-family="Inter" font-size="10" fill="var(--ink-500)">Jul 26</text>
+            <text x="850" y="112" text-anchor="end" font-family="Inter" font-size="10" fill="var(--ink-500)">Sep 20</text>
+          </svg>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px 22px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+            <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Weekly check-ins</span>
+            <span style="font-size:12px;color:var(--ink-500);">Last 6 weeks</span>
+          </div>
+          <svg viewBox="0 0 900 110" width="100%" height="110">
+            <line x1="0" y1="90" x2="900" y2="90" stroke="var(--stone-150)" stroke-width="1"></line>
+            <rect x="30" y="42" width="60" height="48" rx="4" fill="var(--pine)"></rect>
+            <rect x="180" y="30" width="60" height="60" rx="4" fill="var(--pine)"></rect>
+            <rect x="330" y="54" width="60" height="36" rx="4" fill="var(--pine)"></rect>
+            <rect x="480" y="18" width="60" height="72" rx="4" fill="var(--pine)"></rect>
+            <rect x="630" y="66" width="60" height="24" rx="4" fill="var(--butter-dark)" opacity="0.55"></rect>
+            <rect x="780" y="72" width="60" height="18" rx="4" fill="var(--butter-dark)" opacity="0.55"></rect>
+            <text x="60" y="104" text-anchor="middle" font-family="Inter" font-size="10" fill="var(--ink-500)">Wk 1</text>
+            <text x="810" y="104" text-anchor="middle" font-family="Inter" font-size="10" fill="var(--ink-500)">Wk 6</text>
+          </svg>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px 22px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:15px;margin-bottom:12px;display:block;">Recent activity</span>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+            <div style="flex-grow:1;font-size:13.5px;font-weight:500;">Logged breakfast — Oatmeal &amp; berries, 420 cal</div>
+            <span style="font-size:12px;color:var(--ink-500);">8:12 AM</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--butter-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="7" x2="12" y2="13"></line></svg></span>
+            <div style="flex-grow:1;font-size:13.5px;font-weight:500;">Missed check-in</div>
+            <span style="font-size:12px;color:var(--ink-500);">Yesterday</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;">
+            <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+            <div style="flex-grow:1;font-size:13.5px;font-weight:500;">Completed workout — Lower body strength</div>
+            <span style="font-size:12px;color:var(--ink-500);">2 days ago</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right column -->
+      <div style="width:300px;flex-shrink:0;display:flex;flex-direction:column;gap:18px;">
+
+        <div class="of-infocard">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;">Client info</span>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Goal</div><div style="font-size:13.5px;margin-top:2px;">Weight loss</div></div>
+            <div><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Program</div><div style="font-size:13.5px;margin-top:2px;">12-week reset</div></div>
+            <div><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Started</div><div style="font-size:13.5px;margin-top:2px;">August 2, 2026</div></div>
+            <div><div style="font-size:11.5px;color:var(--ink-500);font-weight:600;">Email</div><div style="font-size:13.5px;margin-top:2px;">priya.nair@email.com</div></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <span class="of-chip">Weight loss</span>
+            <span class="of-chip">Online</span>
+            <span class="of-chip">Nutrition focus</span>
+          </div>
+        </div>
+
+        <div class="of-infocard">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;">Upcoming session</span>
+          <div style="display:flex;gap:12px;">
+            <div style="width:3px;border-radius:2px;background:var(--pine);flex-shrink:0;"></div>
+            <div>
+              <div style="font-size:13.5px;font-weight:600;">Wed, Sep 23 · 11:30 AM</div>
+              <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;">Check-in call · 20 min</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="of-infocard">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;">Coach notes</span>
+          <p style="margin:0;font-size:13px;line-height:1.6;color:var(--ink-700);">Work schedule picked up in early September — agreed to shift check-ins to Sunday evenings and lighten training volume through the transition.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

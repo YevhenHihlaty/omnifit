@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Help center</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-navlink{text-decoration:none;color:var(--ink-700);font-size:14.5px;font-weight:600;}
+.of-btn-primary{border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;padding:13px 24px;cursor:pointer;}
+.of-doc-navgroup{font-size:11.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);margin:20px 0 8px;}
+.of-doc-navitem{display:block;padding:8px 12px;border-radius:8px;font-size:13.5px;color:var(--ink-700);text-decoration:none;}
+.of-doc-navitem.active{background:var(--pine-tint);color:var(--pine-dark);font-weight:600;}
+.of-doc-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink-900);}
+</style>
+</helmet>
+<div style="width:1440px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;">
+
+  <!-- Nav -->
+  <div style="height:84px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 64px;border-bottom:1px solid var(--stone-300);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:21px;">OmniFit</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:40px;">
+      <a href="#product" class="of-navlink">Product</a>
+      <a href="#pricing" class="of-navlink">Pricing</a>
+      <a href="#about" class="of-navlink">About</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a href="#login" class="of-navlink" style="color:var(--ink-900);">Log in</a>
+      <button class="of-btn-primary" style="padding:11px 20px;font-size:14px;">Start free trial</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div style="padding:56px 64px 32px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;">
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:36px;letter-spacing:-0.01em;">How can we help?</h1>
+    <div style="position:relative;width:520px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" placeholder="Search articles, e.g. &quot;client billing&quot;" style="width:100%;height:50px;border-radius:12px;border:1.5px solid var(--stone-300);padding:0 16px 0 44px;font-family:var(--font-body);font-size:14.5px;box-sizing:border-box;background:var(--surface);">
+    </div>
+  </div>
+
+  <!-- Body: sidebar + content -->
+  <div style="padding:16px 64px 88px;display:flex;gap:48px;">
+
+    <!-- Sidebar -->
+    <div style="width:240px;flex-shrink:0;">
+      <div class="of-doc-navgroup" style="margin-top:0;">Getting started</div>
+      <a href="#" class="of-doc-navitem active">Create your coach account</a>
+      <a href="#" class="of-doc-navitem">Invite your first client</a>
+      <a href="#" class="of-doc-navitem">Set up your booking page</a>
+      <div class="of-doc-navgroup">Working with clients</div>
+      <a href="#" class="of-doc-navitem">Assign a training program</a>
+      <a href="#" class="of-doc-navitem">Reviewing check-ins</a>
+      <a href="#" class="of-doc-navitem">Messaging &amp; notifications</a>
+      <a href="#" class="of-doc-navitem">Live video sessions</a>
+      <div class="of-doc-navgroup">Billing</div>
+      <a href="#" class="of-doc-navitem">Plans &amp; upgrading</a>
+      <a href="#" class="of-doc-navitem">Client payments &amp; payouts</a>
+      <div class="of-doc-navgroup">Account</div>
+      <a href="#" class="of-doc-navitem">Notification settings</a>
+      <a href="#" class="of-doc-navitem">Team &amp; permissions</a>
+    </div>
+
+    <!-- Article -->
+    <div style="flex-grow:1;max-width:720px;display:flex;flex-direction:column;gap:18px;">
+      <div style="font-size:13px;color:var(--ink-500);">Getting started</div>
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-0.01em;">Create your coach account</h2>
+      <p style="margin:0;font-size:14.5px;color:var(--ink-700);line-height:1.75;">Setting up OmniFit takes about five minutes. This guide walks through creating your account, choosing a plan, and getting your profile ready before you invite your first client.</p>
+
+      <h3 style="margin:16px 0 0;font-family:var(--font-display);font-weight:600;font-size:17px;">1. Sign up with your email</h3>
+      <p style="margin:0;font-size:14.5px;color:var(--ink-700);line-height:1.75;">Head to the sign-up page and enter your name, email, and a password. You'll start on a 14-day free trial with no credit card required — you can explore every feature before choosing a plan.</p>
+
+      <h3 style="margin:8px 0 0;font-family:var(--font-display);font-weight:600;font-size:17px;">2. Build your public profile</h3>
+      <p style="margin:0;font-size:14.5px;color:var(--ink-700);line-height:1.75;">Add a photo, your specialties, and a short bio. This is what prospective clients see when they find you through Find a Coach or a direct link, so it's worth spending a few minutes getting right.</p>
+
+      <h3 style="margin:8px 0 0;font-family:var(--font-display);font-weight:600;font-size:17px;">3. Set your availability &amp; session types</h3>
+      <p style="margin:0;font-size:14.5px;color:var(--ink-700);line-height:1.75;">Define the session types you offer — strength training, check-in calls, form review — and the times you're generally available. Clients will request sessions against this when booking.</p>
+
+      <div style="background:var(--pine-tint);border-radius:14px;padding:16px 18px;margin-top:8px;">
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-900);"><strong>Tip:</strong> You can always adjust your session types and availability later from Settings → Plans.</p>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--stone-300);">
+        <span style="font-size:13px;color:var(--ink-500);">Was this article helpful?</span>
+        <button style="border:1.5px solid var(--stone-300);background:var(--surface);border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;">Yes</button>
+        <button style="border:1.5px solid var(--stone-300);background:var(--surface);border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;cursor:pointer;">No</button>
+      </div>
+    </div>
+
+    <!-- Related -->
+    <div style="width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:12px;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:14px;">Related articles</span>
+      <a href="#" class="of-doc-card">
+        <span style="font-size:13.5px;font-weight:600;">Invite your first client</span>
+        <span style="font-size:12px;color:var(--ink-500);">Getting started · 3 min read</span>
+      </a>
+      <a href="#" class="of-doc-card">
+        <span style="font-size:13.5px;font-weight:600;">Set up your booking page</span>
+        <span style="font-size:12px;color:var(--ink-500);">Getting started · 2 min read</span>
+      </a>
+      <a href="#" class="of-doc-card">
+        <span style="font-size:13.5px;font-weight:600;">Plans &amp; upgrading</span>
+        <span style="font-size:12px;color:var(--ink-500);">Billing · 4 min read</span>
+      </a>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:18px;margin-top:6px;">
+        <p style="margin:0 0 10px;font-size:13px;color:var(--ink-700);line-height:1.6;">Still stuck? Our support team usually replies within a few hours.</p>
+        <a href="#contact" style="font-size:13px;font-weight:600;color:var(--pine-dark);text-decoration:none;">Contact support →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div style="padding:56px 64px 40px;display:flex;justify-content:space-between;gap:40px;border-top:1px solid var(--stone-300);">
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:280px;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <svg width="22" height="22" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+        <span style="font-family:var(--font-display);font-weight:700;font-size:17px;">OmniFit</span>
+      </div>
+      <p style="margin:0;font-size:13px;color:var(--ink-500);line-height:1.6;">The practice platform for independent fitness coaches.</p>
+    </div>
+    <div style="display:flex;gap:72px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);margin-bottom:4px;">Product</span>
+        <a href="#" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">Features</a>
+        <a href="#pricing" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">Pricing</a>
+        <a href="#" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">For clients</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);margin-bottom:4px;">Company</span>
+        <a href="#" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">About</a>
+        <a href="#contact" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">Contact</a>
+        <a href="#docs" style="text-decoration:none;color:var(--ink-900);font-weight:600;font-size:13.5px;">Docs</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);margin-bottom:4px;">Legal</span>
+        <a href="#" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">Privacy</a>
+        <a href="#" style="text-decoration:none;color:var(--ink-700);font-size:13.5px;">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div style="padding:20px 64px;border-top:1px solid var(--stone-300);font-size:12.5px;color:var(--ink-500);">© 2026 OmniFit. All rights reserved.</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

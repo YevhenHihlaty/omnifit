@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Request a session</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-slot{border:1.5px solid var(--stone-300);border-radius:9px;padding:8px 0;text-align:center;font-size:12px;font-weight:600;color:var(--ink-700);cursor:pointer;background:var(--surface);}
+.of-slot.available:hover{border-color:var(--pine);}
+.of-slot.selected{border-color:var(--pine);background:var(--pine);color:var(--cream);}
+.of-slot.taken{border-color:var(--stone-150);background:var(--stone-150);color:var(--stone-300);cursor:not-allowed;}
+.of-sportchip{border:1.5px solid var(--stone-300);background:var(--surface);border-radius:999px;padding:6px 12px;font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--ink-700);cursor:pointer;}
+.of-sportchip.active{border-color:var(--pine);background:var(--pine);color:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:44px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+      <button aria-label="Back" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Request session</span>
+      <span style="width:32px;"></span>
+    </div>
+
+    <div style="padding:14px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:10px;">
+      <span style="width:34px;height:34px;border-radius:50%;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:var(--pine-dark);">TB</span>
+      <span style="flex-grow:1;font-weight:600;font-size:14.5px;">Taylor Brooks</span>
+      <a href="#change" style="font-size:12.5px;color:var(--pine-dark);font-weight:600;text-decoration:none;">Change</a>
+    </div>
+
+    <div style="padding:16px 20px 0;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:16px;">
+
+      <div>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);display:block;margin-bottom:8px;">Date</span>
+        <div style="display:flex;align-items:center;gap:10px;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;background:var(--surface);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg>
+          <span style="font-weight:600;font-size:13.5px;">Monday, Sep 22</span>
+        </div>
+      </div>
+
+      <div>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);display:block;margin-bottom:8px;">Time</span>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;">
+          <button class="of-slot available">9:00 AM</button>
+          <button class="of-slot taken">10:00 AM</button>
+          <button class="of-slot available">11:00 AM</button>
+          <button class="of-slot selected">2:00 PM</button>
+          <button class="of-slot available">3:00 PM</button>
+          <button class="of-slot taken">4:00 PM</button>
+        </div>
+      </div>
+
+      <div>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);display:block;margin-bottom:8px;">Session type</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="of-sportchip">Weight Lifting</button>
+          <button class="of-sportchip">General Fitness</button>
+          <button class="of-sportchip active">Write my own</button>
+        </div>
+        <input type="text" value="Recovery session" placeholder="Name this session type" style="width:100%;height:44px;margin-top:8px;border-radius:10px;border:1.5px solid var(--pine);padding:0 14px;font-family:var(--font-body);font-size:13.5px;color:var(--ink-900);background:var(--surface);box-sizing:border-box;">
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:var(--pine-tint);border-radius:12px;">
+        <span style="font-size:12.5px;color:var(--pine-dark);">Duration, from Taylor's plan</span>
+        <span style="font-weight:700;font-size:13.5px;color:var(--pine-dark);">45 min</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label for="rs-notes" style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Notes (optional)</label>
+        <textarea id="rs-notes" rows="2" placeholder="Anything Taylor should know…" style="border-radius:10px;border:1.5px solid var(--stone-300);padding:10px 12px;font-family:var(--font-body);font-size:13.5px;color:var(--ink-900);background:var(--surface);resize:none;"></textarea>
+      </div>
+
+    </div>
+
+    <div style="flex-shrink:0;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+      <button style="width:100%;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Request session</button>
+      <p style="margin:8px 0 0;text-align:center;font-size:11px;color:var(--ink-500);">Taylor confirms before it's added to your calendar</p>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach profile · Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tagchip{display:inline-flex;align-items:center;background:var(--pine-tint);color:var(--pine-dark);font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:13px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-toggle{appearance:none;-webkit-appearance:none;width:40px;height:23px;border-radius:999px;background:var(--stone-300);position:relative;cursor:pointer;flex-shrink:0;outline:none;}
+.of-toggle:checked{background:var(--pine);}
+.of-toggle::after{content:"";position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .12s;}
+.of-toggle:checked::after{left:19.5px;}
+.of-srow{display:flex;align-items:center;gap:12px;padding:12px 14px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;">
+      <button aria-label="Back" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+    </div>
+
+    <div style="padding:8px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:9px;">
+      <span style="width:76px;height:76px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--pine-dark);">TB</span>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">Taylor Brooks</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;">4.8★ · 24 active clients</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+        <span class="of-tagchip">Weight Lifting</span><span class="of-tagchip">General Fitness</span><span class="of-tagchip">Mobility</span>
+      </div>
+      <button style="height:36px;padding:0 18px;border-radius:999px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;">Edit profile</button>
+    </div>
+
+    <div style="display:flex;gap:14px;padding:18px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab">Plans</button>
+      <button class="of-tab">Locations</button>
+      <button class="of-tab">Credentials</button>
+      <button class="of-tab active">Settings</button>
+    </div>
+
+    <div style="padding:16px 20px 18px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:14px;">
+
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;overflow:hidden;">
+        <div class="of-srow"><span style="flex-grow:1;font-size:14px;font-weight:500;">Push notifications</span><input type="checkbox" class="of-toggle" checked="" aria-label="Push notifications"></div>
+        <div style="height:1px;background:var(--stone-150);margin:0 14px;"></div>
+        <div class="of-srow"><span style="flex-grow:1;font-size:14px;font-weight:500;">Email digest</span><input type="checkbox" class="of-toggle" checked="" aria-label="Email digest"></div>
+        <div style="height:1px;background:var(--stone-150);margin:0 14px;"></div>
+        <div class="of-srow"><span style="flex-grow:1;font-size:14px;font-weight:500;">Available for booking</span><input type="checkbox" class="of-toggle" checked="" aria-label="Available for booking"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;overflow:hidden;">
+        <div class="of-srow" style="cursor:pointer;">
+          <span style="width:30px;height:30px;border-radius:9px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8,10 V7 a4,4 0 0 1 8,0 v3"></path></svg></span>
+          <span style="flex-grow:1;font-size:14px;font-weight:500;">Payouts</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"></polyline></svg>
+        </div>
+        <div style="height:1px;background:var(--stone-150);margin:0 14px;"></div>
+        <div class="of-srow" style="cursor:pointer;">
+          <span style="width:30px;height:30px;border-radius:9px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="17" x2="12" y2="17"></line><path d="M12,13 c0,-3 3,-2.5 3,-5.5 a3,3 0 0 0 -6,0"></path></svg></span>
+          <span style="flex-grow:1;font-size:14px;font-weight:500;">Help &amp; support</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"></polyline></svg>
+        </div>
+      </div>
+
+      <div style="flex-grow:1;"></div>
+
+      <button style="height:44px;border:none;background:transparent;color:var(--danger);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Sign out</button>
+      <div style="text-align:center;font-size:11px;color:var(--ink-500);padding-bottom:4px;">OmniFit v2.4.1</div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Verify your email</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:0 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+
+    <span style="width:76px;height:76px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;margin-bottom:24px;">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3,7 12,13 21,7"></polyline></svg>
+    </span>
+
+    <h1 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;">Check your email</h1>
+    <p style="margin:0 0 30px;font-size:14px;color:var(--ink-500);line-height:1.6;max-width:280px;">We sent a verification link to<br><b style="color:var(--ink-900);">alex@email.com</b>. Click the link to activate your account.</p>
+
+    <button style="width:100%;max-width:280px;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;margin-bottom:14px;">Open email app</button>
+
+    <button style="background:none;border:none;color:var(--pine-dark);font-family:var(--font-body);font-weight:600;font-size:13.5px;cursor:pointer;margin-bottom:22px;">Resend email</button>
+
+    <a href="#back" style="font-size:13px;color:var(--ink-500);text-decoration:none;">Wrong address? Go back</a>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

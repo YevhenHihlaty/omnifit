@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach Tasks (Mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.screen{position:relative;}
+.hdr{display:flex;align-items:center;gap:12px;padding:50px 16px 10px;box-sizing:border-box;}
+.iconbtn{width:34px;height:34px;border-radius:9px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 34px;}
+.iconbtn svg{width:19px;height:19px;}
+.hdr h1{flex:1 1 auto;text-align:center;font-family:var(--font-display);font-size:15px;font-weight:600;margin:0;}
+.tabs{display:flex;gap:6px;padding:8px 16px 12px;}
+.tab{border:none;background:var(--stone-150);color:var(--ink-500);font-family:var(--font-body);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:999px;cursor:pointer;}
+.tab.active{background:var(--pine-tint);color:var(--pine-dark);}
+.rows{padding:0 16px;display:flex;flex-direction:column;gap:8px;}
+.row-wrap{position:relative;border-radius:12px;overflow:hidden;}
+.row-del{position:absolute;top:0;right:0;bottom:0;width:72px;background:var(--danger);color:var(--surface);display:flex;align-items:center;justify-content:center;}
+.row-del svg{width:18px;height:18px;}
+.trow{position:relative;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:12px;box-sizing:border-box;}
+.chk{width:18px;height:18px;flex:0 0 18px;accent-color:var(--pine);}
+.tmain{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:3px;}
+.ttl{font-size:13.5px;font-weight:600;color:var(--ink-900);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.tmeta{display:flex;align-items:center;gap:8px;color:var(--ink-500);font-size:11.5px;}
+.due{font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:4px;}
+.due svg{width:11px;height:11px;}
+.chip{display:inline-flex;align-items:center;gap:4px;background:var(--stone-150);border-radius:999px;padding:2px 8px 2px 2px;font-size:10.5px;font-weight:600;color:var(--ink-700);}
+.chip .av{width:14px;height:14px;border-radius:50%;background:var(--sky);font-size:7px;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--ink-900);}
+.dotpill{border-radius:999px;padding:4px 10px;font-size:10.5px;font-weight:600;flex:0 0 auto;}
+.pill-todo{background:var(--stone-150);color:var(--ink-700);}
+.pill-done{background:var(--pine-tint);color:var(--pine-dark);}
+.backdrop{position:absolute;left:0;right:0;top:196px;bottom:0;background:rgba(20,24,28,.42);}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:600px;background:var(--surface);border-radius:20px 20px 0 0;box-shadow:0 -8px 24px rgba(20,24,28,.16);box-sizing:border-box;padding:14px 20px 22px;display:flex;flex-direction:column;gap:14px;}
+.handle{width:36px;height:4px;border-radius:2px;background:var(--stone-300);margin:0 auto;}
+.sheethdr{display:flex;align-items:center;justify-content:space-between;}
+.sheethdr h2{font-family:var(--font-display);font-size:16px;font-weight:700;margin:0;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-500);}
+.field input,.field select,.field textarea{height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 13px;background:var(--surface);font-size:13.5px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;}
+.field textarea{height:64px;padding:10px 13px;resize:none;font-family:var(--font-body);}
+.row2{display:flex;gap:10px;}
+.row2 .field{flex:1 1 0;min-width:0;}
+.savebtn{height:48px;border-radius:10px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;border:none;margin-top:2px;}
+.captiontag{position:absolute;left:16px;background:var(--ink-900);color:var(--cream);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:4px 9px;border-radius:6px;z-index:5;}
+</style>
+</helmet>
+<div class="screen" style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);overflow:hidden;">
+
+  <div class="hdr">
+    <button class="iconbtn" type="button" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <h1>Tasks</h1>
+    <button class="iconbtn" type="button" aria-label="New task"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Filter tasks">
+    <button class="tab active" type="button" role="tab" aria-selected="true">All</button>
+    <button class="tab" type="button" role="tab" aria-selected="false">To do</button>
+    <button class="tab" type="button" role="tab" aria-selected="false">Done</button>
+  </div>
+
+  <div class="rows">
+    <div class="row-wrap">
+      <div class="row-del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6h16z"/></svg></div>
+      <div class="trow" style="transform:translateX(-72px);">
+        <input class="chk" type="checkbox" aria-label="Mark complete">
+        <div class="tmain">
+          <span class="ttl">Check in on knee pain</span>
+          <div class="tmeta">
+            <span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Today</span>
+            <span class="chip"><span class="av">MR</span>Maya R.</span>
+          </div>
+        </div>
+        <span class="dotpill pill-todo">To do</span>
+      </div>
+    </div>
+
+    <div class="trow">
+      <input class="chk" type="checkbox" aria-label="Mark complete">
+      <div class="tmain">
+        <span class="ttl">Send week 4 macro adjustment</span>
+        <div class="tmeta">
+          <span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Sep 21</span>
+          <span class="chip"><span class="av">JT</span>Jon T.</span>
+        </div>
+      </div>
+      <span class="dotpill pill-todo">To do</span>
+    </div>
+
+    <div class="trow">
+      <input class="chk" type="checkbox" checked aria-label="Mark incomplete">
+      <div class="tmain">
+        <span class="ttl" style="text-decoration:line-through;color:var(--ink-500);">Confirm session time change</span>
+        <div class="tmeta">
+          <span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Sep 18</span>
+        </div>
+      </div>
+      <span class="dotpill pill-done">Done</span>
+    </div>
+  </div>
+
+  <div class="backdrop"></div>
+  <span class="captiontag" style="top:498px;">Swipe row left to delete</span>
+  <div class="sheet">
+    <span class="captiontag" style="position:static;align-self:flex-start;background:var(--lilac);color:var(--plum-dark);">New / edit task</span>
+    <div class="handle"></div>
+    <div class="sheethdr">
+      <h2>New task</h2>
+      <button class="iconbtn" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="field">
+      <label for="mttl">Title</label>
+      <input id="mttl" type="text" value="Check in on knee pain">
+    </div>
+    <div class="row2">
+      <div class="field">
+        <label for="mdue">Due date</label>
+        <input id="mdue" type="date" value="2026-09-20">
+      </div>
+      <div class="field">
+        <label for="mtype">Type</label>
+        <select id="mtype">
+          <option>Follow-up</option>
+          <option>Check-in</option>
+          <option>Admin</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="mclient">Client (optional)</label>
+      <select id="mclient">
+        <option>No client</option>
+        <option selected>Maya R.</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="mnotes">Notes</label>
+      <textarea id="mnotes">Ask about swelling before next session.</textarea>
+    </div>
+    <button class="savebtn" type="submit">Save task</button>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

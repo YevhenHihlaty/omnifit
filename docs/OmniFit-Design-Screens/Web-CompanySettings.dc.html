@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Company Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.sidebar{width:280px;flex:0 0 280px;background:var(--ink-900);box-sizing:border-box;padding:28px 20px;display:flex;flex-direction:column;gap:28px;}
+.brandmark{display:flex;align-items:center;gap:10px;padding:0 6px;}
+.brandmark .mark{width:30px;height:30px;border-radius:8px;background:var(--pine);display:flex;align-items:center;justify-content:center;flex:0 0 30px;}
+.brandmark span{font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--cream);}
+.navgroup{display:flex;flex-direction:column;gap:4px;}
+.navlink{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);font-family:var(--font-body);font-size:14px;font-weight:500;text-decoration:none;opacity:.78;}
+.navlink svg{flex:0 0 18px;width:18px;height:18px;}
+.navlink.active{background:var(--pine);color:var(--surface);opacity:1;font-weight:600;}
+.main{flex:1 1 auto;padding:52px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:28px;min-width:0;max-width:900px;}
+.pagehead h1{font-family:var(--font-display);font-size:26px;font-weight:700;margin:0 0 6px;}
+.pagehead p{margin:0;color:var(--ink-500);font-size:14px;}
+.subtabs{display:flex;gap:22px;border-bottom:1px solid var(--stone-300);}
+.subtab{padding:0 0 12px;font-size:14px;font-weight:600;color:var(--ink-500);text-decoration:none;border-bottom:2px solid transparent;}
+.subtab.active{color:var(--pine-dark);border-bottom-color:var(--pine);}
+.card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px;}
+.planrow{display:flex;align-items:center;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--stone-150);}
+.planrow .label{font-size:13px;font-weight:600;color:var(--ink-700);margin-bottom:6px;}
+.pill{border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;display:inline-block;}
+.pill-free{background:var(--stone-150);color:var(--ink-700);}
+.pill-pro{background:var(--pine-tint);color:var(--pine-dark);}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink-700);}
+.field .hint{font-size:12px;color:var(--ink-500);margin-top:2px;}
+.field input[type=text]{height:46px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;background:var(--surface);font-size:14.5px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;width:100%;}
+.field textarea{border-radius:10px;border:1.5px solid var(--stone-300);padding:12px 14px;background:var(--surface);font-size:14.5px;line-height:1.55;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;resize:none;min-height:90px;width:100%;}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.slugwrap{display:flex;align-items:center;border:1.5px solid var(--stone-300);border-radius:10px;overflow:hidden;background:var(--surface);}
+.slugwrap.focus-ring{border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.slugprefix{padding:0 12px;height:46px;display:flex;align-items:center;background:var(--stone-150);color:var(--ink-500);font-size:13.5px;font-family:var(--font-body);border-right:1px solid var(--stone-300);white-space:nowrap;}
+.slugwrap input{border:none;height:46px;padding:0 14px;font-size:14.5px;font-family:var(--font-body);flex:1 1 auto;min-width:0;background:transparent;}
+.slugwrap input:focus{outline:none;}
+.dropzone{border:1.5px dashed var(--stone-300);border-radius:12px;padding:24px;display:flex;align-items:center;gap:16px;background:var(--cream);}
+.dz-icon{width:52px;height:52px;border-radius:12px;background:var(--stone-150);display:flex;align-items:center;justify-content:center;color:var(--ink-500);flex:0 0 52px;}
+.dz-icon svg{width:22px;height:22px;}
+.dz-text{display:flex;flex-direction:column;gap:4px;}
+.dz-text strong{font-size:13.5px;color:var(--ink-900);}
+.dz-text span{font-size:12px;color:var(--ink-500);}
+.btn-outline{height:38px;padding:0 14px;border-radius:9px;background:transparent;border:1.5px solid var(--ink-900);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;margin-left:auto;flex:0 0 auto;}
+.helpbox{display:flex;gap:10px;background:var(--stone-150);border-radius:10px;padding:14px 16px;}
+.helpbox svg{width:16px;height:16px;flex:0 0 16px;color:var(--ink-500);margin-top:1px;}
+.helpbox p{margin:0;font-size:12.5px;color:var(--ink-700);line-height:1.5;}
+.formactions{display:flex;justify-content:flex-end;gap:10px;}
+.btn-primary{height:46px;padding:0 24px;border-radius:10px;background:var(--pine);color:var(--surface);font-family:var(--font-body);font-weight:600;font-size:14px;border:none;cursor:pointer;}
+</style>
+</helmet>
+<div style="width:1440px;height:1120px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <aside class="sidebar">
+    <div class="brandmark">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c4-8 8-10 16-11-1 8-3 12-11 16z"/><path d="M4 14l6 6"/></svg></div>
+      <span>OmniFit</span>
+    </div>
+    <nav class="navgroup">
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>My clients</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sessions</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-3.8 7.1 8.5 8.5 0 0 1-8.9.5L3 21l1.9-5.3a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.4h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messages</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Tasks</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg>Notes</a>
+      <a class="navlink active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="pagehead">
+      <h1>Company / practice</h1>
+      <p>Basic details about your coaching business.</p>
+    </div>
+
+    <nav class="subtabs" aria-label="Settings sections">
+      <a class="subtab" href="#">Profile</a>
+      <a class="subtab active" href="#">Company</a>
+      <a class="subtab" href="#">Billing</a>
+      <a class="subtab" href="#">Notifications</a>
+    </nav>
+
+    <form class="card">
+      <div class="planrow">
+        <div>
+          <div class="label">Current plan</div>
+          <span class="pill pill-pro">Pro</span>
+        </div>
+        <button class="btn-outline" type="button" style="margin-left:0;">Manage billing</button>
+      </div>
+
+      <div class="field">
+        <label for="legalname">Display / legal name</label>
+        <input id="legalname" type="text" value="Downtown Strength Coaching LLC">
+      </div>
+
+      <div class="field">
+        <label for="slug">Slug</label>
+        <div class="slugwrap focus-ring">
+          <span class="slugprefix">app.omnifit.com/</span>
+          <input id="slug" type="text" value="downtown-strength">
+        </div>
+        <span class="hint">Used in internal links and invite pages only.</span>
+      </div>
+
+      <div class="field">
+        <label for="shortdesc">Short description</label>
+        <textarea id="shortdesc">1:1 strength and mobility coaching for busy professionals, based in Austin, TX.</textarea>
+      </div>
+
+      <div class="field">
+        <label for="logoupload">Logo (optional)</label>
+        <div class="dropzone">
+          <div class="dz-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg></div>
+          <div class="dz-text">
+            <strong>Drag and drop or click to upload</strong>
+            <span>PNG or JPG, up to 2MB, square recommended</span>
+          </div>
+          <button class="btn-outline" type="button" id="logoupload">Choose file</button>
+        </div>
+      </div>
+
+      <div class="helpbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+        <p>Used for billing limits and future team features — not a public storefront in MVP.</p>
+      </div>
+
+      <div class="formactions">
+        <button class="btn-outline" type="button">Cancel</button>
+        <button class="btn-primary" type="submit">Save changes</button>
+      </div>
+    </form>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

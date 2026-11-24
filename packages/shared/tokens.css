@@ -1,0 +1,78 @@
+:root {
+  /* Brand */
+  --of-pine:        #3F6B4F;
+  --of-pine-dark:   #2C4F39;
+  --of-pine-tint:   #DCEBE0;
+  --of-plum:        #7C6A9C;
+  --of-plum-dark:   #5C4E78;
+  --of-plum-tint:   #DDD2F3;
+
+  /* Neutrals */
+  --of-ink-900:     #14181C;
+  --of-ink-700:     #3E443F;
+  --of-ink-500:     #6E7268;
+  --of-stone-300:   #E3DECF;
+  --of-stone-150:   #F1ECDF;
+  --of-cream:       #FBF7EF;
+  --of-surface:     #FFFFFF;
+
+  /* Pastels (card/avatar tints) */
+  --of-sage:        #BFE0C2;
+  --of-sage-tint:   #E8F0E4;
+  --of-butter:      #F7E5A0;
+  --of-peach:       #F8D9BE;
+  --of-peach-tint:  #FBEDE1;
+  --of-peach-dark:  #A15A2E;
+  --of-lilac:       #DDD2F3;
+  --of-lilac-tint:  #F1EBFA;
+  --of-blush:       #F8CFDD;
+  --of-sky:         #C3DCF4;
+  --of-sky-tint:    #EAF3F8;
+  --of-sky-dark:    #3A6E8C;
+
+  /* Semantic */
+  --of-warning:     #B8842A;
+  --of-warning-tint:#F7E5A0;
+  --of-danger:      #C1503D;
+  --of-danger-tint: #F6DAD3;
+
+  /* Pastel aliases (ordinal refs for avatar/card tints) */
+  --of-pastel-1:    var(--of-sage);
+  --of-pastel-2:    var(--of-butter);
+  --of-pastel-3:    var(--of-peach);
+  --of-pastel-4:    var(--of-lilac);
+  --of-pastel-5:    var(--of-blush);
+  --of-pastel-6:    var(--of-sky);
+
+  /* Focus ring — 3px pine-tint box-shadow */
+  --of-focus-ring:  0 0 0 3px var(--of-pine-tint);
+
+  /* Semantic aliases */
+  --of-bg:          var(--of-cream);
+  --of-text:        var(--of-ink-900);
+  --of-text-muted:  var(--of-ink-500);
+  --of-border:      var(--of-stone-300);
+
+  /* Layout */
+  --of-radius:      10px;
+  --of-radius-md:   12px;
+  --of-radius-lg:   16px;
+  --of-sidebar-w:   240px;
+
+  /* Motion */
+  --of-duration-fast:   180ms;
+  --of-duration-normal: 350ms;
+  --of-ease:            cubic-bezier(0.2, 0, 0, 1);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

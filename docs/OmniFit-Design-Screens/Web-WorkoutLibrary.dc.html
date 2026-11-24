@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Workout library</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.shell{display:flex;}
+.sidebar{width:280px;flex:0 0 auto;background:var(--ink-900);display:flex;flex-direction:column;padding:24px 16px;box-sizing:border-box;}
+.sb-brand{display:flex;align-items:center;gap:9px;padding:0 10px;margin-bottom:32px;}
+.sb-brand-name{font-family:var(--font-display);font-weight:700;font-size:17px;color:#FFFFFF;}
+.sb-nav{display:flex;flex-direction:column;gap:2px;}
+.sb-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;color:rgba(255,255,255,0.62);text-decoration:none;font-size:14px;font-weight:600;}
+.sb-item.active{background:rgba(255,255,255,0.1);color:#FFFFFF;}
+.sb-item svg{flex:0 0 auto;}
+.sb-foot{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 12px;}
+.sb-avatar{width:32px;height:32px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:12.5px;color:var(--pine-dark);}
+.sb-foot-name{color:#FFFFFF;font-size:13.5px;font-weight:600;}
+.sb-foot-role{color:rgba(255,255,255,0.5);font-size:12px;}
+.content{flex:1 1 auto;padding:36px 40px;box-sizing:border-box;overflow:hidden;}
+.page-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;}
+.page-title{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--ink-900);margin:0;}
+.page-sub{font-size:14px;color:var(--ink-500);margin:4px 0 0 0;}
+.btn-primary{height:44px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:14px;padding:0 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+.btn-outline{height:38px;border-radius:9px;border:1.5px solid var(--stone-300);background:transparent;color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13px;padding:0 14px;cursor:pointer;}
+.two-col{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-items:start;}
+.section-label{font-size:13px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-500);margin:0 0 12px 0;}
+.template-list{display:flex;flex-direction:column;gap:10px;}
+.template-row{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px 16px;}
+.template-row.selected{border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.template-name{font-size:14px;font-weight:600;color:var(--ink-900);margin:0 0 3px 0;}
+.template-meta{font-size:12.5px;color:var(--ink-500);margin:0;}
+.tag-pill{display:inline-block;background:var(--sky);color:var(--ink-900);font-size:11px;font-weight:600;border-radius:999px;padding:3px 10px;margin-right:8px;}
+.row-actions{display:flex;gap:8px;}
+.icon-btn{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-700);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.panel{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:24px;}
+.panel-title{font-family:var(--font-display);font-weight:600;font-size:16px;color:var(--ink-900);margin:0 0 4px 0;}
+.panel-sub{font-size:13px;color:var(--ink-500);margin:0 0 18px 0;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink-700);}
+.field-row{display:grid;grid-template-columns:2fr 1fr;gap:12px;}
+.field input,.field select{height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 12px;font-size:14px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;background:var(--surface);}
+.ex-table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+.ex-table th{text-align:left;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.02em;color:var(--ink-500);padding:0 8px 8px 8px;}
+.ex-table td{padding:6px 8px;}
+.ex-table input{width:100%;height:38px;border-radius:8px;border:1.5px solid var(--stone-300);padding:0 10px;font-size:13.5px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;background:var(--surface);font-variant-numeric:tabular-nums;}
+.ex-table tr+tr td{border-top:1px solid var(--stone-150);}
+.add-row-link{background:none;border:none;color:var(--plum-dark);font-weight:600;font-size:13px;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;}
+.panel-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;}
+.empty-box{background:var(--surface);border:1.5px dashed var(--stone-300);border-radius:14px;padding:30px 20px;text-align:center;margin-top:16px;}
+.empty-box p{font-size:13px;color:var(--ink-500);margin:0;}
+</style>
+</helmet>
+<div style="width:1440px;height:960px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+  <div class="shell" style="height:100%;">
+    <nav class="sidebar">
+      <div class="sb-brand">
+        <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"/><circle cx="90" cy="32" r="14" fill="var(--pine)"/></svg>
+        <span class="sb-brand-name">OmniFit Coach</span>
+      </div>
+      <div class="sb-nav">
+        <a href="#" class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Dashboard</a>
+        <a href="#" class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="8" cy="8" r="3"/><path d="M2 19c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 19c0-2.5-1.2-4.6-3-5.7"/><circle cx="16" cy="8" r="2.3"/></svg>My clients</a>
+        <a href="#" class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg>Sessions</a>
+        <a href="#" class="sb-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 11h6M9 15h6"/></svg>Programs</a>
+        <a href="#" class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M4 4h16v12H8l-4 4V4z"/></svg>Messages</a>
+        <a href="#" class="sb-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="4" y1="6" x2="20" y2="6"/><circle cx="9" cy="6" r="2"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="15" cy="12" r="2"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="18" r="2"/></svg>Settings</a>
+      </div>
+      <div class="sb-foot">
+        <div class="sb-avatar">RK</div>
+        <div>
+          <div class="sb-foot-name">Riley Kade</div>
+          <div class="sb-foot-role">Coach</div>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Workout library</h1>
+          <p class="page-sub">Build reusable templates and start logged sessions from them.</p>
+        </div>
+        <button type="button" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 5v14M5 12h14"/></svg>
+          Create template
+        </button>
+      </div>
+      <div class="two-col">
+        <div>
+          <p class="section-label">Templates</p>
+          <div class="template-list">
+            <div class="template-row selected">
+              <div>
+                <p class="template-name">Upper body strength</p>
+                <span class="tag-pill">Strength</span>
+                <span class="template-meta">Last used 3 days ago</span>
+              </div>
+              <div class="row-actions">
+                <button type="button" class="icon-btn" aria-label="Edit template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></button>
+              </div>
+            </div>
+            <div class="template-row">
+              <div>
+                <p class="template-name">5k running progression</p>
+                <span class="tag-pill" style="background:var(--peach);">Running</span>
+                <span class="template-meta">Last used 1 week ago</span>
+              </div>
+              <div class="row-actions">
+                <button type="button" class="icon-btn" aria-label="Edit template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></button>
+              </div>
+            </div>
+            <div class="template-row">
+              <div>
+                <p class="template-name">Full body conditioning</p>
+                <span class="tag-pill" style="background:var(--lilac);">Conditioning</span>
+                <span class="template-meta">Last used 2 weeks ago</span>
+              </div>
+              <div class="row-actions">
+                <button type="button" class="icon-btn" aria-label="Edit template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></button>
+              </div>
+            </div>
+            <div class="template-row">
+              <div>
+                <p class="template-name">Lower body power</p>
+                <span class="tag-pill">Strength</span>
+                <span class="template-meta">Last used 1 month ago</span>
+              </div>
+              <div class="row-actions">
+                <button type="button" class="icon-btn" aria-label="Edit template"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="empty-box">
+            <p>No templates yet &mdash; create your first workout template</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Upper body strength</h2>
+          <p class="panel-sub">Edit exercises, then save or start a session directly from this template.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="tpl-name">Template name</label>
+              <input id="tpl-name" type="text" value="Upper body strength">
+            </div>
+            <div class="field">
+              <label for="tpl-sport">Sport type</label>
+              <select id="tpl-sport">
+                <option>Strength</option>
+                <option>Running</option>
+                <option>Conditioning</option>
+              </select>
+            </div>
+          </div>
+          <table class="ex-table">
+            <thead>
+              <tr>
+                <th style="width:40%;">Exercise</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Weight (kg)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="text" value="Barbell bench press"></td>
+                <td><input type="text" value="4"></td>
+                <td><input type="text" value="8"></td>
+                <td><input type="text" value="60"></td>
+              </tr>
+              <tr>
+                <td><input type="text" value="Seated cable row"></td>
+                <td><input type="text" value="4"></td>
+                <td><input type="text" value="10"></td>
+                <td><input type="text" value="45"></td>
+              </tr>
+              <tr>
+                <td><input type="text" value="Overhead press"></td>
+                <td><input type="text" value="3"></td>
+                <td><input type="text" value="10"></td>
+                <td><input type="text" value="30"></td>
+              </tr>
+              <tr>
+                <td><input type="text" value="Lat pulldown"></td>
+                <td><input type="text" value="3"></td>
+                <td><input type="text" value="12"></td>
+                <td><input type="text" value="40"></td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" class="add-row-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 5v14M5 12h14"/></svg>
+            Add exercise
+          </button>
+          <div class="panel-actions">
+            <button type="button" class="btn-outline">Start log from template</button>
+            <button type="button" class="btn-primary" style="height:40px;">Save template</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

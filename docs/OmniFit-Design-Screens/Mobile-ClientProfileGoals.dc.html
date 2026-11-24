@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Profile · Goals</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --sky-tint:#EAF3F8; --sky-dark:#3A6E8C;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:12.5px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:16px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:9px;">
+      <span style="width:72px;height:72px;border-radius:50%;background:var(--sky-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:20px;color:var(--sky-dark);">DW</span>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:18px;">Devon Ward</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;">Coached by Taylor Brooks</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:10px;padding:16px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab active">Goals</button>
+      <button class="of-tab">Progress</button>
+      <button class="of-tab">History</button>
+      <button class="of-tab">Check-in</button>
+    </div>
+
+    <div style="padding:16px 20px 18px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:12px;">
+
+      <div class="of-card" style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:40px;height:40px;border-radius:11px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1"></circle></svg></span>
+            <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">General conditioning</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Primary objective</div></div>
+          </div>
+          <button aria-label="Edit goal" style="width:28px;height:28px;border:none;background:transparent;color:var(--ink-500);cursor:pointer;padding:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,20 h9"></path><path d="M16.5,3.5 a2.1,2.1 0 0 1 3,3 L7,19 l-4,1 1,-4 Z"></path></svg></button>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-size:12.5px;color:var(--ink-500);">Target: hit 4 workouts/week by</span>
+          <span style="font-weight:600;font-size:12.5px;">Dec 1, 2026</span>
+        </div>
+        <div style="height:8px;border-radius:999px;background:var(--stone-150);overflow:hidden;"><div style="width:52%;height:100%;background:var(--pine);"></div></div>
+        <span style="font-size:11.5px;color:var(--pine-dark);font-weight:600;">On track — 52% there</span>
+      </div>
+
+      <div class="of-card" style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:14px;">Weekly targets</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--stone-150);"><span style="font-size:13px;">Workouts</span><span style="font-family:var(--font-display);font-weight:700;font-size:14px;">3 of 4</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--stone-150);"><span style="font-size:13px;">Steps / day</span><span style="font-family:var(--font-display);font-weight:700;font-size:14px;">8,200</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;"><span style="font-size:13px;">Check-ins logged</span><span style="font-family:var(--font-display);font-weight:700;font-size:14px;">4 of 4</span></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Review & launch</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-card{background:var(--surface);border:1px solid var(--stone-150);border-radius:18px;box-shadow:0 1px 2px rgba(20,24,28,0.04), 0 12px 28px -18px rgba(20,24,28,0.16);}
+.of-tagchip{display:inline-flex;align-items:center;background:var(--pine-tint);color:var(--pine-dark);font-size:12px;font-weight:600;padding:5px 11px;border-radius:999px;}
+.of-review-row{display:flex;align-items:center;gap:12px;padding:11px 12px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:30px 24px 18px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 7 of 7</span>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:100%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.01em;text-wrap:balance;">Review your profile</h1>
+    <p style="margin:0 0 16px;font-size:13px;color:var(--ink-500);line-height:1.4;">This is what clients will see. You can edit anything later.</p>
+
+    <div class="of-card" style="padding:16px;display:flex;align-items:center;gap:13px;margin-bottom:10px;">
+      <span style="width:52px;height:52px;border-radius:50%;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink-700);">TB</span></span>
+      <div style="flex-grow:1;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">Taylor Brooks</div>
+        <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;"><span class="of-tagchip">Weight Lifting</span><span class="of-tagchip">General Fitness</span><span class="of-tagchip">+1</span></div>
+      </div>
+    </div>
+
+    <div class="of-card" style="padding:2px;">
+
+      <div class="of-review-row">
+        <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8"><path d="M12,2 l2.4,4.9 5.4,0.8 -3.9,3.8 0.9,5.4 -4.8,-2.5 -4.8,2.5 0.9,-5.4 -3.9,-3.8 5.4,-0.8 Z"></path></svg></span>
+        <span style="flex-grow:1;font-size:13.5px;color:var(--ink-700);">Experience</span>
+        <span style="font-weight:600;font-size:13.5px;">1–3 years · 2 certs</span>
+      </div>
+      <div style="height:1px;background:var(--stone-150);margin:0 12px;"></div>
+
+      <div class="of-review-row">
+        <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5,20 a7,6 0 0 1 14,0"></path></svg></span>
+        <span style="flex-grow:1;font-size:13.5px;color:var(--ink-700);">Pricing</span>
+        <span style="font-weight:600;font-size:13.5px;">3 services · from $45</span>
+      </div>
+      <div style="height:1px;background:var(--stone-150);margin:0 12px;"></div>
+
+      <div class="of-review-row">
+        <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"></rect><line x1="3" y1="9" x2="21" y2="9"></line></svg></span>
+        <span style="flex-grow:1;font-size:13.5px;color:var(--ink-700);">Availability</span>
+        <span style="font-weight:600;font-size:13.5px;">5 days/week</span>
+      </div>
+      <div style="height:1px;background:var(--stone-150);margin:0 12px;"></div>
+
+      <div class="of-review-row">
+        <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8,10 V7 a4,4 0 0 1 8,0 v3"></path></svg></span>
+        <span style="flex-grow:1;font-size:13.5px;color:var(--ink-700);">Payouts</span>
+        <span style="font-weight:600;font-size:13.5px;color:var(--pine-dark);">Connected</span>
+      </div>
+
+    </div>
+
+    <div style="flex-grow:1;min-height:14px;"></div>
+
+    <button style="height:50px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:700;font-size:15px;cursor:pointer;">Launch my practice</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

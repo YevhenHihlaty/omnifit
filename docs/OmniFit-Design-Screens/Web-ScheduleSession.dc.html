@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Request a session (web)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-navitem{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:9px;color:#9CA69C;text-decoration:none;font-size:13.5px;font-weight:600;}
+.of-navitem.active{background:rgba(255,255,255,0.08);color:#FBF7EF;}
+.of-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px;}
+.of-daychip{width:56px;flex-shrink:0;border:1.5px solid var(--stone-300);border-radius:12px;background:var(--surface);padding:10px 0;text-align:center;cursor:pointer;}
+.of-daychip.selected{border-color:var(--ink-900);background:var(--ink-900);color:var(--cream);}
+.of-slot{border:1.5px solid var(--stone-300);border-radius:10px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13px;padding:12px 0;text-align:center;cursor:pointer;}
+.of-slot.selected{border-color:var(--pine);background:var(--pine-tint);color:var(--pine-dark);}
+.of-slot.taken{border-color:var(--stone-150);background:var(--stone-150);color:var(--stone-300);cursor:default;}
+.of-sesschip{border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:13px;font-weight:600;padding:8px 16px;cursor:pointer;}
+.of-sesschip.active{border-color:var(--ink-900);background:var(--ink-900);color:var(--cream);}
+.of-field{width:100%;height:44px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 12px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;}
+</style>
+</helmet>
+<div style="width:1440px;height:960px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <div style="width:220px;flex-shrink:0;background:var(--ink-900);color:#EDEAE0;display:flex;flex-direction:column;padding:24px 16px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:9px;padding:0 8px;margin-bottom:32px;">
+      <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#8FB89B" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="#8FB89B"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:17px;color:#FBF7EF;">OmniFit</span>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:3px;">
+      <a class="of-navitem" href="#home"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3,11 L12,3 L21,11"></path><path d="M5,10 V21 H19 V10"></path></svg>Home</a>
+      <a class="of-navitem" href="#log"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>Log</a>
+      <a class="of-navitem active" href="#calendar"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>Calendar</a>
+      <a class="of-navitem" href="#progress"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,17 9,11 13,15 21,7"></polyline><polyline points="14,7 21,7 21,14"></polyline></svg>Progress</a>
+      <a class="of-navitem" href="#coach"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 c0,-4.5 3.5,-7.5 8,-7.5 s8,3 8,7.5"></path></svg>Coach</a>
+    </nav>
+    <div style="flex-grow:1;"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:8px;">
+      <span style="width:32px;height:32px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:#14181C;">AR</span>
+      <div style="min-width:0;"><div style="font-size:13px;font-weight:600;color:#FBF7EF;">Alex Romero</div><div style="font-size:11.5px;color:#6E7268;">Client</div></div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;min-width:0;">
+
+    <div style="flex-shrink:0;padding:28px 40px 0;">
+      <a href="#calendar" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--ink-500);font-size:13px;font-weight:600;margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+        Calendar
+      </a>
+      <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Request a session</h1>
+    </div>
+
+    <div style="flex-grow:1;overflow:hidden;padding:22px 40px 30px;min-height:0;display:flex;gap:28px;">
+
+      <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:22px;">
+
+        <div style="display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:14px 18px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:36px;height:36px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12.5px;color:#14181C;">TB</span>
+            <span style="font-size:14px;font-weight:600;">Taylor Brooks</span>
+          </div>
+          <a href="#find-coach" style="font-size:12.5px;color:var(--pine-dark);text-decoration:none;font-weight:600;">Change</a>
+        </div>
+
+        <div>
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:10px;display:block;">Date</span>
+          <div style="display:flex;gap:10px;">
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">MON</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">21</div></div>
+            <div class="of-daychip selected"><div style="font-size:10.5px;font-weight:600;">TUE</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">22</div></div>
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">WED</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">23</div></div>
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">THU</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">24</div></div>
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">FRI</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">25</div></div>
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">SAT</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">26</div></div>
+            <div class="of-daychip"><div style="font-size:10.5px;font-weight:600;color:var(--ink-500);">SUN</div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;margin-top:2px;">27</div></div>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:10px;display:block;">Available times · Tue, Sep 22</span>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+            <button class="of-slot">9:00 AM</button>
+            <button class="of-slot taken">10:00 AM</button>
+            <button class="of-slot">11:00 AM</button>
+            <button class="of-slot selected">1:00 PM</button>
+            <button class="of-slot">2:00 PM</button>
+            <button class="of-slot taken">3:00 PM</button>
+            <button class="of-slot">4:00 PM</button>
+            <button class="of-slot">5:00 PM</button>
+          </div>
+        </div>
+
+        <div>
+          <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:10px;display:block;">Session type</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="of-sesschip active">Strength training</button>
+            <button class="of-sesschip">Check-in call</button>
+            <button class="of-sesschip">Form review</button>
+            <button class="of-sesschip">Write my own</button>
+          </div>
+        </div>
+
+        <div style="background:var(--stone-150);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:10px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" flex-shrink="0"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+          <span style="font-size:12.5px;color:var(--ink-700);">Duration is set by your plan — 45 minutes for strength training sessions.</span>
+        </div>
+
+      </div>
+
+      <div style="width:320px;flex-shrink:0;display:flex;flex-direction:column;gap:16px;">
+        <div class="of-card" style="display:flex;flex-direction:column;gap:14px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Summary</span>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:12.5px;color:var(--ink-500);">Date</span><span style="font-size:12.5px;font-weight:600;">Tue, Sep 22</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:12.5px;color:var(--ink-500);">Time</span><span style="font-size:12.5px;font-weight:600;">1:00 PM</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:12.5px;color:var(--ink-500);">Duration</span><span style="font-size:12.5px;font-weight:600;">45 min</span></div>
+            <div style="display:flex;justify-content:space-between;"><span style="font-size:12.5px;color:var(--ink-500);">Type</span><span style="font-size:12.5px;font-weight:600;">Strength training</span></div>
+          </div>
+          <div>
+            <label style="font-size:12.5px;font-weight:600;color:var(--ink-700);display:block;margin-bottom:6px;">Notes (optional)</label>
+            <textarea placeholder="Anything Taylor should know?" style="width:100%;height:72px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:10px 12px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;resize:none;"></textarea>
+          </div>
+          <button style="border:none;border-radius:10px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;padding:13px;cursor:pointer;">Request session</button>
+          <div style="font-size:11.5px;color:var(--ink-500);text-align:center;line-height:1.5;">Taylor confirms before it's added to your calendar</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Set your pricing</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter:#F3D97A; --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-svc{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;}
+.of-tag-remove{width:17px;height:17px;border-radius:50%;background:var(--stone-150);border:none;color:var(--ink-500);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;padding:0;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:32px 24px 18px;display:flex;flex-direction:column;gap:16px;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 3 of 7</span>
+        <a href="#skip" style="font-size:12px;font-weight:600;color:var(--ink-500);text-decoration:none;">Skip</a>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:43%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <div>
+      <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;text-wrap:balance;">Set your pricing</h1>
+      <p style="margin:0;font-size:13.5px;color:var(--ink-500);line-height:1.4;">Clients see this before they book. Change it anytime.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;">
+
+      <div class="of-svc">
+        <span style="width:36px;height:36px;border-radius:10px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5,20 a7,6 0 0 1 14,0"></path></svg></span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14px;">1:1 coaching session</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">60 min · per session</div></div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">$85</div>
+        <button class="of-tag-remove" aria-label="Remove"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+      </div>
+
+      <div class="of-svc">
+        <span style="width:36px;height:36px;border-radius:10px;background:var(--butter-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="8" y1="3" x2="8" y2="6"></line><line x1="16" y1="3" x2="16" y2="6"></line></svg></span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14px;">Monthly program</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Full plan · per month</div></div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">$220</div>
+        <button class="of-tag-remove" aria-label="Remove"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+      </div>
+
+      <div class="of-svc">
+        <span style="width:36px;height:36px;border-radius:10px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,7 h3 l2,-2 h6 l2,2 h3 v12 H4 Z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
+        <div style="flex-grow:1;"><div style="font-weight:600;font-size:14px;">Nutrition add-on</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Optional · per month</div></div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">$45</div>
+        <button class="of-tag-remove" aria-label="Remove"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg></button>
+      </div>
+
+      <button style="display:flex;align-items:center;justify-content:center;gap:8px;height:44px;border-radius:12px;border:1.5px dashed var(--stone-300);background:transparent;color:var(--pine-dark);font-family:var(--font-body);font-weight:600;font-size:13.5px;cursor:pointer;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        Add a service
+      </button>
+    </div>
+
+    <div style="flex-grow:1;"></div>
+
+    <button style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Continue</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

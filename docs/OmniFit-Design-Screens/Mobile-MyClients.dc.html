@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — My Clients</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3; --lilac-tint:#F1EBFA;
+  --butter:#F3D97A; --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --peach:#EFC3A0; --peach-tint:#FBEDE1;
+  --sky:#BFD9E8; --sky-tint:#EAF3F8;
+  --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-avatar{width:48px;height:48px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);}
+.of-pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+.of-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--stone-150);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:52px 20px 0;display:flex;flex-direction:column;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+      <div>
+        <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">My Clients</h1>
+        <p style="margin:2px 0 0;font-size:13px;color:var(--ink-500);">24 active</p>
+      </div>
+      <button aria-label="Add client" style="width:40px;height:40px;border-radius:50%;border:none;background:var(--ink-900);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      </button>
+    </div>
+
+    <div style="position:relative;margin-bottom:14px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="search" placeholder="Search clients" style="width:100%;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 14px 0 40px;font-family:var(--font-body);font-size:14px;color:var(--ink-900);box-sizing:border-box;">
+    </div>
+
+    <div role="tablist" aria-label="Filter clients" style="display:flex;gap:8px;margin-bottom:6px;">
+      <button role="tab" aria-selected="true" style="border:none;border-radius:999px;background:var(--ink-900);color:var(--cream);font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;">All</button>
+      <button role="tab" aria-selected="false" style="border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:13px;font-weight:600;padding:6.5px 13px;cursor:pointer;display:flex;align-items:center;gap:6px;">Needs attention <span style="background:var(--butter-tint);color:var(--butter-dark);font-size:11px;font-weight:700;padding:1px 6px;border-radius:999px;">1</span></button>
+      <button role="tab" aria-selected="false" style="border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:13px;font-weight:600;padding:6.5px 13px;cursor:pointer;display:flex;align-items:center;gap:6px;">New <span style="background:var(--lilac-tint);color:var(--plum-dark);font-size:11px;font-weight:700;padding:1px 6px;border-radius:999px;">1</span></button>
+    </div>
+
+  </div>
+
+  <div style="flex-grow:1;overflow:hidden;padding:0 20px;display:flex;flex-direction:column;">
+
+    <div class="of-row">
+      <span class="of-avatar" style="background:var(--sky-tint);">AR</span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Alex Romero</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:1px;">1,840 cal today · 1 workout</div>
+      </div>
+      <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+    </div>
+
+    <div class="of-row">
+      <span class="of-avatar" style="background:var(--butter-tint);">PN</span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Priya Nair</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:1px;">No check-in in 6 days</div>
+      </div>
+      <span class="of-pill" style="background:var(--butter-tint);color:var(--butter-dark);">At risk</span>
+    </div>
+
+    <div class="of-row">
+      <span class="of-avatar" style="background:var(--lilac-tint);">DW</span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Devon Ward</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:1px;">Joined 2 days ago</div>
+      </div>
+      <span class="of-pill" style="background:var(--lilac-tint);color:var(--plum-dark);">New</span>
+    </div>
+
+    <div class="of-row">
+      <span class="of-avatar" style="background:var(--peach-tint);">SO</span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Sam Okafor</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:1px;">2,150 cal today · 2 workouts</div>
+      </div>
+      <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+    </div>
+
+    <div style="position:relative;border-bottom:1px solid var(--stone-150);">
+      <div style="position:absolute;top:0;right:0;bottom:0;width:88px;background:var(--danger);border-radius:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,6 5,6 21,6"></polyline><path d="M8,6 V4 a2,2 0 0 1 2,-2 h4 a2,2 0 0 1 2,2 v2 m3,0 v14 a2,2 0 0 1 -2,2 H7 a2,2 0 0 1 -2,-2 V6 h14 Z"></path></svg>
+        <span style="font-size:11px;font-weight:600;">Archive</span>
+      </div>
+      <div class="of-row" style="background:var(--cream);position:relative;transform:translateX(-88px);border-bottom:none;">
+        <span class="of-avatar" style="background:var(--sky-tint);">JB</span>
+        <div style="flex-grow:1;min-width:0;">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Jordan Blake</div>
+          <div style="font-size:12.5px;color:var(--ink-500);margin-top:1px;">1,620 cal today · rest day</div>
+        </div>
+        <span class="of-pill" style="background:var(--pine-tint);color:var(--pine-dark);">On track</span>
+      </div>
+    </div>
+
+  </div>
+
+  <nav aria-label="Primary" style="flex-shrink:0;display:flex;border-top:1px solid var(--stone-300);background:var(--surface);padding:10px 0 18px;">
+    <a href="#home" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3,11 L12,3 L21,11"></path><path d="M5,10 V21 H19 V10"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Home</span>
+    </a>
+    <a href="#clients" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--pine);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5,20 c0,-4 3,-6.5 6.5,-6.5 s6.5,2.5 6.5,6.5"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M15.5,13.3 c2.8,0.3 5,2.6 5,6.7"></path></svg>
+      <span style="font-size:11px;font-weight:700;">Clients</span>
+    </a>
+    <a href="#sessions" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+      <span style="font-size:11px;font-weight:600;">Sessions</span>
+    </a>
+    <a href="#messages" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Messages</span>
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

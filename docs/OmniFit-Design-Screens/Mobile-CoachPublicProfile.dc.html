@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach public profile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter:#F3D97A;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tagchip{display:inline-flex;align-items:center;background:var(--pine-tint);color:var(--pine-dark);font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:13px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="height:88px;flex-shrink:0;background:linear-gradient(135deg,var(--pine-tint),var(--stone-150));position:relative;">
+      <button aria-label="Back" style="position:absolute;top:40px;left:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.85);border:none;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+    </div>
+
+    <div style="padding:0 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;">
+      <span style="width:76px;height:76px;border-radius:50%;background:var(--pine-tint);border:4px solid var(--cream);margin-top:-38px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:21px;color:var(--pine-dark);">TB</span>
+      <div style="text-align:center;margin-top:9px;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">Taylor Brooks</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;display:flex;align-items:center;gap:5px;justify-content:center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--butter)" stroke="none"><path d="M12,2 l2.9,6 6.6,0.9 -4.8,4.6 1.1,6.5 -5.8,-3 -5.8,3 1.1,-6.5 -4.8,-4.6 6.6,-0.9 Z"></path></svg>
+          4.8 · Riverside, Austin TX · 8 yrs coaching
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:9px;">
+        <span class="of-tagchip">Weight Lifting</span><span class="of-tagchip">General Fitness</span><span class="of-tagchip">Mobility</span>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:14px;padding:16px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);margin-top:4px;">
+      <button class="of-tab active">About</button>
+      <button class="of-tab">Plans</button>
+      <button class="of-tab" style="color:var(--stone-300);">Reviews</button>
+    </div>
+
+    <div style="padding:14px 20px 16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:14px;">
+
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-700);">Former collegiate athlete turned strength coach. I focus on sustainable programming — building strength and confidence without burning you out. Eight years coaching, 24 active clients, online and in-studio in Austin.</p>
+
+      <div>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);display:block;margin-bottom:8px;">Credentials</span>
+        <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;border-bottom:1px solid var(--stone-150);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" style="flex-shrink:0;"><path d="M12,2 l2.4,4.9 5.4,0.8 -3.9,3.8 0.9,5.4 -4.8,-2.5 -4.8,2.5 0.9,-5.4 -3.9,-3.8 5.4,-0.8 Z"></path></svg>
+            <span style="font-size:13px;font-weight:500;">NASM Certified Personal Trainer</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" style="flex-shrink:0;"><path d="M12,2 l2.4,4.9 5.4,0.8 -3.9,3.8 0.9,5.4 -4.8,-2.5 -4.8,2.5 0.9,-5.4 -3.9,-3.8 5.4,-0.8 Z"></path></svg>
+            <span style="font-size:13px;font-weight:500;">Precision Nutrition L1</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span style="font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);display:block;margin-bottom:8px;">Locations</span>
+        <div style="display:flex;align-items:center;gap:11px;padding:11px 13px;background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12,21 c-4.5,-4.5 -7,-8 -7,-11.5 a7,7 0 0 1 14,0 c0,3.5 -2.5,7 -7,11.5 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+          <span style="font-size:13px;font-weight:500;">Riverside Fitness Studio · Austin, TX</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="flex-shrink:0;display:flex;gap:10px;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+      <button style="flex:1;height:46px;border:1.5px solid var(--stone-300);border-radius:10px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Message</button>
+      <button style="flex:1.4;height:46px;border:none;border-radius:10px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Request session</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

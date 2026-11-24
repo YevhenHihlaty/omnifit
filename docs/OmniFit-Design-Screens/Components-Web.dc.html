@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Web components</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-toggle{appearance:none;-webkit-appearance:none;width:46px;height:27px;border-radius:999px;background:var(--stone-300);position:relative;cursor:pointer;flex-shrink:0;outline:none;}
+.of-toggle:checked{background:var(--pine);}
+.of-toggle::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:#fff;transition:left .12s;}
+.of-toggle:checked::after{left:22px;}
+.of-input:focus{border-color:var(--pine) !important;box-shadow:0 0 0 3px var(--pine-tint);outline:none;}
+</style>
+</helmet>
+<div style="width:1440px;height:2260px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);padding:96px;display:flex;flex-direction:column;gap:52px;position:relative;overflow:hidden;">
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:760px;">
+    <span style="font-family:var(--font-body);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--pine-dark);font-weight:600;">System — 04 · Revision 2</span>
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:56px;letter-spacing:-0.02em;">Web components</h1>
+    <p style="margin:0;font-size:17px;line-height:1.6;color:var(--ink-700);">Core pieces the coach product is built from — one primary action per screen, plain status pills over icon-only states, and 44px minimum touch targets even on desktop.</p>
+  </div>
+
+  <!-- Buttons -->
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Buttons</h2>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+      <button style="height:44px;padding:0 24px;background:var(--pine);color:var(--surface);border:none;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Schedule a session</button>
+      <button style="height:44px;padding:0 24px;background:transparent;color:var(--ink-900);border:1.5px solid var(--ink-900);border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Invite client</button>
+      <button style="height:44px;padding:0 20px;background:transparent;color:var(--plum-dark);border:none;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">View full calendar</button>
+      <button style="height:44px;padding:0 24px;background:var(--danger);color:var(--surface);border:none;border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Remove client</button>
+      <button disabled="" style="height:44px;padding:0 24px;background:var(--stone-150);color:var(--ink-500);border:1.5px solid var(--stone-300);border-radius:10px;font-family:var(--font-body);font-weight:600;font-size:15px;">Connect Stripe</button>
+      <button style="height:36px;padding:0 16px;background:var(--pine);color:var(--surface);border:none;border-radius:8px;font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">Compact — table row action</button>
+    </div>
+  </div>
+
+  <!-- Inputs -->
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Inputs</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:end;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <label for="cs-email" style="font-size:13px;font-weight:600;color:var(--ink-700);">Display name</label>
+        <input id="cs-email" class="of-input" type="text" value="Taylor Brooks" style="height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <label for="cs-plan" style="font-size:13px;font-weight:600;color:var(--ink-700);">Training plan</label>
+        <select id="cs-plan" class="of-input" style="height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);">
+          <option>12-Week Strength Reset</option>
+          <option>Marathon Base Build</option>
+        </select>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <input id="cs-toggle" class="of-toggle" type="checkbox" checked="">
+        <label for="cs-toggle" style="font-size:14px;color:var(--ink-700);">Email notifications</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badges -->
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Status pills</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <span style="background:var(--pine-tint);color:var(--pine-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">On track</span>
+      <span style="background:var(--warning-tint);color:var(--warning);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">At risk</span>
+      <span style="background:var(--lilac);color:var(--plum-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">New</span>
+      <span style="background:var(--pine-tint);color:var(--pine-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">Paid</span>
+      <span style="background:var(--warning-tint);color:var(--warning);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">Pending</span>
+      <span style="background:var(--danger-tint);color:var(--danger);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">Refunded</span>
+      <span style="background:var(--stone-150);color:var(--ink-700);font-family:var(--font-body);font-size:12px;font-weight:600;padding:6px 14px;border-radius:999px;">Platform-sourced</span>
+    </div>
+  </div>
+
+  <!-- Roster card -->
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Client roster row</h2>
+    <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;overflow:hidden;">
+      <div style="display:grid;grid-template-columns:2.4fr 1.6fr 1fr 1.2fr 40px;padding:14px 24px;background:var(--stone-150);font-family:var(--font-body);font-size:12px;color:var(--ink-500);text-transform:uppercase;letter-spacing:0.04em;font-weight:600;">
+        <span>Client</span><span>Last check-in</span><span>Progress</span><span>Status</span><span></span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2.4fr 1.6fr 1fr 1.2fr 40px;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--sage);color:var(--pine-dark);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:14px;">AR</div>
+          <div><div style="font-weight:600;font-size:15px;">Alex Romero</div><div style="font-size:13px;color:var(--ink-500);">12-Week Strength Reset</div></div>
+        </div>
+        <span style="font-size:14px;color:var(--ink-500);">2h ago</span>
+        <div style="width:80px;height:6px;border-radius:999px;background:var(--stone-150);"><div style="width:86%;height:100%;border-radius:999px;background:var(--pine);"></div></div>
+        <span style="background:var(--pine-tint);color:var(--pine-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;width:fit-content;">On track</span>
+        <button aria-label="More actions for Alex Romero" style="width:32px;height:32px;border-radius:8px;border:1px solid var(--stone-300);background:var(--surface);color:var(--ink-500);cursor:pointer;">⋯</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2.4fr 1.6fr 1fr 1.2fr 40px;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--peach);color:#8A5A2E;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:14px;">PN</div>
+          <div><div style="font-weight:600;font-size:15px;">Priya Nair</div><div style="font-size:13px;color:var(--ink-500);">Marathon Base Build</div></div>
+        </div>
+        <span style="font-size:14px;color:var(--ink-500);">2 days ago</span>
+        <div style="width:80px;height:6px;border-radius:999px;background:var(--stone-150);"><div style="width:54%;height:100%;border-radius:999px;background:var(--warning);"></div></div>
+        <span style="background:var(--warning-tint);color:var(--warning);font-family:var(--font-body);font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;width:fit-content;">At risk</span>
+        <button aria-label="More actions for Priya Nair" style="width:32px;height:32px;border-radius:8px;border:1px solid var(--stone-300);background:var(--surface);color:var(--ink-500);cursor:pointer;">⋯</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2.4fr 1.6fr 1fr 1.2fr 40px;padding:16px 24px;align-items:center;border-top:1px solid var(--stone-300);">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="width:40px;height:40px;border-radius:50%;background:var(--sky);color:#3B5878;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:14px;">DW</div>
+          <div><div style="font-weight:600;font-size:15px;">Devon Ward</div><div style="font-size:13px;color:var(--ink-500);">Nutrition Coaching</div></div>
+        </div>
+        <span style="font-size:14px;color:var(--ink-500);">Just joined</span>
+        <div style="width:80px;height:6px;border-radius:999px;background:var(--stone-150);"><div style="width:12%;height:100%;border-radius:999px;background:var(--plum);"></div></div>
+        <span style="background:var(--lilac);color:var(--plum-dark);font-family:var(--font-body);font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;width:fit-content;">New</span>
+        <button aria-label="More actions for Devon Ward" style="width:32px;height:32px;border-radius:8px;border:1px solid var(--stone-300);background:var(--surface);color:var(--ink-500);cursor:pointer;">⋯</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav + Payment row -->
+  <div style="display:grid;grid-template-columns:340px 1fr;gap:24px;">
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Sidebar navigation</h2>
+      <nav style="background:var(--ink-900);border-radius:16px;padding:20px 14px;display:flex;flex-direction:column;gap:4px;width:100%;box-sizing:border-box;">
+        <a href="#dashboard" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--pine);color:var(--surface);text-decoration:none;font-size:14px;font-weight:600;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="11" rx="2"></rect><polyline points="3,10 12,3 21,10"></polyline></svg>
+          Dashboard
+        </a>
+        <a href="#clients" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 C4,15 8,13 12,13 C16,13 20,15 20,21"></path></svg>
+          My clients
+        </a>
+        <a href="#sessions" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+          Sessions
+        </a>
+        <a href="#messages" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4,5 H20 V16 H9 L4,20 Z"></path></svg>
+          Messages
+        </a>
+        <a href="#settings" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="8.2"></circle></svg>
+          Settings
+        </a>
+      </nav>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h2 style="margin:0;font-family:var(--font-display);font-weight:600;font-size:20px;">Payment receipt</h2>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--ink-700);"><span>Session price</span><span style="font-family:var(--font-display);font-weight:500;">$65.00</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--ink-700);"><span>Platform service fee</span><span style="font-family:var(--font-display);font-weight:500;">$1.00</span></div>
+        <div style="height:1px;background:var(--stone-300);margin:4px 0;"></div>
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:700;font-size:17px;"><span>Total due today</span><span>$66.00</span></div>
+        <div style="height:1px;background:var(--stone-300);margin:4px 0;"></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--ink-500);"><span>Stripe processing fee</span><span style="font-family:var(--font-display);font-weight:500;">−$2.19</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600;color:var(--pine-dark);"><span>Net payout</span><span style="font-family:var(--font-display);font-weight:600;">$62.81</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2260}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

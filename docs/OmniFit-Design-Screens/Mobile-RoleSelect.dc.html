@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Are you a coach?</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:56px 28px 24px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:56px;">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:20px;">OmniFit</span>
+    </div>
+
+    <h1 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:-0.01em;text-align:center;text-wrap:balance;">Are you a coach?</h1>
+    <p style="margin:0 0 36px;font-size:14px;color:var(--ink-500);text-align:center;">We'll set up the right experience for you.</p>
+
+    <div role="radiogroup" aria-label="Are you a coach?" style="display:flex;flex-direction:column;gap:16px;">
+      <button role="radio" aria-checked="true" style="text-align:left;min-height:110px;border-radius:16px;border:2px solid var(--pine);background:var(--pine-tint);padding:20px;display:flex;flex-direction:column;gap:6px;cursor:pointer;position:relative;">
+        <span style="position:absolute;top:20px;right:20px;width:22px;height:22px;border-radius:50%;border:2px solid var(--pine);background:var(--pine);display:flex;align-items:center;justify-content:center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg>
+        </span>
+        <span style="font-family:var(--font-display);font-weight:700;font-size:19px;">Yes, I'm a coach</span>
+        <span style="font-size:13px;color:var(--pine-dark);line-height:1.5;max-width:280px;">Manage clients, track progress, and run your practice.</span>
+      </button>
+
+      <button role="radio" aria-checked="false" style="text-align:left;min-height:110px;border-radius:16px;border:2px solid var(--stone-300);background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:6px;cursor:pointer;position:relative;">
+        <span style="position:absolute;top:20px;right:20px;width:22px;height:22px;border-radius:50%;border:2px solid var(--stone-300);"></span>
+        <span style="font-family:var(--font-display);font-weight:700;font-size:19px;">No, I have a coach</span>
+        <span style="font-size:13px;color:var(--ink-500);line-height:1.5;max-width:280px;">Log workouts and meals, and stay in touch with your coach.</span>
+      </button>
+    </div>
+
+    <div style="flex-grow:1;"></div>
+
+    <p style="text-align:center;font-size:12px;color:var(--ink-500);margin:0;">Tapping a card continues automatically.</p>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "@omnifit/shared/tokens.css";
+
+/* Scan UI package for class names (Tailwind v4 content detection) */
+@source "../../../packages/ui/src/**/*.{js,ts,jsx,tsx}";
+
+/*
+  Map Design Doc / Color-System.dc.html tokens into Tailwind v4 theme.
+  Without this, utilities like bg-pine / text-ink-900 / border-stone-300
+  either missing or fall back to default Tailwind greys — not OmniFit cream/pine.
+*/
+@theme {
+  /* Brand */
+  --color-pine: var(--of-pine);
+  --color-pine-dark: var(--of-pine-dark);
+  --color-pine-tint: var(--of-pine-tint);
+  --color-plum: var(--of-plum);
+  --color-plum-dark: var(--of-plum-dark);
+  --color-plum-tint: var(--of-plum-tint);
+
+  /* Neutrals — override default Tailwind stone with OmniFit warm stones */
+  --color-ink-900: var(--of-ink-900);
+  --color-ink-700: var(--of-ink-700);
+  --color-ink-500: var(--of-ink-500);
+  --color-stone-300: var(--of-stone-300);
+  --color-stone-150: var(--of-stone-150);
+  --color-cream: var(--of-cream);
+  --color-surface: var(--of-surface);
+
+  /* Pastels */
+  --color-sage: var(--of-sage);
+  --color-sage-tint: var(--of-sage-tint);
+  --color-butter: var(--of-butter);
+  --color-peach: var(--of-peach);
+  --color-peach-tint: var(--of-peach-tint);
+  --color-peach-dark: var(--of-peach-dark);
+  --color-lilac: var(--of-lilac);
+  --color-lilac-tint: var(--of-lilac-tint);
+  --color-blush: var(--of-blush);
+  --color-sky: var(--of-sky);
+  --color-sky-tint: var(--of-sky-tint);
+  --color-sky-dark: var(--of-sky-dark);
+
+  /* Semantic */
+  --color-warning: var(--of-warning);
+  --color-warning-tint: var(--of-warning-tint);
+  --color-danger: var(--of-danger);
+  --color-danger-tint: var(--of-danger-tint);
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), var(--font-inter), "Space Grotesk", sans-serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+
+  /* Radii — Design Doc web components use 10px on buttons/inputs */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Motion */
+  --transition-duration-fast: var(--of-duration-fast);
+  --transition-duration-normal: var(--of-duration-normal);
+}
+
+@layer base {
+  body {
+    background-color: var(--of-cream);
+    color: var(--of-ink-900);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--of-focus-ring);
+  }
+
+  .btn-press:active {
+    transform: scale(0.96);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-press:active {
+      transform: none;
+    }
+  }
+}

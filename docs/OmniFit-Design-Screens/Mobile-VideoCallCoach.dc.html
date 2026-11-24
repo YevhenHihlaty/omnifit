@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Live session (coach)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-ctrlbtn{width:42px;height:42px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.of-check{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--stone-300);flex-shrink:0;appearance:none;-webkit-appearance:none;cursor:pointer;position:relative;}
+.of-check:checked{background:var(--pine);border-color:var(--pine);}
+.of-check:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <!-- Video dock -->
+  <div style="flex-shrink:0;height:230px;background:radial-gradient(circle at 50% 42%, #262A27 0%, #0B0D0C 75%);position:relative;">
+    <div style="position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--pine-dark);">AR</div>
+
+    <div style="position:absolute;top:44px;left:18px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.4);border-radius:999px;padding:6px 12px;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#E5675A;"></span>
+      <span style="font-size:11.5px;font-weight:600;color:#fff;">24:18</span>
+    </div>
+    <div style="position:absolute;bottom:10px;left:18px;">
+      <span style="background:rgba(0,0,0,0.4);border-radius:999px;padding:5px 12px;font-size:11.5px;font-weight:600;color:#fff;">Alex Romero</span>
+    </div>
+
+    <div style="position:absolute;top:80px;right:16px;width:64px;height:86px;border-radius:11px;background:linear-gradient(160deg,#3A3E3A 0%,#14181C 100%);border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;">
+      <span style="width:26px;height:26px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:10px;color:#14181C;">TB</span>
+    </div>
+
+    <div style="position:absolute;bottom:10px;right:16px;display:flex;gap:10px;">
+      <button class="of-ctrlbtn" style="background:rgba(255,255,255,0.18);color:#fff;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,2 a3.5,3.5 0 0 1 3.5,3.5 v6 a3.5,3.5 0 0 1 -7,0 v-6 A3.5,3.5 0 0 1 12,2 Z"></path><path d="M6,10.5 a6,6 0 0 0 12,0"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+      </button>
+      <button class="of-ctrlbtn" aria-label="End call" style="background:var(--danger);color:#fff;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12,17 c-4,0 -9,-3.5 -9,-6.5 c0,-1 1.5,-2 3,-2.5 c1,-0.3 1.8,0 2.2,0.8 l0.8,1.6 c0.3,0.6 0.1,1.2 -0.4,1.6 c-0.5,0.4 -0.7,0.9 -0.3,1.4 c0.8,1 2.2,1.6 3.7,1.6 s2.9,-0.6 3.7,-1.6 c0.4,-0.5 0.2,-1 -0.3,-1.4 c-0.5,-0.4 -0.7,-1 -0.4,-1.6 l0.8,-1.6 c0.4,-0.8 1.2,-1.1 2.2,-0.8 c1.5,0.5 3,1.5 3,2.5 C21,13.5 16,17 12,17 Z"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Session plan panel -->
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;padding:16px 20px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:4px;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Session plan</span>
+      <span style="font-size:12px;color:var(--ink-500);">Strength training</span>
+    </div>
+    <p style="margin:0 0 14px;font-size:12px;color:var(--ink-500);">Check off exercises as Alex completes them</p>
+
+    <div style="display:flex;flex-direction:column;gap:2px;overflow:hidden;">
+      <label style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+        <input type="checkbox" class="of-check" checked="">
+        <div style="flex-grow:1;"><div style="font-size:13.5px;font-weight:600;">Back squat</div><div style="font-size:11.5px;color:var(--ink-500);">4 × 8 @ 185 lb</div></div>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+        <input type="checkbox" class="of-check" checked="">
+        <div style="flex-grow:1;"><div style="font-size:13.5px;font-weight:600;">Romanian deadlift</div><div style="font-size:11.5px;color:var(--ink-500);">3 × 10 @ 135 lb</div></div>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);background:var(--pine-tint);margin:0 -12px;padding-left:12px;padding-right:12px;border-radius:10px;">
+        <input type="checkbox" class="of-check">
+        <div style="flex-grow:1;"><div style="font-size:13.5px;font-weight:600;">Walking lunges</div><div style="font-size:11.5px;color:var(--pine-dark);">3 × 12 @ 40 lb · in progress</div></div>
+      </label>
+      <label style="display:flex;align-items:center;gap:12px;padding:11px 0;">
+        <input type="checkbox" class="of-check">
+        <div style="flex-grow:1;"><div style="font-size:13.5px;font-weight:600;color:var(--ink-500);">Cool-down stretch</div><div style="font-size:11.5px;color:var(--ink-500);">5 min</div></div>
+      </label>
+    </div>
+  </div>
+
+  <div style="flex-shrink:0;padding:12px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+    <button style="width:100%;height:44px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Add note for Alex</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

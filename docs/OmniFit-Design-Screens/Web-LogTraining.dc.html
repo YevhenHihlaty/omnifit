@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log training (web)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --sky-tint:#EAF3F8;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-navitem{display:flex;align-items:center;gap:11px;padding:9px 14px;border-radius:9px;color:#9CA69C;text-decoration:none;font-size:13.5px;font-weight:600;}
+.of-navitem.active{background:rgba(255,255,255,0.08);color:#FBF7EF;}
+.of-row{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--stone-150);cursor:pointer;}
+.of-row.selected{background:var(--pine-tint);}
+.of-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12.5px;color:var(--ink-900);}
+.of-sportchip{border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:13px;font-weight:600;padding:7px 15px;cursor:pointer;white-space:nowrap;}
+.of-sportchip.active{border-color:var(--ink-900);background:var(--ink-900);color:var(--cream);}
+.of-field{width:100%;height:40px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 12px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;}
+th{text-align:left;font-size:11.5px;font-weight:700;color:var(--ink-500);text-transform:uppercase;letter-spacing:0.03em;padding:0 10px 10px;}
+td{padding:6px 10px;}
+</style>
+</helmet>
+<div style="width:1440px;height:920px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Sidebar -->
+  <div style="width:240px;flex-shrink:0;background:var(--ink-900);color:#EDEAE0;display:flex;flex-direction:column;padding:24px 16px;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:9px;padding:0 8px;margin-bottom:32px;">
+      <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#8FB89B" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="#8FB89B"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:17px;color:#FBF7EF;">OmniFit</span>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:3px;">
+      <a class="of-navitem" href="#dashboard"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"></rect><rect x="13" y="3" width="8" height="8" rx="1.5"></rect><rect x="3" y="13" width="8" height="8" rx="1.5"></rect><rect x="13" y="13" width="8" height="8" rx="1.5"></rect></svg>Dashboard</a>
+      <a class="of-navitem active" href="#clients"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5,20 c0,-4 3,-6.5 6.5,-6.5 s6.5,2.5 6.5,6.5"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M15.5,13.3 c2.8,0.3 5,2.6 5,6.7"></path></svg>My Clients</a>
+      <a class="of-navitem" href="#sessions"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>Sessions</a>
+      <a class="of-navitem" href="#programs"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4,4 h13 l3,3 v13 H4 Z"></path><line x1="8" y1="10" x2="16" y2="10"></line><line x1="8" y1="14" x2="16" y2="14"></line></svg>Programs</a>
+      <a class="of-navitem" href="#messages"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>Messages</a>
+    </nav>
+    <div style="flex-grow:1;"></div>
+    <div style="display:flex;align-items:center;gap:10px;padding:8px;">
+      <span style="width:32px;height:32px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:#14181C;">TB</span>
+      <div style="min-width:0;"><div style="font-size:13px;font-weight:600;color:#FBF7EF;">Taylor Brooks</div><div style="font-size:11.5px;color:#6E7268;">Coach</div></div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex-grow:1;display:flex;flex-direction:column;min-width:0;">
+
+    <div style="flex-shrink:0;padding:24px 32px;border-bottom:1px solid var(--stone-300);">
+      <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Log training</h1>
+      <p style="margin:2px 0 0;font-size:13px;color:var(--ink-500);">Record a completed workout on behalf of a client</p>
+    </div>
+
+    <div style="flex-grow:1;display:flex;min-height:0;">
+
+      <!-- Client list pane -->
+      <div style="width:340px;flex-shrink:0;border-right:1px solid var(--stone-300);display:flex;flex-direction:column;min-height:0;">
+        <div style="padding:16px 16px 12px;flex-shrink:0;">
+          <div style="position:relative;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="search" placeholder="Search clients" style="width:100%;height:38px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 12px 0 34px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;">
+          </div>
+        </div>
+        <div style="overflow:hidden;flex-grow:1;">
+          <div class="of-row"><span class="of-avatar" style="background:var(--sky-tint);">AR</span><div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:13.5px;">Alex Romero</div><div style="font-size:12px;color:var(--ink-500);">Last workout: yesterday</div></div></div>
+          <div class="of-row"><span class="of-avatar" style="background:var(--butter-tint,#FAF0CE);">PN</span><div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:13.5px;">Priya Nair</div><div style="font-size:12px;color:var(--ink-500);">Last workout: 6 days ago</div></div></div>
+          <div class="of-row"><span class="of-avatar" style="background:#F1EBFA;">DW</span><div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:13.5px;">Devon Ward</div><div style="font-size:12px;color:var(--ink-500);">No workouts yet</div></div></div>
+          <div class="of-row selected"><span class="of-avatar" style="background:#FBEDE1;">SO</span><div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:13.5px;">Sam Okafor</div><div style="font-size:12px;color:var(--ink-500);">Last workout: today</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg></div>
+          <div class="of-row"><span class="of-avatar" style="background:var(--sky-tint);">JB</span><div style="flex-grow:1;min-width:0;"><div style="font-weight:600;font-size:13.5px;">Jordan Blake</div><div style="font-size:12px;color:var(--ink-500);">Last workout: 2 days ago</div></div></div>
+        </div>
+      </div>
+
+      <!-- Log pane -->
+      <div style="flex-grow:1;overflow:hidden;padding:28px 40px;display:flex;flex-direction:column;min-width:0;">
+
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <span class="of-avatar" style="width:44px;height:44px;font-size:14px;background:#FBEDE1;">SO</span>
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:16px;">Sam Okafor</div><div style="font-size:12.5px;color:var(--ink-500);">Logging workout for today, Sep 20</div></div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-bottom:20px;">
+          <button class="of-sportchip active">Strength</button>
+          <button class="of-sportchip">Running</button>
+          <button class="of-sportchip">Cycling</button>
+          <button class="of-sportchip">Swimming</button>
+          <button class="of-sportchip">Mobility</button>
+        </div>
+
+        <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+          <table style="width:100%;border-collapse:collapse;">
+            <thead><tr><th style="width:38%;">Exercise</th><th style="width:16%;">Sets</th><th style="width:16%;">Reps</th><th style="width:20%;">Weight (lb)</th><th style="width:10%;"></th></tr></thead>
+            <tbody>
+              <tr><td><input class="of-field" value="Back squat"></td><td><input class="of-field" value="4"></td><td><input class="of-field" value="8"></td><td><input class="of-field" value="185"></td><td><button aria-label="Remove" style="border:none;background:none;color:var(--ink-500);cursor:pointer;padding:6px;">✕</button></td></tr>
+              <tr><td><input class="of-field" value="Romanian deadlift"></td><td><input class="of-field" value="3"></td><td><input class="of-field" value="10"></td><td><input class="of-field" value="135"></td><td><button aria-label="Remove" style="border:none;background:none;color:var(--ink-500);cursor:pointer;padding:6px;">✕</button></td></tr>
+              <tr><td><input class="of-field" value="Walking lunges"></td><td><input class="of-field" value="3"></td><td><input class="of-field" value="12"></td><td><input class="of-field" value="40"></td><td><button aria-label="Remove" style="border:none;background:none;color:var(--ink-500);cursor:pointer;padding:6px;">✕</button></td></tr>
+              <tr><td><input class="of-field" placeholder="Exercise name"></td><td><input class="of-field"></td><td><input class="of-field"></td><td><input class="of-field"></td><td></td></tr>
+            </tbody>
+          </table>
+          <button style="align-self:flex-start;border:1.5px dashed var(--stone-300);border-radius:9px;background:none;color:var(--ink-700);font-family:var(--font-body);font-weight:600;font-size:13px;padding:9px 16px;cursor:pointer;margin-top:8px;display:flex;align-items:center;gap:7px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add exercise
+          </button>
+
+          <div style="margin-top:22px;">
+            <label style="font-size:12.5px;font-weight:600;color:var(--ink-700);display:block;margin-bottom:6px;">Notes for client</label>
+            <textarea placeholder="How did the session go?" style="width:100%;height:64px;border-radius:9px;border:1.5px solid var(--stone-300);background:var(--surface);padding:10px 12px;font-family:var(--font-body);font-size:13.5px;box-sizing:border-box;resize:none;"></textarea>
+          </div>
+        </div>
+
+        <div style="flex-shrink:0;display:flex;justify-content:flex-end;gap:10px;padding-top:20px;border-top:1px solid var(--stone-300);margin-top:20px;">
+          <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:11px 20px;cursor:pointer;">Cancel</button>
+          <button style="border:none;border-radius:9px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:11px 22px;cursor:pointer;">Save workout</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Client home (mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.ofc-check{appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--stone-300);background:var(--surface);flex-shrink:0;cursor:pointer;position:relative;}
+.ofc-check:checked{background:var(--pine);border-color:var(--pine);}
+.ofc-check:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid var(--surface);border-width:0 2px 2px 0;transform:rotate(40deg);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:28px 20px 16px;display:flex;flex-direction:column;gap:22px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-size:13px;color:var(--ink-500);">Good morning</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Devon</div>
+      </div>
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--sky);color:#3B5878;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">DW</div>
+    </div>
+
+    <div style="background:var(--ink-900);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <span style="color:var(--cream);font-size:13px;">Calories today</span>
+        <span style="color:var(--cream);font-family:var(--font-display);font-weight:500;font-size:13px;">1,450 / 2,100</span>
+      </div>
+      <div style="width:100%;height:10px;border-radius:999px;background:rgba(251,247,239,0.16);"><div style="width:69%;height:100%;border-radius:999px;background:var(--sage);"></div></div>
+      <div style="display:flex;gap:18px;">
+        <span style="color:#8A8F82;font-size:12px;">Protein <b style="color:var(--cream);font-family:var(--font-display);font-weight:500;">88g</b></span>
+        <span style="color:#8A8F82;font-size:12px;">Carbs <b style="color:var(--cream);font-family:var(--font-display);font-weight:500;">140g</b></span>
+        <span style="color:#8A8F82;font-size:12px;">Fat <b style="color:var(--cream);font-family:var(--font-display);font-weight:500;">42g</b></span>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+      <button style="height:76px;border-radius:14px;border:none;background:var(--peach);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8A5A2E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6,3 v8 a3,3 0 0 0 6,0 V3"></path><line x1="9" y1="11" x2="9" y2="21"></line><path d="M17,3 c-2,3 -2,6 0,9 v9"></path></svg>
+        <span style="font-size:11px;font-weight:600;color:#8A5A2E;">Log meal</span>
+      </button>
+      <button style="height:76px;border-radius:14px;border:none;background:var(--sage);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="6" y1="7" x2="6" y2="17"></line><line x1="18" y1="7" x2="18" y2="17"></line></svg>
+        <span style="font-size:11px;font-weight:600;color:var(--pine-dark);">Log training</span>
+      </button>
+      <button style="height:76px;border-radius:14px;border:none;background:var(--lilac);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--plum-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12,3 c4,4 6,7 6,10 a6,6 0 0 1 -12,0 c0,-3 2,-6 6,-10 Z"></path></svg>
+        <span style="font-size:11px;font-weight:600;color:var(--plum-dark);">Body metrics</span>
+      </button>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:13px;font-weight:700;color:var(--ink-900);">Today's habits</div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:6px 16px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+          <input type="checkbox" class="ofc-check" checked="" aria-label="8 glasses of water — done">
+          <span style="font-size:14px;flex-grow:1;">Drink 8 glasses of water</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+          <input type="checkbox" class="ofc-check" checked="" aria-label="8,000 steps — done">
+          <span style="font-size:14px;flex-grow:1;">Hit 8,000 steps</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:11px 0;">
+          <input type="checkbox" class="ofc-check" aria-label="Sleep 7+ hours — not done">
+          <span style="font-size:14px;flex-grow:1;color:var(--ink-500);">Sleep 7+ hours</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:13px;font-weight:700;color:var(--ink-900);">Upcoming session</div>
+      <div style="background:var(--sage);border-radius:14px;padding:16px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-weight:600;font-size:14px;color:var(--pine-dark);">Check-in call · Taylor Brooks</div>
+          <div style="font-size:12px;color:var(--pine-dark);opacity:0.8;">Today, 3:30 PM · Video, 20 min</div>
+        </div>
+        <button style="height:34px;padding:0 14px;background:var(--pine);color:var(--surface);border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">Join</button>
+      </div>
+    </div>
+
+  </div>
+
+  <nav style="flex-shrink: 0; height: 73px; background: var(--surface); border-top: 1px solid var(--stone-300); display: grid; grid-template-columns: repeat(4,1fr); align-items: center">
+    <a href="#home" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--pine-dark);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="2"></rect><polyline points="3,10 12,3 21,10"></polyline></svg>
+      <span style="font-size:10px;font-weight:600;">Home</span>
+    </a>
+    <a href="#log" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"></line><line x1="4" y1="12" x2="20" y2="12"></line></svg>
+      <span style="font-size:10px;font-weight:500;">Log</span>
+    </a>
+    <a href="#progress" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,17 10,10 14,14 20,6"></polyline></svg>
+      <span style="font-size:10px;font-weight:500;">Progress</span>
+    </a>
+    <a href="#messages" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,5 H20 V16 H9 L4,20 Z"></path></svg>
+      <span style="font-size:10px;font-weight:500;">Coach</span>
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

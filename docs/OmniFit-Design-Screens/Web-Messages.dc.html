@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach Messages</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.sidebar{width:280px;flex:0 0 280px;background:var(--ink-900);box-sizing:border-box;padding:28px 20px;display:flex;flex-direction:column;gap:28px;}
+.brandmark{display:flex;align-items:center;gap:10px;padding:0 6px;}
+.brandmark .mark{width:30px;height:30px;border-radius:8px;background:var(--pine);display:flex;align-items:center;justify-content:center;flex:0 0 30px;}
+.brandmark span{font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--cream);}
+.navgroup{display:flex;flex-direction:column;gap:4px;}
+.navlink{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);font-family:var(--font-body);font-size:14px;font-weight:500;text-decoration:none;opacity:.78;}
+.navlink svg{flex:0 0 18px;width:18px;height:18px;}
+.navlink.active{background:var(--pine);color:var(--surface);opacity:1;font-weight:600;}
+.main{flex:1 1 auto;padding:36px 40px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px;min-width:0;}
+.pagehead h1{font-family:var(--font-display);font-size:22px;font-weight:700;margin:0;}
+.panes{display:flex;flex:1 1 auto;min-height:0;border:1px solid var(--stone-300);border-radius:16px;overflow:hidden;background:var(--surface);}
+.convcol{width:340px;flex:0 0 340px;border-right:1px solid var(--stone-300);display:flex;flex-direction:column;}
+.searchwrap{padding:16px;border-bottom:1px solid var(--stone-150);}
+.searchbox{position:relative;}
+.searchbox svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ink-500);}
+.searchbox input{width:100%;height:40px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 12px 0 34px;background:var(--cream);font-size:13.5px;font-family:var(--font-body);box-sizing:border-box;}
+.searchbox input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.convlist{overflow:hidden;display:flex;flex-direction:column;}
+.convrow{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-bottom:1px solid var(--stone-150);cursor:pointer;}
+.convrow.active{background:var(--pine-tint);}
+.av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--ink-900);flex:0 0 38px;}
+.crmain{flex:1 1 auto;min-width:0;}
+.crtop{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+.crname{font-size:13.5px;font-weight:600;color:var(--ink-900);}
+.crtime{font-size:11px;color:var(--ink-500);flex:0 0 auto;}
+.crmsg{font-size:12.5px;color:var(--ink-500);margin:2px 0 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.convrow.active .crmsg{color:var(--ink-700);}
+.unread-badge{background:var(--pine);color:var(--surface);font-size:10px;font-weight:700;border-radius:999px;min-width:18px;height:18px;padding:0 5px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.threadcol{flex:1 1 auto;display:flex;flex-direction:column;min-width:0;}
+.threadhdr{display:flex;align-items:center;gap:12px;padding:14px 22px;border-bottom:1px solid var(--stone-150);}
+.threadhdr .tname{font-size:14.5px;font-weight:600;color:var(--ink-900);}
+.threadhdr .tstat{font-size:11.5px;color:var(--ink-500);}
+.thread-body{flex:1 1 auto;padding:24px 26px;display:flex;flex-direction:column;gap:14px;overflow:hidden;background:var(--cream);}
+.daylabel{align-self:center;font-size:11px;color:var(--ink-500);font-weight:600;background:var(--stone-150);padding:4px 12px;border-radius:999px;}
+.bubblerow{display:flex;}
+.bubblerow.out{justify-content:flex-end;}
+.bubble{max-width:420px;padding:12px 16px;border-radius:16px;font-size:13.5px;line-height:1.5;}
+.bubble.in{background:var(--surface);border:1px solid var(--stone-300);color:var(--ink-900);border-bottom-left-radius:4px;}
+.bubble.out{background:var(--ink-900);color:var(--cream);border-bottom-right-radius:4px;}
+.btime{font-size:10.5px;color:var(--ink-500);margin-top:4px;}
+.bubblerow.out .btime{text-align:right;}
+.composer{display:flex;align-items:center;gap:10px;padding:16px 22px;border-top:1px solid var(--stone-300);}
+.composer input{flex:1 1 auto;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 16px;font-size:14px;font-family:var(--font-body);box-sizing:border-box;}
+.composer input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.attachbtn{width:42px;height:42px;border-radius:10px;border:1.5px solid var(--stone-300);background:transparent;color:var(--ink-700);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 42px;}
+.attachbtn svg{width:18px;height:18px;}
+.sendbtn{width:44px;height:44px;border-radius:10px;border:none;background:var(--pine);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 44px;}
+.sendbtn svg{width:18px;height:18px;}
+.smallcap{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);}
+.emptywrap{border:1px solid var(--stone-300);border-radius:16px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;padding:44px 24px;}
+.empty-icon{width:64px;height:64px;border-radius:50%;background:var(--stone-150);display:flex;align-items:center;justify-content:center;color:var(--ink-500);}
+.empty-icon svg{width:26px;height:26px;}
+.emptywrap h3{margin:0;font-family:var(--font-display);font-size:15px;font-weight:700;}
+.emptywrap p{margin:0;color:var(--ink-500);font-size:13px;max-width:320px;}
+</style>
+</helmet>
+<div style="width:1440px;height:1180px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <aside class="sidebar">
+    <div class="brandmark">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c4-8 8-10 16-11-1 8-3 12-11 16z"/><path d="M4 14l6 6"/></svg></div>
+      <span>OmniFit</span>
+    </div>
+    <nav class="navgroup">
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>My clients</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sessions</a>
+      <a class="navlink active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-3.8 7.1 8.5 8.5 0 0 1-8.9.5L3 21l1.9-5.3a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.4h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messages</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Tasks</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg>Notes</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="pagehead"><h1>Messages</h1></div>
+
+    <div class="panes" style="height:780px;">
+      <div class="convcol">
+        <div class="searchwrap">
+          <div class="searchbox">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" placeholder="Search conversations">
+          </div>
+        </div>
+        <div class="convlist">
+          <div class="convrow active">
+            <span class="av" style="background:var(--sky);">MR</span>
+            <div class="crmain">
+              <div class="crtop"><span class="crname">Maya R.</span><span class="crtime">2m</span></div>
+              <p class="crmsg">Can we move Thursday to 6pm instead?</p>
+            </div>
+            <span class="unread-badge">2</span>
+          </div>
+          <div class="convrow">
+            <span class="av" style="background:var(--butter);">JT</span>
+            <div class="crmain">
+              <div class="crtop"><span class="crname">Jon T.</span><span class="crtime">28m</span></div>
+              <p class="crmsg">Sounds good, see you then!</p>
+            </div>
+          </div>
+          <div class="convrow">
+            <span class="av" style="background:var(--peach);">SK</span>
+            <div class="crmain">
+              <div class="crtop"><span class="crname">Sana K.</span><span class="crtime">1h</span></div>
+              <p class="crmsg">Just uploaded this week's photos</p>
+            </div>
+            <span class="unread-badge">1</span>
+          </div>
+          <div class="convrow">
+            <span class="av" style="background:var(--lilac);">PM</span>
+            <div class="crmain">
+              <div class="crtop"><span class="crname">Priya M.</span><span class="crtime">Yesterday</span></div>
+              <p class="crmsg">Thanks for adjusting the plan</p>
+            </div>
+          </div>
+          <div class="convrow">
+            <span class="av" style="background:var(--blush);">DL</span>
+            <div class="crmain">
+              <div class="crtop"><span class="crname">Diego L.</span><span class="crtime">Mon</span></div>
+              <p class="crmsg">Quick question about macros</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="threadcol">
+        <div class="threadhdr">
+          <span class="av" style="background:var(--sky);width:34px;height:34px;flex:0 0 34px;font-size:12px;">MR</span>
+          <div>
+            <div class="tname">Maya R.</div>
+            <div class="tstat">Active client · Pro plan</div>
+          </div>
+        </div>
+        <div class="thread-body">
+          <span class="daylabel">Today</span>
+          <div class="bubblerow">
+            <div>
+              <div class="bubble in">Hey! Quick one — can we move Thursday's session to 6pm instead of 5?</div>
+              <div class="btime">9:12 AM</div>
+            </div>
+          </div>
+          <div class="bubblerow out">
+            <div>
+              <div class="bubble out">Works for me. I'll update the booking now.</div>
+              <div class="btime">9:15 AM</div>
+            </div>
+          </div>
+          <div class="bubblerow">
+            <div>
+              <div class="bubble in">Perfect, thank you!</div>
+              <div class="btime">9:16 AM</div>
+            </div>
+          </div>
+          <div class="bubblerow">
+            <div>
+              <div class="bubble in">Can we move Thursday to 6pm instead?</div>
+              <div class="btime">9:40 AM</div>
+            </div>
+          </div>
+        </div>
+        <form class="composer">
+          <button class="attachbtn" type="button" aria-label="Attach file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05 12.25 20.24a5.5 5.5 0 0 1-7.78-7.78l9.19-9.19a3.5 3.5 0 0 1 4.95 4.95l-9.2 9.19a1.5 1.5 0 0 1-2.12-2.12l8.49-8.48"/></svg></button>
+          <label for="msginput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Message</label>
+          <input id="msginput" type="text" placeholder="Write a message…">
+          <button class="sendbtn" type="submit" aria-label="Send message"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/></svg></button>
+        </form>
+      </div>
+    </div>
+
+    <span class="smallcap">Empty inbox — reference</span>
+    <div class="emptywrap" style="height:200px;">
+      <div class="empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-3.8 7.1 8.5 8.5 0 0 1-8.9.5L3 21l1.9-5.3a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.4h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+      <h3>No messages yet</h3>
+      <p>When a client messages you, their conversation will show up here.</p>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

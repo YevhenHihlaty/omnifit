@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach home (mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:28px 20px 16px;display:flex;flex-direction:column;gap:20px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-size:13px;color:var(--ink-500);">Good morning</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Taylor</div>
+      </div>
+      <button aria-label="Notifications" style="width:40px;height:40px;border-radius:50%;background:var(--surface);border:1px solid var(--stone-300);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6,10 a6,6 0 0 1 12,0 c0,5 2,6 2,6 H4 c0,0 2,-1 2,-6 Z"></path><path d="M10,20 a2,2 0 0 0 4,0"></path></svg>
+        <span style="position:absolute;top:6px;right:7px;width:8px;height:8px;border-radius:50%;background:var(--pine);"></span>
+      </button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;">
+      <div style="background:var(--sage);border-radius:14px;padding:14px 16px;">
+        <div style="font-size:12px;color:var(--pine-dark);opacity:0.85;">Active clients</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:24px;margin-top:2px;color:var(--ink-900);">24</div>
+      </div>
+      <div style="background:var(--peach);border-radius:14px;padding:14px 16px;">
+        <div style="font-size:12px;color:#8A5A2E;opacity:0.85;">Sessions today</div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:24px;margin-top:2px;color:var(--ink-900);">5</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <span style="font-size:13px;font-weight:700;">Today's schedule</span>
+        <a href="#sessions" style="font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">See all</a>
+      </div>
+      <div style="background:var(--ink-900);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-weight:600;font-size:14px;color:var(--cream);">Strength session · Sam Okafor</div>
+          <div style="font-size:12px;color:#8A8F82;">In studio · 45 min</div>
+        </div>
+        <span style="background:var(--sage);color:var(--pine-dark);font-family:var(--font-body);font-size:10px;font-weight:600;padding:4px 9px;border-radius:999px;">Now</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <div style="font-weight:600;font-size:14px;">Program review · Priya Nair</div>
+          <div style="font-size:12px;color:var(--ink-500);">1:00 PM · Video, 30 min</div>
+        </div>
+        <span style="background:var(--lilac);color:var(--plum-dark);font-family:var(--font-body);font-size:10px;font-weight:600;padding:4px 9px;border-radius:999px;">Upcoming</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;flex-grow:1;min-height:0;">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;">
+        <span style="font-size:13px;font-weight:700;">Needs attention</span>
+        <a href="#clients" style="font-size:12px;color:var(--plum-dark);text-decoration:none;font-weight:600;">My clients</a>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--stone-150);">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--peach);color:#8A5A2E;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;flex-shrink:0;">PN</div>
+          <div style="flex-grow:1;"><div style="font-weight:600;font-size:14px;">Priya Nair</div><div style="font-size:12px;color:var(--ink-500);">2 days since last check-in</div></div>
+          <span style="background:var(--butter);color:var(--warning);font-family:var(--font-body);font-size:10px;font-weight:600;padding:4px 9px;border-radius:999px;">At risk</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--sky);color:#3B5878;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;flex-shrink:0;">DW</div>
+          <div style="flex-grow:1;"><div style="font-weight:600;font-size:14px;">Devon Ward</div><div style="font-size:12px;color:var(--ink-500);">Nutrition coaching · just joined</div></div>
+          <span style="background:var(--lilac);color:var(--plum-dark);font-family:var(--font-body);font-size:10px;font-weight:600;padding:4px 9px;border-radius:999px;">New</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <nav style="flex-shrink:0;height:76px;background:var(--surface);border-top:1px solid var(--stone-300);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;">
+    <a href="#dashboard" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--pine-dark);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="2"></rect><polyline points="3,10 12,3 21,10"></polyline></svg>
+      <span style="font-size:10px;font-weight:600;">Home</span>
+    </a>
+    <a href="#clients" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 C4,15 8,13 12,13 C16,13 20,15 20,21"></path></svg>
+      <span style="font-size:10px;font-weight:500;">Clients</span>
+    </a>
+    <a href="#sessions" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span style="font-size:10px;font-weight:500;">Sessions</span>
+    </a>
+    <a href="#messages" style="display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-500);">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,5 H20 V16 H9 L4,20 Z"></path></svg>
+      <span style="font-size:10px;font-weight:500;">Messages</span>
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

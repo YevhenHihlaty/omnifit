@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Network Error</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.top-bar{display:flex;align-items:center;padding:28px 46px;box-sizing:border-box;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-word{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink-900);}
+.center-wrap{flex:1;display:flex;align-items:center;justify-content:center;}
+.error-card{width:440px;box-sizing:border-box;background:var(--surface);border:1px solid var(--stone-300);border-radius:18px;padding:44px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.error-icon{width:88px;height:88px;border-radius:50%;background:var(--danger-tint);display:flex;align-items:center;justify-content:center;margin-bottom:26px;flex-shrink:0;}
+.error-heading{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink-900);margin:0 0 12px;}
+.error-sub{font-size:14.5px;color:var(--ink-500);line-height:1.6;margin:0 0 30px;}
+.error-code{font-size:12px;color:var(--ink-500);font-family:monospace;background:var(--stone-150);border-radius:6px;padding:4px 10px;margin-bottom:26px;}
+.btn-primary{height:46px;border-radius:10px;background:var(--pine);color:var(--cream);font-weight:600;font-size:14.5px;border:none;font-family:var(--font-body);cursor:pointer;width:100%;}
+.btn-tertiary{background:transparent;border:none;color:var(--plum-dark);font-weight:600;font-size:14px;cursor:pointer;font-family:var(--font-body);margin-top:16px;padding:0;}
+</style>
+</helmet>
+<div style="width:1440px;height:900px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div class="top-bar">
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#3F6B4F" stroke-width="9"/><circle cx="90" cy="32" r="14" fill="#3F6B4F"/></svg>
+      <span class="brand-word">OmniFit</span>
+    </div>
+  </div>
+
+  <div class="center-wrap">
+    <div class="error-card">
+      <div class="error-icon">
+        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#C1503D" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9z"/><path d="M5 13l2 2a8.5 8.5 0 0 1 10 0l2-2a11.5 11.5 0 0 0-14 0z"/><path d="M9 17l2 2a2.5 2.5 0 0 1 2 0l2-2a5.5 5.5 0 0 0-6 0z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+      </div>
+      <h1 class="error-heading">You're offline</h1>
+      <p class="error-sub">We couldn't reach OmniFit's servers. Check your internet connection and try again.</p>
+      <div class="error-code">ERROR_NETWORK_UNREACHABLE</div>
+      <button class="btn-primary" type="button">Retry</button>
+      <button class="btn-tertiary" type="button">Contact support</button>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

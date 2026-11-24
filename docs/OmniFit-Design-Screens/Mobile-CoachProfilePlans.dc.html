@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach profile · Plans</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tagchip{display:inline-flex;align-items:center;background:var(--pine-tint);color:var(--pine-dark);font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:13px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-plan{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;">
+      <button aria-label="Back" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+    </div>
+
+    <div style="padding:8px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:9px;">
+      <span style="width:76px;height:76px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--pine-dark);">TB</span>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">Taylor Brooks</div>
+        <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;">4.8★ · 24 active clients</div>
+      </div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+        <span class="of-tagchip">Weight Lifting</span><span class="of-tagchip">General Fitness</span><span class="of-tagchip">Mobility</span>
+      </div>
+      <button style="height:36px;padding:0 18px;border-radius:999px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;">Edit profile</button>
+    </div>
+
+    <div style="display:flex;gap:14px;padding:18px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab active">Plans</button>
+      <button class="of-tab">Locations</button>
+      <button class="of-tab">Credentials</button>
+      <button class="of-tab">Settings</button>
+    </div>
+
+    <div style="padding:16px 20px 18px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:10px;">
+
+      <div style="display:flex;justify-content:flex-end;">
+        <button style="display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;border:none;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:12px;cursor:pointer;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          Create plan
+        </button>
+      </div>
+
+      <div class="of-plan">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">1:1 coaching session</div><div style="font-size:12px;color:var(--ink-500);margin-top:2px;">60 min · single session</div></div>
+          <button aria-label="Edit" style="width:28px;height:28px;border:none;background:transparent;color:var(--ink-500);cursor:pointer;padding:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,20 h9"></path><path d="M16.5,3.5 a2.1,2.1 0 0 1 3,3 L7,19 l-4,1 1,-4 Z"></path></svg></button>
+        </div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">$85</div>
+      </div>
+
+      <div class="of-plan">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Monthly program</div><div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Full plan · per month</div></div>
+          <button aria-label="Edit" style="width:28px;height:28px;border:none;background:transparent;color:var(--ink-500);cursor:pointer;padding:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,20 h9"></path><path d="M16.5,3.5 a2.1,2.1 0 0 1 3,3 L7,19 l-4,1 1,-4 Z"></path></svg></button>
+        </div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">$220</div>
+      </div>
+
+      <div class="of-plan">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+          <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Nutrition add-on</div><div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Optional · per month</div></div>
+          <button aria-label="Edit" style="width:28px;height:28px;border:none;background:transparent;color:var(--ink-500);cursor:pointer;padding:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,20 h9"></path><path d="M16.5,3.5 a2.1,2.1 0 0 1 3,3 L7,19 l-4,1 1,-4 Z"></path></svg></button>
+        </div>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">$45</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

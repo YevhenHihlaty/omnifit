@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — No connection</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:20px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:9px;opacity:0.5;">
+    <svg width="20" height="20" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+    <span style="font-family:var(--font-display);font-weight:700;font-size:15px;">OmniFit</span>
+  </div>
+
+  <div style="flex-grow:1;overflow:hidden;padding:0 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+
+    <span style="width:76px;height:76px;border-radius:50%;background:var(--stone-150);display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2,8.5 c5.5,-5 14.5,-5 20,0"></path><path d="M6,13 c4,-3.3 8,-3.3 12,0"></path><path d="M9.5,17.5 c1.8,-1.5 3.2,-1.5 5,0"></path><line x1="12" y1="21" x2="12.01" y2="21"></line><line x1="2" y1="2" x2="22" y2="22"></line></svg>
+    </span>
+
+    <h1 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.01em;">No connection</h1>
+    <p style="margin:0 0 28px;font-size:14px;color:var(--ink-500);line-height:1.6;max-width:260px;">Check your network and try again.</p>
+
+    <button style="width:100%;max-width:220px;height:46px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;">Retry</button>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

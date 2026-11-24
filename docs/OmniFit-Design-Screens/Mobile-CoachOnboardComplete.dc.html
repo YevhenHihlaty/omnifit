@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — You're live</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-card{background:var(--surface);border:1px solid var(--stone-150);border-radius:18px;box-shadow:0 1px 2px rgba(20,24,28,0.04), 0 12px 28px -18px rgba(20,24,28,0.16);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:64px 28px 24px;display:flex;flex-direction:column;align-items:center;">
+
+    <span style="width:72px;height:72px;border-radius:50%;background:var(--pine);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 26px -12px rgba(63,107,79,0.55);margin-bottom:22px;">
+      <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="24" fill="none" stroke="var(--cream)" stroke-width="8"></circle><circle cx="82" cy="38" r="11" fill="var(--cream)"></circle></svg>
+    </span>
+
+    <h1 style="margin:0 0 8px;font-family:var(--font-display);font-weight:700;font-size:25px;letter-spacing:-0.01em;text-align:center;text-wrap:balance;">You're live, Taylor!</h1>
+    <p style="margin:0 0 28px;font-size:14px;color:var(--ink-500);text-align:center;line-height:1.5;max-width:280px;">Your practice is set up and ready for clients to find you.</p>
+
+    <div class="of-card" style="width:100%;padding:6px;display:flex;flex-direction:column;">
+
+      <div style="display:flex;align-items:center;gap:13px;padding:12px 12px;">
+        <span style="width:38px;height:38px;border-radius:11px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,2 l2.4,4.9 5.4,0.8 -3.9,3.8 0.9,5.4 -4.8,-2.5 -4.8,2.5 0.9,-5.4 -3.9,-3.8 5.4,-0.8 Z"></path></svg></span>
+        <div style="flex-grow:1;"><div style="font-size:11px;color:var(--ink-500);">Profile</div><div style="font-weight:600;font-size:14px;margin-top:1px;">Published &amp; searchable</div></div>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg>
+      </div>
+
+      <div style="height:1px;background:var(--stone-150);margin:0 12px;"></div>
+
+      <div style="display:flex;align-items:center;gap:13px;padding:12px 12px;">
+        <span style="width:38px;height:38px;border-radius:11px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5,20 a7,6 0 0 1 14,0"></path></svg></span>
+        <div style="flex-grow:1;"><div style="font-size:11px;color:var(--ink-500);">First client invited</div><div style="font-weight:600;font-size:14px;margin-top:1px;">jordan.blake@email.com</div></div>
+      </div>
+
+      <div style="height:1px;background:var(--stone-150);margin:0 12px;"></div>
+
+      <div style="display:flex;align-items:center;gap:13px;padding:12px 12px;">
+        <span style="width:38px;height:38px;border-radius:11px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8,10 V7 a4,4 0 0 1 8,0 v3"></path></svg></span>
+        <div style="flex-grow:1;"><div style="font-size:11px;color:var(--ink-500);">Next payout</div><div style="font-weight:600;font-size:14px;margin-top:1px;">Friday, Sep 25</div></div>
+      </div>
+
+    </div>
+
+    <div style="flex-grow:1;"></div>
+
+    <button style="width:100%;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Go to your dashboard</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

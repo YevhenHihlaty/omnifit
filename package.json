@@ -1,0 +1,21 @@
+{
+  "name": "omni-fit",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w web",
+    "build:web": "npm run build -w web",
+    "test": "npm run test -w @omnifit/shared --if-present && npm run test -w web --if-present",
+    "test:e2e": "npm run test:e2e -w web",
+    "check:brand": "node scripts/check-no-coachr.js",
+    "migrate:check": "node bd-scripts/scripts/migrate.mjs check",
+    "migrate:apply": "node bd-scripts/scripts/migrate.mjs apply",
+    "test:bd": "node bd-scripts/scripts/run-pgtap.mjs"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.2"
+  }
+}

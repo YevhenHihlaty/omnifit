@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Client snapshot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-stat{flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:12px 10px;display:flex;flex-direction:column;gap:3px;}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:13px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:52px 20px 0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <button aria-label="Back" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Client</span>
+      <button aria-label="More options" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+      </button>
+    </div>
+
+    <div style="padding:18px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <span style="width:68px;height:68px;border-radius:50%;background:var(--butter-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:20px;">PN</span>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:19px;">Priya Nair</div>
+        <div style="font-size:13px;color:var(--ink-500);margin-top:2px;">Weight loss · Online coaching</div>
+      </div>
+      <span style="background:var(--butter-tint);color:var(--butter-dark);font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px;">At risk — no check-in in 6 days</span>
+    </div>
+
+    <div style="display:flex;gap:14px;padding:16px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab active">Snapshot</button>
+      <button class="of-tab">History</button>
+      <button class="of-tab">Analytics</button>
+    </div>
+
+    <div style="padding:18px 20px 0;display:flex;gap:10px;flex-shrink:0;">
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Streak</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;">4 days</span></div>
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Weight</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--pine-dark);">−3.2 lb</span></div>
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Adherence</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;">68%</span></div>
+    </div>
+
+    <div style="padding:18px 20px 0;flex-shrink:0;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:14px;">Weight trend</span>
+        <span style="font-size:11px;color:var(--ink-500);">Last 8 weeks</span>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px 12px 10px;">
+        <svg viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="Weight trend declining from 148.2 to 144.8 pounds over 8 weeks">
+          <line x1="0" y1="70" x2="320" y2="70" stroke="var(--stone-150)" stroke-width="1"></line>
+          <polyline points="10,18 51,26 92,34 133,32 174,44 215,50 256,58 297,62" fill="none" stroke="var(--pine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <circle cx="297" cy="62" r="4" fill="var(--pine)"></circle>
+          <text x="297" y="14" text-anchor="end" font-family="Space Grotesk" font-weight="600" font-size="12" fill="var(--ink-900)">144.8 lb</text>
+          <text x="10" y="82" font-family="Inter" font-size="9" fill="var(--ink-500)">Wk 1</text>
+          <text x="297" y="82" text-anchor="end" font-family="Inter" font-size="9" fill="var(--ink-500)">Wk 8</text>
+        </svg>
+      </div>
+    </div>
+
+    <div style="padding:18px 20px 12px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;min-height:0;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:14px;margin-bottom:10px;">Recent activity</span>
+      <div style="display:flex;flex-direction:column;gap:0;overflow:hidden;">
+
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);">
+          <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path><path d="M9,12 h6 M12,9 v6"></path></svg></span>
+          <div style="flex-grow:1;min-width:0;"><div style="font-size:13.5px;font-weight:500;">Logged breakfast</div></div>
+          <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">8:12 AM</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);">
+          <span style="width:32px;height:32px;border-radius:9px;background:var(--butter-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="7" x2="12" y2="13"></line><circle cx="12" cy="16.2" r="0.6" fill="var(--butter-dark)"></circle></svg></span>
+          <div style="flex-grow:1;min-width:0;"><div style="font-size:13.5px;font-weight:500;">Missed check-in</div></div>
+          <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">Yesterday</span>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);">
+          <span style="width:32px;height:32px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+          <div style="flex-grow:1;min-width:0;"><div style="font-size:13.5px;font-weight:500;">Completed workout</div></div>
+          <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">2 days ago</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div style="flex-shrink:0;display:flex;gap:10px;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+    <button style="flex:1;height:46px;border:1.5px solid var(--stone-300);border-radius:10px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Message</button>
+    <button style="flex:1;height:46px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;">Edit plan</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

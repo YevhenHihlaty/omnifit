@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach Notes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.sidebar{width:280px;flex:0 0 280px;background:var(--ink-900);box-sizing:border-box;padding:28px 20px;display:flex;flex-direction:column;gap:28px;}
+.brandmark{display:flex;align-items:center;gap:10px;padding:0 6px;}
+.brandmark .mark{width:30px;height:30px;border-radius:8px;background:var(--pine);display:flex;align-items:center;justify-content:center;flex:0 0 30px;}
+.brandmark span{font-family:var(--font-display);font-weight:700;font-size:17px;color:var(--cream);}
+.navgroup{display:flex;flex-direction:column;gap:4px;}
+.navlink{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);font-family:var(--font-body);font-size:14px;font-weight:500;text-decoration:none;opacity:.78;}
+.navlink svg{flex:0 0 18px;width:18px;height:18px;}
+.navlink.active{background:var(--pine);color:var(--surface);opacity:1;font-weight:600;}
+.main{flex:1 1 auto;padding:52px 56px;box-sizing:border-box;display:flex;flex-direction:column;gap:32px;min-width:0;}
+.pagehead{display:flex;align-items:flex-end;justify-content:space-between;}
+.pagehead h1{font-family:var(--font-display);font-size:28px;font-weight:700;margin:0 0 6px;}
+.pagehead p{margin:0;color:var(--ink-500);font-size:14px;}
+.btn-primary{height:44px;padding:0 20px;border-radius:10px;background:var(--pine);color:var(--surface);font-family:var(--font-body);font-weight:600;font-size:14px;border:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;}
+.btn-outline{height:40px;padding:0 16px;border-radius:10px;background:transparent;border:1.5px solid var(--stone-300);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+.body-row{display:flex;gap:28px;align-items:flex-start;flex:1 1 auto;min-height:0;}
+.listcol{width:400px;flex:0 0 400px;display:flex;flex-direction:column;gap:14px;}
+.searchbox{position:relative;}
+.searchbox svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink-500);}
+.searchbox input{width:100%;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px 0 38px;background:var(--surface);font-size:14px;font-family:var(--font-body);box-sizing:border-box;}
+.searchbox input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.notecard{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;cursor:pointer;}
+.notecard.selected{border-color:var(--plum);box-shadow:0 0 0 2px var(--lilac);}
+.nc-top{display:flex;align-items:center;justify-content:space-between;}
+.nc-title{font-size:14.5px;font-weight:600;color:var(--ink-900);}
+.nc-time{font-size:11.5px;color:var(--ink-500);font-variant-numeric:tabular-nums;flex:0 0 auto;}
+.nc-preview{font-size:13px;color:var(--ink-700);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0;}
+.nc-client{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink-700);}
+.nc-client .av{width:18px;height:18px;border-radius:50%;background:var(--sage);font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--ink-900);}
+.editorcol{flex:1 1 auto;min-width:0;background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:32px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;}
+.editorcol h2{font-family:var(--font-display);font-size:18px;font-weight:700;margin:0;}
+.field{display:flex;flex-direction:column;gap:6px;}
+.field label{font-size:13px;font-weight:600;color:var(--ink-700);}
+.field input[type=text],.field select{height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;background:var(--surface);font-size:14px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;}
+.field textarea{border-radius:10px;border:1.5px solid var(--stone-300);padding:14px;background:var(--surface);font-size:14.5px;line-height:1.6;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;resize:none;min-height:260px;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.row2{display:flex;gap:14px;}
+.row2 .field{flex:1 1 0;min-width:0;}
+.formactions{display:flex;gap:10px;justify-content:flex-end;margin-top:4px;}
+.caption{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);}
+</style>
+</helmet>
+<div style="width:1440px;height:1060px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <aside class="sidebar">
+    <div class="brandmark">
+      <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c4-8 8-10 16-11-1 8-3 12-11 16z"/><path d="M4 14l6 6"/></svg></div>
+      <span>OmniFit</span>
+    </div>
+    <nav class="navgroup">
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg>Dashboard</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>My clients</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Sessions</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-3.8 7.1 8.5 8.5 0 0 1-8.9.5L3 21l1.9-5.3a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.4h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messages</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Tasks</a>
+      <a class="navlink active" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg>Notes</a>
+      <a class="navlink" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="pagehead">
+      <div>
+        <h1>Notes</h1>
+        <p>Private documentation — not visible to clients.</p>
+      </div>
+      <button class="btn-primary" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>New note</button>
+    </div>
+
+    <div class="body-row">
+      <div class="listcol">
+        <div class="searchbox">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" placeholder="Search notes">
+        </div>
+
+        <div class="notecard selected">
+          <div class="nc-top">
+            <span class="nc-title">Post-session observations</span>
+            <span class="nc-time">Today, 9:40 AM</span>
+          </div>
+          <p class="nc-preview">Form on split squats improved a lot since last week — depth is consistent now. Still favoring the right leg slightly on the way up; worth cueing next session.</p>
+          <span class="nc-client"><span class="av">MR</span>Maya R.</span>
+        </div>
+
+        <div class="notecard">
+          <div class="nc-top">
+            <span class="nc-title">Nutrition check-in call</span>
+            <span class="nc-time">Yesterday, 4:12 PM</span>
+          </div>
+          <p class="nc-preview">Discussed protein targets and meal timing around travel. Agreed to revisit macros after the trip instead of adjusting now.</p>
+          <span class="nc-client"><span class="av">JT</span>Jon T.</span>
+        </div>
+
+        <div class="notecard">
+          <div class="nc-top">
+            <span class="nc-title">General</span>
+            <span class="nc-time">Sep 17, 2:05 PM</span>
+          </div>
+          <p class="nc-preview">Reminder to update the intake questionnaire with an injury history section before next onboarding batch.</p>
+        </div>
+
+        <div class="notecard">
+          <div class="nc-top">
+            <span class="nc-title">Sleep and recovery notes</span>
+            <span class="nc-time">Sep 15, 8:30 AM</span>
+          </div>
+          <p class="nc-preview">Averaging 5.5 hours this week per her tracker. Flagged as a likely factor in the flat strength numbers — bring up gently.</p>
+          <span class="nc-client"><span class="av">SK</span>Sana K.</span>
+        </div>
+      </div>
+
+      <form class="editorcol" aria-label="Note editor">
+        <span class="caption">Editor</span>
+        <h2>Edit note</h2>
+        <div class="field">
+          <label for="ntitle">Title (optional)</label>
+          <input id="ntitle" type="text" placeholder="Untitled note" value="Post-session observations">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="nclient">Client (optional)</label>
+            <select id="nclient">
+              <option>No client</option>
+              <option selected>Maya R.</option>
+              <option>Jon T.</option>
+              <option>Sana K.</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="nsession">Related session (optional)</label>
+            <select id="nsession">
+              <option>None</option>
+              <option selected>Sep 20 — Lower body strength</option>
+              <option>Sep 17 — Mobility &amp; core</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="nbody">Note</label>
+          <textarea id="nbody">Form on split squats improved a lot since last week — depth is consistent now. Still favoring the right leg slightly on the way up; worth cueing next session.
+
+Also mentioned feeling more confident going into her 10k next month.</textarea>
+        </div>
+        <div class="formactions">
+          <button class="btn-outline" type="button">Discard</button>
+          <button class="btn-primary" type="submit">Save note</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1060}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

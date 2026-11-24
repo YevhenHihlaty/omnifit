@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Scan barcode</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --pine:#3F6B4F;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:#000;}
+@keyframes scanline{0%{top:8%;}50%{top:88%;}100%{top:8%;}}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:#0B0D0C;font-family:var(--font-body);color:#fff;display:flex;flex-direction:column;overflow:hidden;position:relative;">
+
+  <!-- Fake camera texture -->
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 40%, #2A2E2B 0%, #0B0D0C 70%);"></div>
+
+  <div style="position:relative;padding:52px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+    <button aria-label="Close" style="width:36px;height:36px;border-radius:50%;border:none;background:rgba(0,0,0,0.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+    <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;">Scan barcode</span>
+    <button aria-label="Toggle flash" style="width:36px;height:36px;border-radius:50%;border:none;background:rgba(0,0,0,0.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13,2 3,14 11,14 9,22 21,9 13,9"></polygon></svg>
+    </button>
+  </div>
+
+  <div style="position:relative;flex-grow:1;display:flex;align-items:center;justify-content:center;">
+    <div style="width:260px;height:170px;position:relative;">
+      <span style="position:absolute;top:0;left:0;width:32px;height:32px;border-top:3px solid #8FB89B;border-left:3px solid #8FB89B;border-radius:6px 0 0 0;"></span>
+      <span style="position:absolute;top:0;right:0;width:32px;height:32px;border-top:3px solid #8FB89B;border-right:3px solid #8FB89B;border-radius:0 6px 0 0;"></span>
+      <span style="position:absolute;bottom:0;left:0;width:32px;height:32px;border-bottom:3px solid #8FB89B;border-left:3px solid #8FB89B;border-radius:0 0 0 6px;"></span>
+      <span style="position:absolute;bottom:0;right:0;width:32px;height:32px;border-bottom:3px solid #8FB89B;border-right:3px solid #8FB89B;border-radius:0 0 6px 0;"></span>
+      <div style="position:absolute;left:6%;width:88%;height:2px;background:#8FB89B;box-shadow:0 0 10px 1px #8FB89B;animation:scanline 2.4s ease-in-out infinite;"></div>
+    </div>
+  </div>
+
+  <div style="position:relative;flex-shrink:0;padding:0 40px 40px;text-align:center;">
+    <p style="margin:0 0 22px;font-size:14px;color:#D8D5CC;line-height:1.5;">Point your camera at a product's barcode to look it up automatically</p>
+    <button style="border:none;background:rgba(255,255,255,0.12);border-radius:10px;color:#fff;font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:12px 22px;cursor:pointer;">Enter barcode manually</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Subscription &amp; Billing (Web)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.shell{display:flex;width:100%;height:100%;}
+.sidebar{width:280px;flex-shrink:0;background:var(--ink-900);display:flex;flex-direction:column;padding:28px 18px;box-sizing:border-box;gap:28px;}
+.sb-logo{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--cream);display:flex;align-items:center;gap:8px;padding:0 10px;}
+.sb-logo .dot{width:10px;height:10px;border-radius:3px;background:var(--sage);display:inline-block;}
+.sb-nav{display:flex;flex-direction:column;gap:4px;}
+.sb-link{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--cream);text-decoration:none;font-size:14px;font-weight:500;opacity:.82;}
+.sb-link.active{background:var(--pine);color:var(--surface);opacity:1;font-weight:600;}
+.sb-foot{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px;}
+.sb-avatar{width:34px;height:34px;border-radius:999px;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:12px;color:var(--ink-900);flex-shrink:0;}
+.sb-foot .n{color:var(--cream);font-size:13px;font-weight:600;}
+.sb-foot .r{color:var(--cream);opacity:.6;font-size:11.5px;}
+.content{flex:1;padding:44px 56px 56px;box-sizing:border-box;overflow:hidden;display:flex;flex-direction:column;gap:34px;}
+.pg-title{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--ink-900);margin:0 0 4px;}
+.pg-sub{font-size:13.5px;color:var(--ink-500);margin:0;}
+.section-cap{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);margin:0 0 14px;}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.plan-card{background:var(--surface);border:1.5px solid var(--stone-300);border-radius:16px;padding:26px;box-sizing:border-box;display:flex;flex-direction:column;}
+.plan-card.current{border-color:var(--pine);}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;}
+.plan-name{font-family:var(--font-display);font-weight:700;font-size:19px;color:var(--ink-900);}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:600;}
+.pill-pine{background:var(--pine-tint);color:var(--pine-dark);}
+.pill-neutral{background:var(--stone-150);color:var(--ink-700);}
+.plan-price{font-family:var(--font-display);font-weight:700;font-size:28px;color:var(--ink-900);margin:8px 0 4px;font-variant-numeric:tabular-nums;}
+.plan-price span{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--ink-500);}
+.plan-desc{font-size:13px;color:var(--ink-500);margin:0 0 20px;}
+.feat-list{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:11px;flex:1;}
+.feat-list li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink-700);}
+.feat-list li svg{color:var(--pine-dark);flex-shrink:0;}
+.feat-list li .soon{margin-left:auto;font-size:10.5px;font-weight:600;color:var(--ink-500);background:var(--stone-150);border-radius:999px;padding:3px 9px;flex-shrink:0;}
+.btn-primary{height:46px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;width:100%;}
+.btn-outline{height:46px;border-radius:10px;background:transparent;border:1.5px solid var(--ink-900);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;width:100%;}
+.btn-disabled{height:46px;border-radius:10px;background:var(--stone-150);color:var(--ink-500);border:none;font-family:var(--font-body);font-weight:600;font-size:14.5px;width:100%;}
+.usage-row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-500);margin-top:14px;}
+.usage-row strong{color:var(--ink-900);font-variant-numeric:tabular-nums;}
+.alt-row{display:flex;gap:24px;}
+.alt-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:14px;max-width:420px;}
+.alt-card .txt{flex:1;}
+.alt-card .t1{font-weight:600;font-size:13.5px;color:var(--ink-900);}
+.alt-card .t2{font-size:12px;color:var(--ink-500);margin-top:2px;}
+.alt-card button{height:38px;border-radius:9px;background:transparent;border:1.5px solid var(--ink-900);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;padding:0 16px;flex-shrink:0;}
+.payout-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:26px;display:flex;align-items:center;gap:18px;}
+.payout-ic{width:52px;height:52px;border-radius:12px;background:var(--sky);display:flex;align-items:center;justify-content:center;color:var(--ink-900);flex-shrink:0;}
+.payout-info{flex:1;}
+.payout-info .t1{font-weight:600;font-size:15px;color:var(--ink-900);margin-bottom:3px;}
+.payout-info .t2{font-size:12.5px;color:var(--ink-500);}
+.payout-actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.payout-actions a{font-size:12.5px;color:var(--plum-dark);font-weight:600;text-decoration:none;}
+</style>
+</helmet>
+<div style="width:1440px;height:1220px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="sb-logo"><span class="dot"></span>OmniFit</div>
+    <nav class="sb-nav" aria-label="Primary">
+      <a class="sb-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </a>
+      <a class="sb-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        My clients
+      </a>
+      <a class="sb-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Sessions
+      </a>
+      <a class="sb-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Messages
+      </a>
+      <a class="sb-link active" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </a>
+    </nav>
+    <div class="sb-foot">
+      <div class="sb-avatar">MT</div>
+      <div>
+        <div class="n">Maria Torres</div>
+        <div class="r">Coach · Free plan</div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="content">
+    <div>
+      <h1 class="pg-title">Billing &amp; subscription</h1>
+      <p class="pg-sub">Manage your OmniFit plan and payout settings.</p>
+    </div>
+
+    <div>
+      <p class="section-cap">Plan</p>
+      <div class="plans">
+        <div class="plan-card current">
+          <div class="plan-top">
+            <span class="plan-name">Free</span>
+            <span class="pill pill-pine">Current plan</span>
+          </div>
+          <p class="plan-desc">For coaches just getting started.</p>
+          <ul class="feat-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Up to 3 active clients
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Session booking &amp; scheduling
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Basic client progress notes
+            </li>
+          </ul>
+          <button class="btn-disabled" type="button" disabled>Current plan</button>
+          <div class="usage-row"><span>Client slots used</span><span><strong>2 of 3</strong></span></div>
+        </div>
+
+        <div class="plan-card">
+          <div class="plan-top">
+            <span class="plan-name">Pro</span>
+          </div>
+          <div class="plan-price">$29<span>&nbsp;/ month</span></div>
+          <p class="plan-desc">For growing coaching businesses.</p>
+          <ul class="feat-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Unlimited active clients
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Deeper client analytics
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Live video sessions
+              <span class="soon">Phase 2</span>
+            </li>
+          </ul>
+          <button class="btn-primary" type="button">Upgrade to Pro</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-cap">State: Pro plan active</p>
+      <div class="alt-row">
+        <div class="alt-card">
+          <div class="txt">
+            <div class="t1">You're on the Pro plan</div>
+            <div class="t2">Next billing date: Oct 20, 2026 · $29.00 / month</div>
+          </div>
+          <button type="button">Manage billing</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-cap">Payouts</p>
+      <div class="payout-card">
+        <div class="payout-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="payout-info">
+          <div class="t1">Stripe account connected</div>
+          <div class="t2">Payouts run weekly, every Friday, to account ending •••• 4821.</div>
+        </div>
+        <span class="pill pill-pine">Connected</span>
+        <div class="payout-actions">
+          <a href="#">View payout history</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

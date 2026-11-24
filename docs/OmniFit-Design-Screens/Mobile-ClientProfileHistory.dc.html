@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Profile · History</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --sky-tint:#EAF3F8; --sky-dark:#3A6E8C; --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:12.5px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-filter{border:1.5px solid var(--stone-300);background:var(--surface);border-radius:999px;padding:6px 12px;font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--ink-700);cursor:pointer;white-space:nowrap;}
+.of-filter.active{border-color:var(--pine);background:var(--pine);color:var(--cream);}
+.of-day-label{font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-500);margin:10px 0 6px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:44px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <span style="width:56px;height:56px;border-radius:50%;background:var(--sky-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--sky-dark);">DW</span>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">Devon Ward</div>
+    </div>
+
+    <div style="display:flex;gap:10px;padding:12px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab">Goals</button>
+      <button class="of-tab">Progress</button>
+      <button class="of-tab active">History</button>
+      <button class="of-tab">Check-in</button>
+    </div>
+
+    <div style="padding:12px 20px 0;display:flex;gap:8px;flex-shrink:0;overflow-x:auto;">
+      <button class="of-filter active">All</button>
+      <button class="of-filter">Food</button>
+      <button class="of-filter">Training</button>
+      <button class="of-filter">Metrics</button>
+    </div>
+
+    <div style="padding:2px 20px 16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;">
+
+      <span class="of-day-label">Today</span>
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--stone-150);">
+        <span style="width:30px;height:30px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+        <div style="flex-grow:1;min-width:0;"><div style="font-size:13px;font-weight:500;">Logged breakfast — 380 cal</div></div>
+        <span style="font-size:11.5px;color:var(--ink-500);flex-shrink:0;">7:40 AM</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--stone-150);">
+        <span style="width:30px;height:30px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+        <div style="flex-grow:1;min-width:0;"><div style="font-size:13px;font-weight:500;">Completed workout — Push day</div></div>
+        <span style="font-size:11.5px;color:var(--ink-500);flex-shrink:0;">6:15 AM</span>
+      </div>
+
+      <span class="of-day-label">Yesterday</span>
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--stone-150);">
+        <span style="width:30px;height:30px;border-radius:9px;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="4" width="6" height="16" rx="2"></rect></svg></span>
+        <div style="flex-grow:1;min-width:0;"><div style="font-size:13px;font-weight:500;">Logged weight — 176 lb</div></div>
+        <span style="font-size:11.5px;color:var(--ink-500);flex-shrink:0;">7:00 AM</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--stone-150);">
+        <span style="width:30px;height:30px;border-radius:9px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+        <div style="flex-grow:1;min-width:0;"><div style="font-size:13px;font-weight:500;">Logged lunch — 540 cal</div></div>
+        <span style="font-size:11.5px;color:var(--ink-500);flex-shrink:0;">12:20 PM</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:8px 0;">
+        <span style="width:30px;height:30px;border-radius:9px;background:var(--butter-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="7" x2="12" y2="13"></line><circle cx="12" cy="16.2" r="0.6" fill="var(--butter-dark)"></circle></svg></span>
+        <div style="flex-grow:1;min-width:0;"><div style="font-size:13px;font-weight:500;">Submitted weekly check-in</div></div>
+        <span style="font-size:11.5px;color:var(--ink-500);flex-shrink:0;">9:05 PM</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

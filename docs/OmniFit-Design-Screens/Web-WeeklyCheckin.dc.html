@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Weekly check-in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.header{height:64px;flex:0 0 auto;background:var(--surface);border-bottom:1px solid var(--stone-300);display:flex;align-items:center;justify-content:space-between;padding:0 32px;box-sizing:border-box;}
+.brand{display:flex;align-items:center;gap:8px;}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink-900);}
+.nav{display:flex;gap:28px;margin-left:36px;}
+.nav a{font-size:14px;font-weight:600;color:var(--ink-500);text-decoration:none;}
+.nav a.active{color:var(--ink-900);}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--pine-dark);}
+.main{flex:1 1 auto;overflow:hidden;}
+.container{max-width:1160px;margin:0 auto;padding:32px;box-sizing:border-box;}
+.page-title{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--ink-900);margin:0 0 6px 0;}
+.page-sub{font-size:14px;color:var(--ink-500);margin:0 0 26px 0;}
+.layout{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
+.form-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:28px;}
+fieldset{border:none;margin:0 0 26px 0;padding:0;}
+legend{font-size:14px;font-weight:600;color:var(--ink-900);margin-bottom:4px;padding:0;}
+.metric-desc{font-size:12.5px;color:var(--ink-500);margin:0 0 12px 0;}
+.scale-row{display:flex;gap:8px;}
+.scale-btn{width:52px;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-700);font-family:var(--font-display);font-weight:600;font-size:15px;cursor:pointer;font-variant-numeric:tabular-nums;}
+.scale-btn.selected{background:var(--pine);border-color:var(--pine);color:var(--surface);}
+.scale-labels{display:flex;justify-content:space-between;margin-top:6px;font-size:11.5px;color:var(--ink-500);width:100%;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:0;}
+.field label{font-size:14px;font-weight:600;color:var(--ink-900);}
+textarea{width:100%;min-height:88px;border-radius:10px;border:1.5px solid var(--stone-300);padding:12px 14px;font-size:14px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;resize:none;}
+.btn-primary{height:46px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:15px;padding:0 26px;cursor:pointer;margin-top:22px;}
+.success-caption{font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--ink-500);margin:0 0 12px 0;}
+.success-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:32px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;}
+.success-icon{width:56px;height:56px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;color:var(--pine-dark);}
+.success-title{font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--ink-900);margin:0;}
+.success-desc{font-size:13.5px;color:var(--ink-500);margin:0;line-height:1.5;}
+.success-summary{width:100%;margin-top:8px;display:flex;flex-direction:column;gap:8px;text-align:left;}
+.summary-row{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--ink-700);}
+.summary-row b{color:var(--ink-900);font-variant-numeric:tabular-nums;}
+</style>
+</helmet>
+<div style="width:1440px;height:1080px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+  <header class="header">
+    <div style="display:flex;align-items:center;">
+      <div class="brand">
+        <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"/><circle cx="90" cy="32" r="14" fill="var(--pine)"/></svg>
+        <span class="brand-name">OmniFit</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Training</a>
+        <a href="#">Calendar</a>
+        <a href="#">Profile</a>
+      </nav>
+    </div>
+    <div class="avatar">JM</div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <h1 class="page-title">Weekly check-in</h1>
+      <p class="page-sub">Rate how this week felt so your coach can adjust your plan.</p>
+      <div class="layout">
+        <div class="form-card">
+          <fieldset>
+            <legend>Sleep quality</legend>
+            <p class="metric-desc">How well have you been sleeping this week?</p>
+            <div class="scale-row" role="radiogroup" aria-label="Sleep quality, 1 to 5">
+              <button type="button" class="scale-btn" aria-pressed="false">1</button>
+              <button type="button" class="scale-btn" aria-pressed="false">2</button>
+              <button type="button" class="scale-btn selected" aria-pressed="true">3</button>
+              <button type="button" class="scale-btn" aria-pressed="false">4</button>
+              <button type="button" class="scale-btn" aria-pressed="false">5</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Soreness</legend>
+            <p class="metric-desc">How sore are you feeling overall?</p>
+            <div class="scale-row" role="radiogroup" aria-label="Soreness, 1 to 5">
+              <button type="button" class="scale-btn" aria-pressed="false">1</button>
+              <button type="button" class="scale-btn selected" aria-pressed="true">2</button>
+              <button type="button" class="scale-btn" aria-pressed="false">3</button>
+              <button type="button" class="scale-btn" aria-pressed="false">4</button>
+              <button type="button" class="scale-btn" aria-pressed="false">5</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Stress</legend>
+            <p class="metric-desc">How stressed have you felt this week?</p>
+            <div class="scale-row" role="radiogroup" aria-label="Stress, 1 to 5">
+              <button type="button" class="scale-btn" aria-pressed="false">1</button>
+              <button type="button" class="scale-btn" aria-pressed="false">2</button>
+              <button type="button" class="scale-btn" aria-pressed="false">3</button>
+              <button type="button" class="scale-btn selected" aria-pressed="true">4</button>
+              <button type="button" class="scale-btn" aria-pressed="false">5</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Energy</legend>
+            <p class="metric-desc">How has your energy been during training?</p>
+            <div class="scale-row" role="radiogroup" aria-label="Energy, 1 to 5">
+              <button type="button" class="scale-btn" aria-pressed="false">1</button>
+              <button type="button" class="scale-btn" aria-pressed="false">2</button>
+              <button type="button" class="scale-btn" aria-pressed="false">3</button>
+              <button type="button" class="scale-btn selected" aria-pressed="true">4</button>
+              <button type="button" class="scale-btn" aria-pressed="false">5</button>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="checkin-notes">Notes <span style="font-weight:400;color:var(--ink-500);">(optional)</span></label>
+            <textarea id="checkin-notes" placeholder="Anything your coach should know about this week?">Felt a bit run down mid-week but training sessions went well overall.</textarea>
+          </div>
+          <button type="button" class="btn-primary">Submit check-in</button>
+        </div>
+        <div>
+          <p class="success-caption">Success state (after submission)</p>
+          <div class="success-card">
+            <div class="success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2 class="success-title">Check-in submitted</h2>
+            <p class="success-desc">Your coach will see this the next time they review your progress.</p>
+            <div class="success-summary">
+              <div class="summary-row"><span>Sleep quality</span><b>3 / 5</b></div>
+              <div class="summary-row"><span>Soreness</span><b>2 / 5</b></div>
+              <div class="summary-row"><span>Stress</span><b>4 / 5</b></div>
+              <div class="summary-row"><span>Energy</span><b>4 / 5</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1080}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

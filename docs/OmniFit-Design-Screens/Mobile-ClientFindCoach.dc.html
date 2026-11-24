@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Find a coach</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter:#F3D97A;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-filter{border:1.5px solid var(--stone-300);background:var(--surface);border-radius:999px;padding:6px 12px;font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--ink-700);cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:5px;}
+.of-filter.active{border-color:var(--pine);background:var(--pine);color:var(--cream);}
+.of-coach{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:14px;display:flex;gap:12px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;">
+      <h1 style="margin:0 0 12px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;">Find a coach</h1>
+      <div style="position:relative;margin-bottom:12px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);"><path d="M12,21 c-4.5,-4.5 -7,-8 -7,-11.5 a7,7 0 0 1 14,0 c0,3.5 -2.5,7 -7,11.5 Z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+        <input type="text" placeholder="Austin, TX" style="width:100%;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px 0 38px;font-family:var(--font-body);font-size:14px;color:var(--ink-900);background:var(--surface);box-sizing:border-box;">
+        <button style="position:absolute;right:6px;top:6px;height:32px;padding:0 12px;border:none;border-radius:8px;background:var(--pine-tint);color:var(--pine-dark);font-family:var(--font-body);font-weight:600;font-size:11.5px;cursor:pointer;">Use my location</button>
+      </div>
+      <div style="display:flex;gap:8px;overflow-x:auto;">
+        <button class="of-filter active">All specialties</button>
+        <button class="of-filter">Within 5 mi</button>
+        <button class="of-filter">Under $80</button>
+        <button class="of-filter">Online</button>
+      </div>
+    </div>
+
+    <div style="padding:16px 20px 18px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:10px;">
+
+      <div class="of-coach">
+        <span style="width:52px;height:52px;border-radius:50%;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--pine-dark);">TB</span>
+        <div style="flex-grow:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Taylor Brooks</span><span style="background:var(--pine-tint);color:var(--pine-dark);font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:999px;">ONLINE</span></div>
+          <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Weight Lifting · General Fitness</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;font-size:12px;color:var(--ink-700);">
+            <span style="display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--butter)" stroke="none"><path d="M12,2 l2.9,6 6.6,0.9 -4.8,4.6 1.1,6.5 -5.8,-3 -5.8,3 1.1,-6.5 -4.8,-4.6 6.6,-0.9 Z"></path></svg>4.8</span>
+            <span>1.2 mi</span>
+            <span style="font-weight:600;">From $85</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="of-coach">
+        <span style="width:52px;height:52px;border-radius:50%;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-700);">JC</span>
+        <div style="flex-grow:1;min-width:0;">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Jamie Cole</div>
+          <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Strength &amp; Conditioning</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;font-size:12px;color:var(--ink-700);">
+            <span style="display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--butter)" stroke="none"><path d="M12,2 l2.9,6 6.6,0.9 -4.8,4.6 1.1,6.5 -5.8,-3 -5.8,3 1.1,-6.5 -4.8,-4.6 6.6,-0.9 Z"></path></svg>4.9</span>
+            <span>2.4 mi</span>
+            <span style="font-weight:600;">From $95</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="of-coach">
+        <span style="width:52px;height:52px;border-radius:50%;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-700);">MD</span>
+        <div style="flex-grow:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:6px;"><span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Morgan Diaz</span><span style="background:var(--pine-tint);color:var(--pine-dark);font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:999px;">ONLINE</span></div>
+          <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Nutrition &amp; Weight Loss</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;font-size:12px;color:var(--ink-700);">
+            <span style="display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--butter)" stroke="none"><path d="M12,2 l2.9,6 6.6,0.9 -4.8,4.6 1.1,6.5 -5.8,-3 -5.8,3 1.1,-6.5 -4.8,-4.6 6.6,-0.9 Z"></path></svg>4.7</span>
+            <span>3.1 mi</span>
+            <span style="font-weight:600;">From $70</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="of-coach">
+        <span style="width:52px;height:52px;border-radius:50%;background:var(--stone-150);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink-700);">RK</span>
+        <div style="flex-grow:1;min-width:0;">
+          <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Riley Kim</div>
+          <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">Mobility &amp; Recovery</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;font-size:12px;color:var(--ink-700);">
+            <span style="display:flex;align-items:center;gap:3px;"><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--butter)" stroke="none"><path d="M12,2 l2.9,6 6.6,0.9 -4.8,4.6 1.1,6.5 -5.8,-3 -5.8,3 1.1,-6.5 -4.8,-4.6 6.6,-0.9 Z"></path></svg>4.6</span>
+            <span>4.0 mi</span>
+            <span style="font-weight:600;">From $60</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

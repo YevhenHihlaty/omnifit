@@ -1,0 +1,1131 @@
+{
+  "attachments": {},
+  "boards": {
+    "Color-System.dc.html": {
+      "h": 1940,
+      "title": "Color",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Components-Web.dc.html": {
+      "h": 2260,
+      "title": "Web components",
+      "w": 1440,
+      "x": 1520,
+      "y": 2380
+    },
+    "Icons.dc.html": {
+      "h": 2042,
+      "title": "Icon pack",
+      "w": 1440,
+      "x": 0,
+      "y": 34161
+    },
+    "Logo-Exploration.dc.html": {
+      "h": 2260,
+      "title": "Logo & Mark",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Mobile-AddProductManual.dc.html": {
+      "h": 844,
+      "title": "Mobile — Add product manually",
+      "w": 390,
+      "x": 940,
+      "y": 28099
+    },
+    "Mobile-AssignHabits.dc.html": {
+      "h": 844,
+      "title": "Mobile — Assign habits (coach)",
+      "w": 390,
+      "x": 940,
+      "y": 37384
+    },
+    "Mobile-BarcodeNotFound.dc.html": {
+      "h": 844,
+      "title": "Mobile — Barcode not found",
+      "w": 390,
+      "x": 470,
+      "y": 28099
+    },
+    "Mobile-BarcodeScanner.dc.html": {
+      "h": 844,
+      "title": "Mobile — Scan barcode",
+      "w": 390,
+      "x": 0,
+      "y": 28099
+    },
+    "Mobile-BookingInbox.dc.html": {
+      "h": 844,
+      "title": "Mobile — Booking request inbox (coach)",
+      "w": 390,
+      "x": 940,
+      "y": 36420
+    },
+    "Mobile-Calendar.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach calendar",
+      "w": 390,
+      "x": 1410,
+      "y": 7674
+    },
+    "Mobile-Checkout.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client checkout",
+      "w": 390,
+      "x": 0,
+      "y": 36420
+    },
+    "Mobile-Client.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client home",
+      "w": 390,
+      "x": 1520,
+      "y": 4760
+    },
+    "Mobile-ClientAbout.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client onboarding (about you)",
+      "w": 390,
+      "x": 0,
+      "y": 12828
+    },
+    "Mobile-ClientAnalytics.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client analytics (coach)",
+      "w": 390,
+      "x": 470,
+      "y": 15016
+    },
+    "Mobile-ClientCalendar.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: calendar",
+      "w": 390,
+      "x": 1410,
+      "y": 17204
+    },
+    "Mobile-ClientDetail.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client detail (coach)",
+      "w": 390,
+      "x": 2350,
+      "y": 6710
+    },
+    "Mobile-ClientFindCoach.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: find a coach",
+      "w": 390,
+      "x": 0,
+      "y": 17204
+    },
+    "Mobile-ClientGoal.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client goal onboarding",
+      "w": 390,
+      "x": 940,
+      "y": 6710
+    },
+    "Mobile-ClientHistory.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client history (coach)",
+      "w": 390,
+      "x": 0,
+      "y": 15016
+    },
+    "Mobile-ClientInvite.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client onboarding (connect coach)",
+      "w": 390,
+      "x": 470,
+      "y": 12828
+    },
+    "Mobile-ClientLogMealDetail.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: log meal item detail",
+      "w": 390,
+      "x": 470,
+      "y": 17204
+    },
+    "Mobile-ClientLogTraining.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: log training",
+      "w": 390,
+      "x": 940,
+      "y": 17204
+    },
+    "Mobile-ClientOnboardComplete.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client onboarding complete",
+      "w": 390,
+      "x": 940,
+      "y": 12828
+    },
+    "Mobile-ClientProfileGoals.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client profile: goals",
+      "w": 390,
+      "x": 0,
+      "y": 18168
+    },
+    "Mobile-ClientProfileHistory.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client profile: history",
+      "w": 390,
+      "x": 940,
+      "y": 18168
+    },
+    "Mobile-ClientProfileProgress.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client profile: progress",
+      "w": 390,
+      "x": 470,
+      "y": 18168
+    },
+    "Mobile-ClientScheduleSession.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: request session",
+      "w": 390,
+      "x": 1880,
+      "y": 17204
+    },
+    "Mobile-ClientTrainingHub.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: training hub",
+      "w": 390,
+      "x": 1880,
+      "y": 18168
+    },
+    "Mobile-ClientWeeklyCheckin.dc.html": {
+      "h": 844,
+      "title": "Mobile — Client: weekly check-in",
+      "w": 390,
+      "x": 1410,
+      "y": 18168
+    },
+    "Mobile-Coach.dc.html": {
+      "h": 858,
+      "title": "Mobile — Coach home",
+      "w": 401,
+      "x": 1990,
+      "y": 4760
+    },
+    "Mobile-CoachAvailability.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (availability)",
+      "w": 390,
+      "x": 0,
+      "y": 13792
+    },
+    "Mobile-CoachCredentials.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (certifications)",
+      "w": 390,
+      "x": 1410,
+      "y": 12828
+    },
+    "Mobile-CoachInviteClient.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (invite client)",
+      "w": 390,
+      "x": 940,
+      "y": 13792
+    },
+    "Mobile-CoachOnboardComplete.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding complete",
+      "w": 390,
+      "x": 1880,
+      "y": 13792
+    },
+    "Mobile-CoachOnboarding.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach profile onboarding",
+      "w": 390,
+      "x": 1410,
+      "y": 6710
+    },
+    "Mobile-CoachPayouts.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (payouts)",
+      "w": 390,
+      "x": 470,
+      "y": 13792
+    },
+    "Mobile-CoachPricing.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (pricing)",
+      "w": 390,
+      "x": 1880,
+      "y": 12828
+    },
+    "Mobile-CoachProfileCredentials.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach profile: credentials",
+      "w": 390,
+      "x": 470,
+      "y": 15980
+    },
+    "Mobile-CoachProfileLocations.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach profile: locations",
+      "w": 390,
+      "x": 0,
+      "y": 15980
+    },
+    "Mobile-CoachProfilePlans.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach profile: plans",
+      "w": 390,
+      "x": 1880,
+      "y": 15016
+    },
+    "Mobile-CoachProfileSettings.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach profile: settings",
+      "w": 390,
+      "x": 940,
+      "y": 15980
+    },
+    "Mobile-CoachPublicProfile.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach public profile (storefront)",
+      "w": 390,
+      "x": 1410,
+      "y": 15980
+    },
+    "Mobile-CoachReview.dc.html": {
+      "h": 844,
+      "title": "Mobile — Coach onboarding (review & launch)",
+      "w": 390,
+      "x": 1410,
+      "y": 13792
+    },
+    "Mobile-EmptyStates.dc.html": {
+      "h": 1103,
+      "title": "Mobile — Empty states (reference sheet)",
+      "w": 390,
+      "x": 1410,
+      "y": 20356
+    },
+    "Mobile-LocationPermission.dc.html": {
+      "h": 844,
+      "title": "Mobile — Location permission",
+      "w": 390,
+      "x": 940,
+      "y": 20356
+    },
+    "Mobile-LogHub.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log activity hub (client)",
+      "w": 390,
+      "x": 0,
+      "y": 7674
+    },
+    "Mobile-LogMeal.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log meal (client)",
+      "w": 390,
+      "x": 470,
+      "y": 7674
+    },
+    "Mobile-LogMetrics.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log body metrics (client)",
+      "w": 390,
+      "x": 940,
+      "y": 7674
+    },
+    "Mobile-LogTrainingClient.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log training: select client",
+      "w": 390,
+      "x": 940,
+      "y": 15016
+    },
+    "Mobile-LogTrainingExercise.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log training: exercises",
+      "w": 390,
+      "x": 1410,
+      "y": 15016
+    },
+    "Mobile-Login.dc.html": {
+      "h": 844,
+      "title": "Mobile — Log in",
+      "w": 390,
+      "x": 0,
+      "y": 6710
+    },
+    "Mobile-Messages.dc.html": {
+      "h": 844,
+      "title": "Mobile — Messaging thread",
+      "w": 390,
+      "x": 1880,
+      "y": 7674
+    },
+    "Mobile-MyClients.dc.html": {
+      "h": 844,
+      "title": "Mobile — My clients (coach)",
+      "w": 390,
+      "x": 1880,
+      "y": 6710
+    },
+    "Mobile-MyWorkouts.dc.html": {
+      "h": 844,
+      "title": "Mobile — My workouts (client)",
+      "w": 390,
+      "x": 1880,
+      "y": 28099
+    },
+    "Mobile-NetworkError.dc.html": {
+      "h": 844,
+      "title": "Mobile — No connection",
+      "w": 390,
+      "x": 0,
+      "y": 20356
+    },
+    "Mobile-Notes.dc.html": {
+      "h": 844,
+      "title": "Mobile — Notes (coach)",
+      "w": 390,
+      "x": 0,
+      "y": 37384
+    },
+    "Mobile-Notifications.dc.html": {
+      "h": 844,
+      "title": "Mobile — Notification center",
+      "w": 390,
+      "x": 470,
+      "y": 37384
+    },
+    "Mobile-PaymentReceipt.dc.html": {
+      "h": 844,
+      "title": "Mobile — Payment receipt",
+      "w": 390,
+      "x": 470,
+      "y": 36420
+    },
+    "Mobile-PendingInvites.dc.html": {
+      "h": 844,
+      "title": "Mobile — Pending invites (coach)",
+      "w": 390,
+      "x": 1410,
+      "y": 36420
+    },
+    "Mobile-ResetPassword.dc.html": {
+      "h": 844,
+      "title": "Mobile — Reset password",
+      "w": 390,
+      "x": 940,
+      "y": 19392
+    },
+    "Mobile-ResetPasswordSuccess.dc.html": {
+      "h": 844,
+      "title": "Mobile — Reset password success",
+      "w": 390,
+      "x": 1410,
+      "y": 19392
+    },
+    "Mobile-RoleSelect.dc.html": {
+      "h": 844,
+      "title": "Mobile — Role select",
+      "w": 390,
+      "x": 470,
+      "y": 6710
+    },
+    "Mobile-SavedMeals.dc.html": {
+      "h": 844,
+      "title": "Mobile — Saved meals",
+      "w": 390,
+      "x": 1410,
+      "y": 28099
+    },
+    "Mobile-SessionExpired.dc.html": {
+      "h": 844,
+      "title": "Mobile — Session expired",
+      "w": 390,
+      "x": 470,
+      "y": 20356
+    },
+    "Mobile-SignUp.dc.html": {
+      "h": 844,
+      "title": "Mobile — Sign up",
+      "w": 390,
+      "x": 0,
+      "y": 19392
+    },
+    "Mobile-SubscriptionBilling.dc.html": {
+      "h": 844,
+      "title": "Mobile — Subscription & billing (coach)",
+      "w": 390,
+      "x": 1880,
+      "y": 36420
+    },
+    "Mobile-Tasks.dc.html": {
+      "h": 844,
+      "title": "Mobile — Tasks (coach)",
+      "w": 390,
+      "x": 2350,
+      "y": 36420
+    },
+    "Mobile-VerifyEmail.dc.html": {
+      "h": 844,
+      "title": "Mobile — Verify email",
+      "w": 390,
+      "x": 470,
+      "y": 19392
+    },
+    "Mobile-VideoCallClient.dc.html": {
+      "h": 844,
+      "title": "Mobile — Live session (client)",
+      "w": 390,
+      "x": 470,
+      "y": 29323
+    },
+    "Mobile-VideoCallCoach.dc.html": {
+      "h": 844,
+      "title": "Mobile — Live session (coach)",
+      "w": 390,
+      "x": 940,
+      "y": 29323
+    },
+    "Mobile-VideoCallSummary.dc.html": {
+      "h": 844,
+      "title": "Mobile — Session summary",
+      "w": 390,
+      "x": 1410,
+      "y": 29323
+    },
+    "Mobile-VideoLobby.dc.html": {
+      "h": 844,
+      "title": "Mobile — Video call lobby",
+      "w": 390,
+      "x": 0,
+      "y": 29323
+    },
+    "Mobile-WorkoutLibrary.dc.html": {
+      "h": 844,
+      "title": "Mobile — Workout library (coach)",
+      "w": 390,
+      "x": 2350,
+      "y": 28099
+    },
+    "Typography.dc.html": {
+      "h": 1780,
+      "title": "Typography",
+      "w": 1440,
+      "x": 0,
+      "y": 2380
+    },
+    "Web-AddProduct.dc.html": {
+      "h": 900,
+      "title": "Web — Add product manually (client)",
+      "w": 1440,
+      "x": 0,
+      "y": 57348
+    },
+    "Web-AssignHabits.dc.html": {
+      "h": 920,
+      "title": "Web — Assign habits (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 59568
+    },
+    "Web-BookingInbox.dc.html": {
+      "h": 1320,
+      "title": "Web — Booking request inbox (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 40028
+    },
+    "Web-Checkout.dc.html": {
+      "h": 940,
+      "title": "Web — Client checkout",
+      "w": 1440,
+      "x": 0,
+      "y": 38728
+    },
+    "Web-ClientAnalytics.dc.html": {
+      "h": 1180,
+      "title": "Web — Client analytics (coach)",
+      "w": 1440,
+      "x": 1520,
+      "y": 21839
+    },
+    "Web-ClientCalendar.dc.html": {
+      "h": 1000,
+      "title": "Web — Client: calendar",
+      "w": 1440,
+      "x": 0,
+      "y": 25639
+    },
+    "Web-ClientDetail.dc.html": {
+      "h": 1200,
+      "title": "Web — Client detail (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 11248
+    },
+    "Web-ClientHistory.dc.html": {
+      "h": 1100,
+      "title": "Web — Client history (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 21839
+    },
+    "Web-ClientHome.dc.html": {
+      "h": 1000,
+      "title": "Web — Client home",
+      "w": 1440,
+      "x": 1520,
+      "y": 10678
+    },
+    "Web-ClientProfile.dc.html": {
+      "h": 1000,
+      "title": "Web — Client profile: goals",
+      "w": 1440,
+      "x": 1520,
+      "y": 25639
+    },
+    "Web-ClientTraining.dc.html": {
+      "h": 960,
+      "title": "Web — Client: training hub",
+      "w": 1440,
+      "x": 0,
+      "y": 26759
+    },
+    "Web-CoachProfile.dc.html": {
+      "h": 940,
+      "title": "Web — Coach profile: settings",
+      "w": 1440,
+      "x": 1520,
+      "y": 23139
+    },
+    "Web-CoachPublicProfile.dc.html": {
+      "h": 1320,
+      "title": "Web — Coach public profile (storefront)",
+      "w": 1440,
+      "x": 0,
+      "y": 24199
+    },
+    "Web-CompanySettings.dc.html": {
+      "h": 1120,
+      "title": "Web — Company / practice settings",
+      "w": 1440,
+      "x": 1520,
+      "y": 44688
+    },
+    "Web-Contact.dc.html": {
+      "h": 1134,
+      "title": "Web — Contact",
+      "w": 1464,
+      "x": 0,
+      "y": 32647
+    },
+    "Web-Dashboard.dc.html": {
+      "h": 1600,
+      "title": "Web — Coach dashboard",
+      "w": 1440,
+      "x": 0,
+      "y": 4760
+    },
+    "Web-Docs.dc.html": {
+      "h": 1500,
+      "title": "Web — Help center / docs",
+      "w": 1440,
+      "x": 1520,
+      "y": 30547
+    },
+    "Web-EmptyStates.dc.html": {
+      "h": 640,
+      "title": "Web — Empty states (reference sheet)",
+      "w": 1440,
+      "x": 0,
+      "y": 54148
+    },
+    "Web-FindCoach.dc.html": {
+      "h": 1020,
+      "title": "Web — Find a coach",
+      "w": 1440,
+      "x": 1520,
+      "y": 24199
+    },
+    "Web-InviteAccept.dc.html": {
+      "h": 840,
+      "title": "Web — Invite accept (client)",
+      "w": 1440,
+      "x": 0,
+      "y": 45988
+    },
+    "Web-Landing.dc.html": {
+      "h": 2490,
+      "title": "Web — Marketing landing page",
+      "w": 1440,
+      "x": 0,
+      "y": 8638
+    },
+    "Web-LogBodyMetrics.dc.html": {
+      "h": 900,
+      "title": "Web — Log body metrics + photos (client)",
+      "w": 1440,
+      "x": 1520,
+      "y": 57348
+    },
+    "Web-LogHub.dc.html": {
+      "h": 760,
+      "title": "Web — Log activity hub (client)",
+      "w": 1440,
+      "x": 1520,
+      "y": 55168
+    },
+    "Web-LogMeal.dc.html": {
+      "h": 1040,
+      "title": "Web — Log meal (client)",
+      "w": 1440,
+      "x": 0,
+      "y": 56188
+    },
+    "Web-LogTraining.dc.html": {
+      "h": 920,
+      "title": "Web — Log training (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 23139
+    },
+    "Web-Login.dc.html": {
+      "h": 900,
+      "title": "Web — Log in",
+      "w": 1440,
+      "x": 1520,
+      "y": 8638
+    },
+    "Web-Messages.dc.html": {
+      "h": 1180,
+      "title": "Web — Messages (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 44688
+    },
+    "Web-MyClients.dc.html": {
+      "h": 900,
+      "title": "Web — My clients (coach)",
+      "w": 1440,
+      "x": 1520,
+      "y": 9658
+    },
+    "Web-NetworkError.dc.html": {
+      "h": 900,
+      "title": "Web — No connection",
+      "w": 1440,
+      "x": 1520,
+      "y": 54148
+    },
+    "Web-Notes.dc.html": {
+      "h": 1060,
+      "title": "Web — Notes (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 42808
+    },
+    "Web-Notifications.dc.html": {
+      "h": 1760,
+      "title": "Web — Notification center",
+      "w": 1440,
+      "x": 1520,
+      "y": 42808
+    },
+    "Web-PaymentReceipt.dc.html": {
+      "h": 1180,
+      "title": "Web — Payment receipt",
+      "w": 1440,
+      "x": 1520,
+      "y": 38728
+    },
+    "Web-PendingInvites.dc.html": {
+      "h": 1080,
+      "title": "Web — Pending invites (coach)",
+      "w": 1440,
+      "x": 1520,
+      "y": 40028
+    },
+    "Web-Pricing.dc.html": {
+      "h": 1980,
+      "title": "Web — Pricing",
+      "w": 1440,
+      "x": 0,
+      "y": 30547
+    },
+    "Web-Privacy.dc.html": {
+      "h": 3040,
+      "title": "Web — Privacy Policy",
+      "w": 1440,
+      "x": 1520,
+      "y": 45988
+    },
+    "Web-ResetPassword.dc.html": {
+      "h": 1000,
+      "title": "Web — Reset password",
+      "w": 1440,
+      "x": 0,
+      "y": 53028
+    },
+    "Web-ResetPasswordSuccess.dc.html": {
+      "h": 1000,
+      "title": "Web — Reset password success",
+      "w": 1440,
+      "x": 1520,
+      "y": 53028
+    },
+    "Web-SavedMeals.dc.html": {
+      "h": 900,
+      "title": "Web — Saved meals (client)",
+      "w": 1440,
+      "x": 1520,
+      "y": 56188
+    },
+    "Web-ScheduleSession.dc.html": {
+      "h": 960,
+      "title": "Web — Client: request session",
+      "w": 1440,
+      "x": 1520,
+      "y": 26759
+    },
+    "Web-SessionExpired.dc.html": {
+      "h": 900,
+      "title": "Web — Session expired",
+      "w": 1440,
+      "x": 0,
+      "y": 55168
+    },
+    "Web-SignUp.dc.html": {
+      "h": 1000,
+      "title": "Web — Sign up (desktop)",
+      "w": 1440,
+      "x": 1520,
+      "y": 32647
+    },
+    "Web-SubscriptionBilling.dc.html": {
+      "h": 1220,
+      "title": "Web — Subscription & billing (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 41468
+    },
+    "Web-Tasks.dc.html": {
+      "h": 1180,
+      "title": "Web — Tasks (coach)",
+      "w": 1440,
+      "x": 1520,
+      "y": 41468
+    },
+    "Web-Terms.dc.html": {
+      "h": 3760,
+      "title": "Web — Terms of Service",
+      "w": 1440,
+      "x": 0,
+      "y": 49148
+    },
+    "Web-VerifyEmail.dc.html": {
+      "h": 1000,
+      "title": "Web — Verify email",
+      "w": 1440,
+      "x": 1520,
+      "y": 49148
+    },
+    "Web-WeeklyCheckin.dc.html": {
+      "h": 1080,
+      "title": "Web — Weekly check-in (client)",
+      "w": 1440,
+      "x": 1520,
+      "y": 58368
+    },
+    "Web-WorkoutLibrary.dc.html": {
+      "h": 960,
+      "title": "Web — Workout library / Programs (coach)",
+      "w": 1440,
+      "x": 0,
+      "y": 58368
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-20T12:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "title-main": {
+      "kind": "title1",
+      "maxW": 2960,
+      "text": "OmniFit — Design System",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "title-row10": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Web parity — coach & client desktop screens",
+      "w": 240,
+      "x": 0,
+      "y": 21579
+    },
+    "title-row11": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Phase 2 — barcode scan, saved meals & workout library",
+      "w": 240,
+      "x": 0,
+      "y": 27839
+    },
+    "title-row12": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Live video coaching sessions",
+      "w": 240,
+      "x": 0,
+      "y": 29063
+    },
+    "title-row13": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Marketing & web-only pages",
+      "w": 240,
+      "x": 0,
+      "y": 30287
+    },
+    "title-row14": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Icon pack",
+      "w": 240,
+      "x": 0,
+      "y": 33901
+    },
+    "title-row15": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "2026 roadmap — P0/P1/P2 mobile screens",
+      "w": 240,
+      "x": 0,
+      "y": 36160
+    },
+    "title-row16": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "2026 roadmap — P0/P1/P2 web screens",
+      "w": 240,
+      "x": 0,
+      "y": 38468
+    },
+    "title-row2": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Type & components",
+      "w": 240,
+      "x": 0,
+      "y": 2120
+    },
+    "title-row3": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Applied — web & mobile",
+      "w": 240,
+      "x": 0,
+      "y": 4500
+    },
+    "title-row4": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Core MVP loop — mobile",
+      "w": 240,
+      "x": 0,
+      "y": 6450
+    },
+    "title-row5": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Core MVP loop — web",
+      "w": 240,
+      "x": 0,
+      "y": 8378
+    },
+    "title-row6": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Full onboarding — coach & client",
+      "w": 240,
+      "x": 0,
+      "y": 12568
+    },
+    "title-row7": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Coach app — history, analytics, log training & profile",
+      "w": 240,
+      "x": 0,
+      "y": 14756
+    },
+    "title-row8": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Client app — discovery, logging, calendar & profile",
+      "w": 240,
+      "x": 0,
+      "y": 16944
+    },
+    "title-row9": {
+      "kind": "title1",
+      "maxW": 2960,
+      "size": 40,
+      "text": "Auth & system states",
+      "w": 240,
+      "x": 0,
+      "y": 19132
+    }
+  },
+  "order": [
+    "Logo-Exploration.dc.html",
+    "Color-System.dc.html",
+    "Typography.dc.html",
+    "Components-Web.dc.html",
+    "Web-Dashboard.dc.html",
+    "Mobile-Client.dc.html",
+    "Mobile-Coach.dc.html",
+    "Mobile-Login.dc.html",
+    "Mobile-RoleSelect.dc.html",
+    "Mobile-ClientGoal.dc.html",
+    "Mobile-CoachOnboarding.dc.html",
+    "Mobile-MyClients.dc.html",
+    "Mobile-ClientDetail.dc.html",
+    "Mobile-LogHub.dc.html",
+    "Mobile-LogMeal.dc.html",
+    "Mobile-LogMetrics.dc.html",
+    "Mobile-Calendar.dc.html",
+    "Mobile-Messages.dc.html",
+    "Web-Landing.dc.html",
+    "Web-Login.dc.html",
+    "Web-MyClients.dc.html",
+    "Web-ClientDetail.dc.html",
+    "Web-ClientHome.dc.html",
+    "Mobile-ClientAbout.dc.html",
+    "Mobile-ClientInvite.dc.html",
+    "Mobile-ClientOnboardComplete.dc.html",
+    "Mobile-CoachCredentials.dc.html",
+    "Mobile-CoachPricing.dc.html",
+    "Mobile-CoachAvailability.dc.html",
+    "Mobile-CoachPayouts.dc.html",
+    "Mobile-CoachInviteClient.dc.html",
+    "Mobile-CoachReview.dc.html",
+    "Mobile-CoachOnboardComplete.dc.html",
+    "Mobile-ClientHistory.dc.html",
+    "Mobile-ClientAnalytics.dc.html",
+    "Mobile-LogTrainingClient.dc.html",
+    "Mobile-LogTrainingExercise.dc.html",
+    "Mobile-CoachProfilePlans.dc.html",
+    "Mobile-CoachProfileLocations.dc.html",
+    "Mobile-CoachProfileCredentials.dc.html",
+    "Mobile-CoachProfileSettings.dc.html",
+    "Mobile-CoachPublicProfile.dc.html",
+    "Mobile-ClientFindCoach.dc.html",
+    "Mobile-ClientLogMealDetail.dc.html",
+    "Mobile-ClientLogTraining.dc.html",
+    "Mobile-ClientCalendar.dc.html",
+    "Mobile-ClientScheduleSession.dc.html",
+    "Mobile-ClientProfileGoals.dc.html",
+    "Mobile-ClientProfileProgress.dc.html",
+    "Mobile-ClientProfileHistory.dc.html",
+    "Mobile-ClientWeeklyCheckin.dc.html",
+    "Mobile-ClientTrainingHub.dc.html",
+    "Mobile-SignUp.dc.html",
+    "Mobile-VerifyEmail.dc.html",
+    "Mobile-ResetPassword.dc.html",
+    "Mobile-ResetPasswordSuccess.dc.html",
+    "Mobile-NetworkError.dc.html",
+    "Mobile-SessionExpired.dc.html",
+    "Mobile-LocationPermission.dc.html",
+    "Mobile-EmptyStates.dc.html",
+    "Web-ClientHistory.dc.html",
+    "Web-ClientAnalytics.dc.html",
+    "Web-LogTraining.dc.html",
+    "Web-CoachProfile.dc.html",
+    "Web-CoachPublicProfile.dc.html",
+    "Web-FindCoach.dc.html",
+    "Web-ClientCalendar.dc.html",
+    "Web-ClientProfile.dc.html",
+    "Web-ClientTraining.dc.html",
+    "Web-ScheduleSession.dc.html",
+    "Mobile-BarcodeScanner.dc.html",
+    "Mobile-BarcodeNotFound.dc.html",
+    "Mobile-AddProductManual.dc.html",
+    "Mobile-SavedMeals.dc.html",
+    "Mobile-MyWorkouts.dc.html",
+    "Mobile-WorkoutLibrary.dc.html",
+    "Mobile-VideoLobby.dc.html",
+    "Mobile-VideoCallClient.dc.html",
+    "Mobile-VideoCallCoach.dc.html",
+    "Mobile-VideoCallSummary.dc.html",
+    "Web-Pricing.dc.html",
+    "Web-Docs.dc.html",
+    "Web-Contact.dc.html",
+    "Web-SignUp.dc.html",
+    "Icons.dc.html",
+    "Mobile-Checkout.dc.html",
+    "Mobile-PaymentReceipt.dc.html",
+    "Mobile-BookingInbox.dc.html",
+    "Mobile-PendingInvites.dc.html",
+    "Mobile-SubscriptionBilling.dc.html",
+    "Mobile-Tasks.dc.html",
+    "Mobile-Notes.dc.html",
+    "Mobile-Notifications.dc.html",
+    "Mobile-AssignHabits.dc.html",
+    "Web-Checkout.dc.html",
+    "Web-PaymentReceipt.dc.html",
+    "Web-BookingInbox.dc.html",
+    "Web-PendingInvites.dc.html",
+    "Web-SubscriptionBilling.dc.html",
+    "Web-Tasks.dc.html",
+    "Web-Notes.dc.html",
+    "Web-Notifications.dc.html",
+    "Web-Messages.dc.html",
+    "Web-CompanySettings.dc.html",
+    "Web-InviteAccept.dc.html",
+    "Web-Privacy.dc.html",
+    "Web-Terms.dc.html",
+    "Web-VerifyEmail.dc.html",
+    "Web-ResetPassword.dc.html",
+    "Web-ResetPasswordSuccess.dc.html",
+    "Web-EmptyStates.dc.html",
+    "Web-NetworkError.dc.html",
+    "Web-SessionExpired.dc.html",
+    "Web-LogHub.dc.html",
+    "Web-LogMeal.dc.html",
+    "Web-SavedMeals.dc.html",
+    "Web-AddProduct.dc.html",
+    "Web-LogBodyMetrics.dc.html",
+    "Web-WorkoutLibrary.dc.html",
+    "Web-WeeklyCheckin.dc.html",
+    "Web-AssignHabits.dc.html"
+  ],
+  "pages": [],
+  "title": "OmniFit — Design System",
+  "v": 3
+}

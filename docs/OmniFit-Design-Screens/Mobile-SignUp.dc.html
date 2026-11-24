@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Sign up</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --danger:#C1503D; --butter:#F3D97A; --butter-tint:#FAF0CE;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:46px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:14.5px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:44px 24px 20px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:22px;">
+      <svg width="22" height="22" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:17px;">OmniFit</span>
+    </div>
+
+    <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;">Create your account</h1>
+    <p style="margin:0 0 20px;font-size:13.5px;color:var(--ink-500);">Start free — no card required.</p>
+
+    <form style="display:flex;flex-direction:column;gap:13px;">
+      <div style="display:flex;gap:10px;">
+        <input class="of-field" type="text" placeholder="First name">
+        <input class="of-field" type="text" placeholder="Last name">
+      </div>
+      <input class="of-field" type="email" placeholder="Email address">
+      <div style="display:flex;gap:8px;">
+        <div style="width:76px;flex-shrink:0;position:relative;">
+          <select class="of-field" style="appearance:none;padding-right:26px;">
+            <option>+1</option>
+          </select>
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:11px;top:50%;transform:translateY(-50%);pointer-events:none;"><polyline points="6,9 12,15 18,9"></polyline></svg>
+        </div>
+        <input class="of-field" type="tel" placeholder="Phone number" style="flex-grow:1;">
+      </div>
+      <input class="of-field" type="password" placeholder="Password">
+      <div style="display:flex;gap:4px;">
+        <div style="flex:1;height:4px;border-radius:999px;background:var(--danger);"></div>
+        <div style="flex:1;height:4px;border-radius:999px;background:var(--butter);"></div>
+        <div style="flex:1;height:4px;border-radius:999px;background:var(--stone-150);"></div>
+      </div>
+      <input class="of-field" type="password" placeholder="Confirm password">
+
+      <label style="display:flex;align-items:flex-start;gap:10px;margin-top:4px;cursor:pointer;">
+        <input type="checkbox" checked="" style="width:18px;height:18px;margin-top:1px;accent-color:var(--pine);flex-shrink:0;">
+        <span style="font-size:12px;color:var(--ink-700);line-height:1.5;">I agree to the <a href="#tos" style="color:var(--pine-dark);font-weight:600;text-decoration:none;">Terms of Service</a> and <a href="#privacy" style="color:var(--pine-dark);font-weight:600;text-decoration:none;">Privacy Policy</a></span>
+      </label>
+
+      <button type="submit" style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;margin-top:6px;">Create account</button>
+    </form>
+
+    <div style="flex-grow:1;min-height:10px;"></div>
+
+    <p style="text-align:center;font-size:13.5px;color:var(--ink-700);margin:0;">Already have an account? <a href="#login" style="color:var(--pine-dark);font-weight:600;text-decoration:none;">Log in</a></p>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

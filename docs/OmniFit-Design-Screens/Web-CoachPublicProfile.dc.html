@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Coach public profile (web)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tab{border:none;background:none;font-family:var(--font-body);font-size:14.5px;font-weight:600;color:var(--ink-500);padding:12px 4px;cursor:pointer;border-bottom:2.5px solid transparent;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-tab[disabled]{color:var(--stone-300);cursor:default;}
+.of-tagchip{background:var(--pine-tint);color:var(--pine-dark);font-size:12.5px;font-weight:600;padding:6px 13px;border-radius:999px;}
+.of-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:22px 24px;}
+.of-navlink{text-decoration:none;color:var(--ink-700);font-size:13.5px;font-weight:600;}
+</style>
+</helmet>
+<div style="width:1440px;height:1320px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);overflow:hidden;">
+
+  <!-- Top nav -->
+  <div style="height:76px;box-sizing:border-box;padding:0 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--stone-300);">
+    <div style="display:flex;align-items:center;gap:9px;">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="var(--pine)"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:18px;">OmniFit</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:32px;">
+      <a class="of-navlink" href="#find-coach">Find a coach</a>
+      <a class="of-navlink" href="#how-it-works">How it works</a>
+      <a class="of-navlink" href="#pricing">Pricing</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a class="of-navlink" href="#login">Log in</a>
+      <button style="border:none;border-radius:9px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13.5px;padding:10px 18px;cursor:pointer;">Sign up</button>
+    </div>
+  </div>
+
+  <!-- Cover -->
+  <div style="height:200px;background:linear-gradient(120deg,var(--pine) 0%,var(--pine-dark) 100%);"></div>
+
+  <div style="max-width:1120px;margin:0 auto;padding:0 48px;">
+
+    <div style="display:flex;align-items:flex-end;gap:24px;margin-top:-64px;margin-bottom:20px;">
+      <span style="width:128px;height:128px;border-radius:50%;background:#8FB89B;border:5px solid var(--cream);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:36px;color:#14181C;box-shadow:0 10px 24px -12px rgba(20,24,28,0.3);">TB</span>
+      <div style="padding-bottom:8px;flex-grow:1;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:27px;">Taylor Brooks</span>
+          <span style="display:flex;align-items:center;gap:5px;background:var(--stone-150);padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:600;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="var(--butter-dark,#8A6300)" stroke="none"><polygon points="12,2 15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9"></polygon></svg>
+            4.9 (128 reviews)
+          </span>
+        </div>
+        <div style="font-size:14px;color:var(--ink-500);margin-top:5px;">Austin, TX (remote available) · 7 years coaching</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:24px;">
+      <span class="of-tagchip">Strength &amp; Conditioning</span>
+      <span class="of-tagchip">Nutrition Coaching</span>
+      <span class="of-tagchip">Marathon Prep</span>
+    </div>
+
+    <div style="display:flex;gap:24px;border-bottom:1px solid var(--stone-300);margin-bottom:28px;">
+      <button class="of-tab active">About</button>
+      <button class="of-tab">Plans</button>
+      <button class="of-tab" disabled="">Reviews</button>
+    </div>
+
+    <div style="display:flex;gap:32px;padding-bottom:56px;">
+
+      <div style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:24px;">
+        <div>
+          <span style="font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:10px;display:block;">About Taylor</span>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:var(--ink-700);">Former collegiate track athlete turned strength coach, I specialize in helping busy professionals build sustainable training habits without burning out. My programs blend structured strength work with practical nutrition coaching — no fad diets, no unsustainable volume. I've helped over 90 clients hit PRs, finish their first marathon, or simply feel strong again.</p>
+        </div>
+
+        <div class="of-card">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:15px;margin-bottom:14px;display:block;">Credentials</span>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;gap:12px;"><span style="width:34px;height:34px;border-radius:10px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8"><path d="M12,2 L15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9 Z"></path></svg></span><div><div style="font-size:13.5px;font-weight:600;">NASM Certified Personal Trainer</div><div style="font-size:12px;color:var(--ink-500);">2019</div></div></div>
+            <div style="display:flex;gap:12px;"><span style="width:34px;height:34px;border-radius:10px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8"><path d="M12,2 L15,9 22,9.5 16.5,14 18.5,21 12,17 5.5,21 7.5,14 2,9.5 9,9 Z"></path></svg></span><div><div style="font-size:13.5px;font-weight:600;">Precision Nutrition Level 1</div><div style="font-size:12px;color:var(--ink-500);">2021</div></div></div>
+          </div>
+        </div>
+
+        <div class="of-card">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:15px;margin-bottom:14px;display:block;">Locations</span>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:13.5px;font-weight:500;">Online / remote coaching</span><span style="background:var(--pine-tint);color:var(--pine-dark);font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;">Primary</span></div>
+            <div style="font-size:13.5px;">Iron Vault Gym — East Austin, TX</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width:320px;flex-shrink:0;">
+        <div class="of-card" style="position:sticky;top:24px;display:flex;flex-direction:column;gap:16px;">
+          <div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:22px;">$180<span style="font-size:13px;font-weight:500;color:var(--ink-500);"> / month</span></div>
+            <div style="font-size:12.5px;color:var(--ink-500);margin-top:2px;">12-Week Reset program</div>
+          </div>
+          <button style="border:none;border-radius:10px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;padding:13px;cursor:pointer;">Request session</button>
+          <button style="border:1.5px solid var(--stone-300);border-radius:10px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14px;padding:12px;cursor:pointer;">Message</button>
+          <div style="font-size:12px;color:var(--ink-500);text-align:center;">Usually responds within a day</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1320}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

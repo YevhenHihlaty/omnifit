@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Client analytics</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:13px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:12px 13px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <button aria-label="Back" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Priya Nair</span>
+      <button aria-label="More options" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.8"></circle><circle cx="12" cy="12" r="1.8"></circle><circle cx="12" cy="19" r="1.8"></circle></svg>
+      </button>
+    </div>
+
+    <div style="display:flex;gap:14px;padding:14px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab">Snapshot</button>
+      <button class="of-tab">History</button>
+      <button class="of-tab active">Analytics</button>
+    </div>
+
+    <div style="padding:12px 20px 16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:9px;">
+
+      <div class="of-card" style="display:flex;align-items:center;gap:14px;">
+        <svg width="64" height="64" viewBox="0 0 64 64" style="flex-shrink:0;">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="var(--stone-150)" stroke-width="7"></circle>
+          <circle cx="32" cy="32" r="26" fill="none" stroke="var(--pine)" stroke-width="7" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="35.9" transform="rotate(-90 32 32)"></circle>
+          <text x="32" y="36" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="15" fill="var(--ink-900)">78%</text>
+        </svg>
+        <div><div style="font-family:var(--font-display);font-weight:600;font-size:14px;">Adherence</div><div style="font-size:12px;color:var(--ink-500);margin-top:2px;">22 of 28 workouts logged, last 30 days</div></div>
+      </div>
+
+      <div class="of-card">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;">Weight trend</span>
+          <span style="font-size:11px;color:var(--pine-dark);font-weight:600;">−2.1 kg · 90 days</span>
+        </div>
+        <svg viewBox="0 0 320 70" width="100%" height="60" role="img" aria-label="Weight declining over 90 days">
+          <line x1="0" y1="55" x2="320" y2="55" stroke="var(--stone-150)" stroke-width="1"></line>
+          <polyline points="10,14 60,20 110,26 160,24 210,34 260,42 310,48" fill="none" stroke="var(--pine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <circle cx="310" cy="48" r="3.5" fill="var(--pine)"></circle>
+        </svg>
+      </div>
+
+      <div class="of-card">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;display:block;margin-bottom:8px;">Measurements</span>
+        <div style="display:flex;justify-content:space-between;gap:8px;">
+          <div style="flex:1;text-align:center;"><div style="font-size:10.5px;color:var(--ink-500);">Waist</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">78cm</div><svg width="46" height="16" viewBox="0 0 46 16" style="margin-top:2px;"><polyline points="0,4 12,7 23,6 34,11 46,10" fill="none" stroke="var(--pine)" stroke-width="1.6"></polyline></svg></div>
+          <div style="flex:1;text-align:center;border-left:1px solid var(--stone-150);border-right:1px solid var(--stone-150);"><div style="font-size:10.5px;color:var(--ink-500);">Chest</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">92cm</div><svg width="46" height="16" viewBox="0 0 46 16" style="margin-top:2px;"><polyline points="0,9 12,8 23,6 34,7 46,5" fill="none" stroke="var(--pine)" stroke-width="1.6"></polyline></svg></div>
+          <div style="flex:1;text-align:center;"><div style="font-size:10.5px;color:var(--ink-500);">Arm</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">32cm</div><svg width="46" height="16" viewBox="0 0 46 16" style="margin-top:2px;"><polyline points="0,10 12,9 23,7 34,6 46,4" fill="none" stroke="var(--pine)" stroke-width="1.6"></polyline></svg></div>
+        </div>
+      </div>
+
+      <div class="of-card">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;">Progress photos</span>
+          <a href="#compare" style="font-size:11px;color:var(--pine-dark);font-weight:600;text-decoration:none;">Compare check-ins</a>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <div style="flex:1;text-align:center;"><div style="height:64px;border-radius:9px;border:1px solid var(--stone-300);background:var(--stone-150);"></div><span style="font-size:10px;color:var(--ink-500);">Wk 8</span></div>
+          <div style="flex:1;text-align:center;"><div style="height:64px;border-radius:9px;border:1px solid var(--stone-300);background:var(--stone-150);"></div><span style="font-size:10px;color:var(--ink-500);">Wk 12</span></div>
+        </div>
+      </div>
+
+      <div class="of-card">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;">Training volume</span>
+          <span style="font-size:11px;color:var(--ink-500);">8 weeks · kg</span>
+        </div>
+        <svg viewBox="0 0 320 48" width="100%" height="44">
+          <rect x="4" y="18" width="30" height="26" rx="3" fill="var(--pine-tint)"></rect>
+          <rect x="45" y="10" width="30" height="34" rx="3" fill="var(--pine-tint)"></rect>
+          <rect x="86" y="14" width="30" height="30" rx="3" fill="var(--pine-tint)"></rect>
+          <rect x="127" y="6" width="30" height="38" rx="3" fill="var(--pine)"></rect>
+          <rect x="168" y="12" width="30" height="32" rx="3" fill="var(--pine-tint)"></rect>
+          <rect x="209" y="2" width="30" height="42" rx="3" fill="var(--pine)"></rect>
+          <rect x="250" y="8" width="30" height="36" rx="3" fill="var(--pine-tint)"></rect>
+          <rect x="291" y="0" width="30" height="44" rx="3" fill="var(--pine)"></rect>
+        </svg>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

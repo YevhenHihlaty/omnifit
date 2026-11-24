@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Subscription &amp; Billing (Mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.m-header{display:flex;align-items:center;padding:46px 16px 10px;flex-shrink:0;position:relative;}
+.m-back{width:34px;height:34px;border-radius:10px;background:transparent;border:none;display:flex;align-items:center;justify-content:center;color:var(--ink-900);cursor:pointer;flex-shrink:0;}
+.m-title{position:absolute;left:0;right:0;text-align:center;font-family:var(--font-display);font-weight:600;font-size:14.5px;color:var(--ink-900);pointer-events:none;}
+.m-content{flex:1;overflow:hidden;padding:2px 16px 14px;box-sizing:border-box;display:flex;flex-direction:column;gap:12px;}
+.section-cap{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);margin:0 0 7px;}
+.plan-card{background:var(--surface);border:1.5px solid var(--stone-300);border-radius:14px;padding:16px;box-sizing:border-box;}
+.plan-card.current{border-color:var(--pine);}
+.plan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;}
+.plan-name{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink-900);}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:10.5px;font-weight:600;}
+.pill-pine{background:var(--pine-tint);color:var(--pine-dark);}
+.plan-price{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ink-900);margin:2px 0;font-variant-numeric:tabular-nums;}
+.plan-price span{font-family:var(--font-body);font-weight:500;font-size:12px;color:var(--ink-500);}
+.plan-desc{font-size:12px;color:var(--ink-500);margin:0 0 10px;}
+.feat-list{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:6px;}
+.feat-list li{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-700);}
+.feat-list li svg{color:var(--pine-dark);flex-shrink:0;}
+.feat-list li .soon{margin-left:auto;font-size:10px;font-weight:600;color:var(--ink-500);background:var(--stone-150);border-radius:999px;padding:2px 8px;flex-shrink:0;}
+.btn-primary{height:42px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:13.5px;cursor:pointer;width:100%;}
+.btn-disabled{height:42px;border-radius:10px;background:var(--stone-150);color:var(--ink-500);border:none;font-family:var(--font-body);font-weight:600;font-size:13.5px;width:100%;}
+.usage-row{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-500);margin-top:10px;}
+.usage-row strong{color:var(--ink-900);font-variant-numeric:tabular-nums;}
+.alt-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px;}
+.alt-card .t1{font-weight:600;font-size:12.5px;color:var(--ink-900);}
+.alt-card .t2{font-size:11px;color:var(--ink-500);}
+.alt-card button{height:38px;border-radius:9px;background:transparent;border:1.5px solid var(--ink-900);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;}
+.payout-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:14px;display:flex;align-items:center;gap:12px;}
+.payout-ic{width:40px;height:40px;border-radius:10px;background:var(--sky);display:flex;align-items:center;justify-content:center;color:var(--ink-900);flex-shrink:0;}
+.payout-info{flex:1;min-width:0;}
+.payout-info .t1{font-weight:600;font-size:12.5px;color:var(--ink-900);margin-bottom:2px;}
+.payout-info .t2{font-size:10.5px;color:var(--ink-500);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div class="m-header">
+    <button class="m-back" type="button" aria-label="Go back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="m-title">Billing &amp; subscription</span>
+  </div>
+
+  <div class="m-content">
+    <div>
+      <p class="section-cap">Plan</p>
+      <div class="plan-card current">
+        <div class="plan-top">
+          <span class="plan-name">Free</span>
+          <span class="pill pill-pine">Current plan</span>
+        </div>
+        <p class="plan-desc">For coaches just getting started.</p>
+        <ul class="feat-list">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Up to 3 active clients
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Session booking &amp; scheduling
+          </li>
+        </ul>
+        <button class="btn-disabled" type="button" disabled>Current plan</button>
+        <div class="usage-row"><span>Client slots used</span><span><strong>2 of 3</strong></span></div>
+      </div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top">
+        <span class="plan-name">Pro</span>
+      </div>
+      <div class="plan-price">$29<span>&nbsp;/ month</span></div>
+      <p class="plan-desc">For growing coaching businesses.</p>
+      <ul class="feat-list">
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Unlimited active clients
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Deeper client analytics
+        </li>
+        <li>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Live video sessions
+          <span class="soon">Phase 2</span>
+        </li>
+      </ul>
+      <button class="btn-primary" type="button">Upgrade to Pro</button>
+    </div>
+
+    <div>
+      <p class="section-cap">State: Pro plan active</p>
+      <div class="alt-card">
+        <div class="t1">You're on the Pro plan</div>
+        <div class="t2">Next billing date: Oct 20, 2026 · $29.00 / month</div>
+        <button type="button">Manage billing</button>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-cap">Payouts</p>
+      <div class="payout-card">
+        <div class="payout-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <div class="payout-info">
+          <div class="t1">Stripe connected</div>
+          <div class="t2">Weekly payouts · •••• 4821</div>
+        </div>
+        <span class="pill pill-pine">Connected</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

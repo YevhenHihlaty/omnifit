@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Calendar</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --peach:#EFC3A0; --peach-tint:#FBEDE1; --peach-dark:#A15A2E;
+  --sky-tint:#EAF3F8; --sky-dark:#3A6E8C;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-day{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;padding:0;width:38px;flex-shrink:0;}
+.of-daynum{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--ink-900);}
+.of-dot{width:4px;height:4px;border-radius:50%;background:var(--pine);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:52px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Calendar</h1>
+    <button aria-label="Schedule a session" style="width:40px;height:40px;border-radius:50%;border:none;background:var(--ink-900);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    </button>
+  </div>
+
+  <div style="padding:14px 20px 0;flex-shrink:0;display:flex;align-items:baseline;justify-content:space-between;">
+    <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">September 2026</span>
+    <div style="display:flex;gap:6px;">
+      <button style="border:none;border-radius:999px;background:var(--ink-900);color:var(--cream);font-size:12px;font-weight:600;padding:5px 12px;cursor:pointer;">Week</button>
+      <button style="border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:12px;font-weight:600;padding:4.5px 11px;cursor:pointer;">Month</button>
+    </div>
+  </div>
+
+  <div style="padding:16px 20px 0;flex-shrink:0;display:flex;justify-content:space-between;">
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Mon</span>
+      <span class="of-daynum">14</span>
+      <span class="of-dot"></span>
+    </button>
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Tue</span>
+      <span class="of-daynum">15</span>
+      <span class="of-dot" style="background:transparent;"></span>
+    </button>
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Wed</span>
+      <span class="of-daynum">16</span>
+      <span class="of-dot"></span>
+    </button>
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Thu</span>
+      <span class="of-daynum">17</span>
+      <span class="of-dot" style="background:transparent;"></span>
+    </button>
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Fri</span>
+      <span class="of-daynum">18</span>
+      <span class="of-dot"></span>
+    </button>
+    <button class="of-day">
+      <span style="font-size:11px;font-weight:600;color:var(--ink-500);">Sat</span>
+      <span class="of-daynum">19</span>
+      <span class="of-dot" style="background:transparent;"></span>
+    </button>
+    <button class="of-day" aria-current="date">
+      <span style="font-size:11px;font-weight:700;color:var(--pine-dark);">Sun</span>
+      <span class="of-daynum" style="background:var(--pine);color:var(--cream);">20</span>
+      <span class="of-dot"></span>
+    </button>
+  </div>
+
+  <div style="padding:22px 20px 0;flex-grow:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
+    <span style="font-family:var(--font-display);font-weight:600;font-size:15px;margin-bottom:12px;">Sunday, September 20</span>
+
+    <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--stone-150);">
+      <div style="width:50px;flex-shrink:0;text-align:right;"><span style="font-size:12.5px;font-weight:600;color:var(--ink-500);">9:00<br>AM</span></div>
+      <div style="width:3px;border-radius:2px;background:var(--pine);flex-shrink:0;"></div>
+      <div style="flex-grow:1;min-width:0;background:var(--pine-tint);border-radius:10px;padding:10px 12px;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:14px;">Alex Romero</div>
+        <div style="font-size:12px;color:var(--pine-dark);margin-top:2px;">Strength training · 45 min</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--stone-150);">
+      <div style="width:50px;flex-shrink:0;text-align:right;"><span style="font-size:12.5px;font-weight:600;color:var(--ink-500);">11:30<br>AM</span></div>
+      <div style="width:3px;border-radius:2px;background:var(--sky-dark);flex-shrink:0;"></div>
+      <div style="flex-grow:1;min-width:0;background:var(--sky-tint);border-radius:10px;padding:10px 12px;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:14px;">Priya Nair</div>
+        <div style="font-size:12px;color:var(--sky-dark);margin-top:2px;">Check-in call · 20 min</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--stone-150);">
+      <div style="width:50px;flex-shrink:0;text-align:right;"><span style="font-size:12.5px;font-weight:600;color:var(--ink-500);">2:00<br>PM</span></div>
+      <div style="width:3px;border-radius:2px;background:var(--peach-dark);flex-shrink:0;"></div>
+      <div style="flex-grow:1;min-width:0;background:var(--peach-tint);border-radius:10px;padding:10px 12px;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:14px;">Devon Ward</div>
+        <div style="font-size:12px;color:var(--peach-dark);margin-top:2px;">Intro consultation · 30 min</div>
+      </div>
+    </div>
+  </div>
+
+  <nav aria-label="Primary" style="flex-shrink:0;display:flex;border-top:1px solid var(--stone-300);background:var(--surface);padding:10px 0 18px;">
+    <a href="#home" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3,11 L12,3 L21,11"></path><path d="M5,10 V21 H19 V10"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Home</span>
+    </a>
+    <a href="#clients" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5,20 c0,-4 3,-6.5 6.5,-6.5 s6.5,2.5 6.5,6.5"></path><circle cx="17.5" cy="9" r="2.8"></circle><path d="M15.5,13.3 c2.8,0.3 5,2.6 5,6.7"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Clients</span>
+    </a>
+    <a href="#sessions" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--pine);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg>
+      <span style="font-size:11px;font-weight:700;">Sessions</span>
+    </a>
+    <a href="#messages" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Messages</span>
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

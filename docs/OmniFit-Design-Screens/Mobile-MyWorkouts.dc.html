@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — My workouts</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tplcard{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:52px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:14px;">
+    <button aria-label="Back" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+    </button>
+    <h1 style="margin:0;flex-grow:1;font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-0.01em;">My workouts</h1>
+    <button aria-label="New template" style="width:34px;height:34px;border-radius:50%;border:none;background:var(--ink-900);color:var(--cream);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+    </button>
+  </div>
+
+  <div style="padding:18px 20px 0;flex-grow:1;overflow:hidden;display:flex;flex-direction:column;gap:12px;">
+
+    <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">4 saved templates</span>
+
+    <div class="of-tplcard">
+      <span style="width:46px;height:46px;border-radius:13px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Push day</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">6 exercises · last used 2 days ago</div>
+      </div>
+      <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;flex-shrink:0;">Start</button>
+    </div>
+
+    <div class="of-tplcard">
+      <span style="width:46px;height:46px;border-radius:13px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Leg day</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">5 exercises · last used 4 days ago</div>
+      </div>
+      <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;flex-shrink:0;">Start</button>
+    </div>
+
+    <div class="of-tplcard">
+      <span style="width:46px;height:46px;border-radius:13px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Full body</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">7 exercises · last used 6 days ago</div>
+      </div>
+      <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;flex-shrink:0;">Start</button>
+    </div>
+
+    <div class="of-tplcard">
+      <span style="width:46px;height:46px;border-radius:13px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-family:var(--font-display);font-weight:600;font-size:15px;">Upper body pull</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:2px;">5 exercises · last used 9 days ago</div>
+      </div>
+      <button style="border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;flex-shrink:0;">Start</button>
+    </div>
+
+    <button style="display:flex;align-items:center;justify-content:center;gap:9px;height:52px;border-radius:14px;border:1.5px dashed var(--stone-300);background:transparent;color:var(--ink-700);font-family:var(--font-body);font-weight:600;font-size:13.5px;cursor:pointer;margin-top:4px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      New template
+    </button>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

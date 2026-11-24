@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Profile · Progress</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --sky-tint:#EAF3F8; --sky-dark:#3A6E8C; --butter-tint:#FAF0CE; --butter-dark:#8A6300;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-tab{flex:1;text-align:center;padding:0 0 10px;font-size:12.5px;font-weight:600;color:var(--ink-500);border-bottom:2px solid transparent;background:none;border-left:none;border-right:none;border-top:none;cursor:pointer;}
+.of-tab.active{color:var(--ink-900);border-bottom-color:var(--pine);}
+.of-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:12px 13px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:44px 20px 0;flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <span style="width:56px;height:56px;border-radius:50%;background:var(--sky-tint);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--sky-dark);">DW</span>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:16px;">Devon Ward</div>
+    </div>
+
+    <div style="display:flex;gap:10px;padding:12px 20px 0;flex-shrink:0;border-bottom:1px solid var(--stone-300);">
+      <button class="of-tab">Goals</button>
+      <button class="of-tab active">Progress</button>
+      <button class="of-tab">History</button>
+      <button class="of-tab">Check-in</button>
+    </div>
+
+    <div style="padding:12px 20px 16px;overflow:hidden;flex-grow:1;display:flex;flex-direction:column;gap:9px;">
+
+      <div style="background:var(--butter-tint);border-radius:12px;padding:11px 13px;display:flex;align-items:center;gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--butter-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M12,3 l9,16 H3 Z"></path><line x1="12" y1="10" x2="12" y2="14"></line><circle cx="12" cy="17" r="0.6" fill="var(--butter-dark)"></circle></svg>
+        <span style="font-size:12.5px;color:var(--butter-dark);font-weight:600;flex-grow:1;">Weekly check-in due — this Sunday</span>
+      </div>
+
+      <div class="of-card">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;">Weight</span>
+          <span style="font-size:11px;color:var(--ink-500);">Last 90 days</span>
+        </div>
+        <svg viewBox="0 0 320 70" width="100%" height="60">
+          <line x1="0" y1="55" x2="320" y2="55" stroke="var(--stone-150)" stroke-width="1"></line>
+          <polyline points="10,44 60,40 110,34 160,36 210,26 260,20 310,14" fill="none" stroke="var(--pine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></polyline>
+          <circle cx="310" cy="14" r="3.5" fill="var(--pine)"></circle>
+        </svg>
+      </div>
+
+      <div class="of-card">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;display:block;margin-bottom:8px;">Measurements</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="text-align:center;padding:8px 0;background:var(--stone-150);border-radius:9px;"><div style="font-size:10px;color:var(--ink-500);">Waist</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">84cm</div></div>
+          <div style="text-align:center;padding:8px 0;background:var(--stone-150);border-radius:9px;"><div style="font-size:10px;color:var(--ink-500);">Chest</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">98cm</div></div>
+          <div style="text-align:center;padding:8px 0;background:var(--stone-150);border-radius:9px;"><div style="font-size:10px;color:var(--ink-500);">Arm</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">30cm</div></div>
+          <div style="text-align:center;padding:8px 0;background:var(--stone-150);border-radius:9px;"><div style="font-size:10px;color:var(--ink-500);">Weight</div><div style="font-family:var(--font-display);font-weight:700;font-size:14px;">176lb</div></div>
+        </div>
+      </div>
+
+      <div class="of-card">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:13.5px;display:block;margin-bottom:8px;">Photo timeline</span>
+        <div style="display:flex;gap:8px;overflow-x:auto;">
+          <div style="width:52px;height:64px;border-radius:9px;border:1px solid var(--stone-300);background:var(--stone-150);flex-shrink:0;"></div>
+          <div style="width:52px;height:64px;border-radius:9px;border:1px solid var(--stone-300);background:var(--stone-150);flex-shrink:0;"></div>
+          <div style="width:52px;height:64px;border-radius:9px;border:1px solid var(--stone-300);background:var(--stone-150);flex-shrink:0;"></div>
+          <div style="width:52px;height:64px;border-radius:9px;border:1.5px dashed var(--stone-300);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:var(--ink-500);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

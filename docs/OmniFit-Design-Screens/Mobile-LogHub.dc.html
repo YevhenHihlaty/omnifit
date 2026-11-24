@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --peach:#EFC3A0; --peach-tint:#FBEDE1; --peach-dark:#A15A2E;
+  --sage:#CFE0C8; --sage-tint:#E8F0E4;
+  --lilac:#DDD2F3; --lilac-tint:#F1EBFA; --plum-dark:#5C4E78;
+  --sky:#BFD9E8; --sky-tint:#EAF3F8; --sky-dark:#3A6E8C;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-logcard{border:none;border-radius:16px;padding:16px 14px;display:flex;flex-direction:column;align-items:flex-start;gap:24px;cursor:pointer;text-align:left;}
+.of-logicon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:52px 20px 0;flex-shrink:0;">
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:24px;letter-spacing:-0.01em;">Log activity</h1>
+    <p style="margin:2px 0 0;font-size:13px;color:var(--ink-500);">Today, Sep 20</p>
+  </div>
+
+  <div style="padding:18px 20px 0;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <button class="of-logcard" style="background:var(--peach-tint);">
+      <span class="of-logicon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--peach-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path><path d="M9,12 h6 M12,9 v6"></path></svg></span>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);">Log meal</span>
+    </button>
+    <button class="of-logcard" style="background:var(--sage-tint);">
+      <span class="of-logicon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect><line x1="9" y1="12" x2="15" y2="12"></line></svg></span>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);">Log workout</span>
+    </button>
+    <button class="of-logcard" style="background:var(--lilac-tint);">
+      <span class="of-logicon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--plum-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,21 c-4.5,-3 -7,-6.2 -7,-9.5 A4.5,4.5 0 0 1 12,7.5 A4.5,4.5 0 0 1 19,11.5 c0,3.3 -2.5,6.5 -7,9.5 Z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg></span>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);">Body metrics</span>
+    </button>
+    <button class="of-logcard" style="background:var(--sky-tint);">
+      <span class="of-logicon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--sky-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,3 C9,8 6,11.5 6,15 a6,6 0 0 0 12,0 c0,-3.5 -3,-7 -6,-12 Z"></path></svg></span>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);">Water</span>
+    </button>
+  </div>
+
+  <div style="padding:22px 20px 0;flex-grow:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
+    <span style="font-family:var(--font-display);font-weight:600;font-size:14px;margin-bottom:10px;">Today's log</span>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:34px;height:34px;border-radius:10px;background:var(--peach-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--peach-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:13.5px;font-weight:600;">Oatmeal &amp; berries</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Breakfast · 420 cal</div>
+      </div>
+      <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">8:12 AM</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9,6 15,12 9,18"></polyline></svg>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:34px;height:34px;border-radius:10px;background:var(--sage-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="9" width="3" height="6" rx="1"></rect><rect x="19" y="9" width="3" height="6" rx="1"></rect><rect x="6" y="7" width="3" height="10" rx="1"></rect><rect x="15" y="7" width="3" height="10" rx="1"></rect></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:13.5px;font-weight:600;">Morning run</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Cardio · 32 min</div>
+      </div>
+      <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">6:45 AM</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9,6 15,12 9,18"></polyline></svg>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:34px;height:34px;border-radius:10px;background:var(--sky-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sky-dark)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12,3 C9,8 6,11.5 6,15 a6,6 0 0 0 12,0 c0,-3.5 -3,-7 -6,-12 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:13.5px;font-weight:600;">Water</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">3 of 8 cups</div>
+      </div>
+      <span style="font-size:12px;color:var(--ink-500);flex-shrink:0;">Updated 9:05 AM</span>
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><polyline points="9,6 15,12 9,18"></polyline></svg>
+    </div>
+  </div>
+
+  <nav aria-label="Primary" style="flex-shrink:0;display:flex;border-top:1px solid var(--stone-300);background:var(--surface);padding:10px 0 18px;">
+    <a href="#home" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3,11 L12,3 L21,11"></path><path d="M5,10 V21 H19 V10"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Home</span>
+    </a>
+    <a href="#log" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--pine);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+      <span style="font-size:11px;font-weight:700;">Log</span>
+    </a>
+    <a href="#progress" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,17 9,11 13,15 21,7"></polyline><polyline points="14,7 21,7 21,14"></polyline></svg>
+      <span style="font-size:11px;font-weight:600;">Progress</span>
+    </a>
+    <a href="#coach" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--ink-500);">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 c0,-4.5 3.5,-7.5 8,-7.5 s8,3 8,7.5"></path></svg>
+      <span style="font-size:11px;font-weight:600;">Coach</span>
+    </a>
+  </nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

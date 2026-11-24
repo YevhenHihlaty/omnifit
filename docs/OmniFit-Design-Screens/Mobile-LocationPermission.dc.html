@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Location access</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:20px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+    <button aria-label="Close" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+    </button>
+    <span style="font-family:var(--font-display);font-weight:600;font-size:14px;">Find a coach</span>
+    <span style="width:32px;"></span>
+  </div>
+
+  <div style="flex-grow:1;overflow:hidden;padding:0 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+
+    <span style="width:76px;height:76px;border-radius:50%;background:var(--stone-150);display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,21 c-4.5,-4.5 -7,-8 -7,-11.5 a7,7 0 0 1 14,0 c0,3.5 -2.5,7 -7,11.5 Z"></path><line x1="4" y1="3" x2="20" y2="21"></line></svg>
+    </span>
+
+    <h1 style="margin:0 0 10px;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:-0.01em;">Location access needed</h1>
+    <p style="margin:0 0 28px;font-size:14px;color:var(--ink-500);line-height:1.6;max-width:260px;">Find coaches near you by allowing OmniFit to use your location.</p>
+
+    <button style="width:100%;max-width:260px;height:46px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14.5px;cursor:pointer;margin-bottom:10px;">Open settings</button>
+    <button style="background:none;border:none;color:var(--ink-500);font-family:var(--font-body);font-weight:600;font-size:13.5px;cursor:pointer;">Not now</button>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

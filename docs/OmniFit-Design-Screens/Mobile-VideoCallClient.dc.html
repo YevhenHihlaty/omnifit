@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Live session (client)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --pine:#3F6B4F; --danger:#C1503D;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:#0B0D0C;}
+.of-ctrlbtn{width:52px;height:52px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:#14181C;font-family:var(--font-body);color:#fff;display:flex;flex-direction:column;overflow:hidden;position:relative;">
+
+  <!-- Main video: coach -->
+  <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 34%, #2C4F39 0%, #14181C 70%);"></div>
+  <div style="position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:#8FB89B;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:36px;color:#14181C;">TB</div>
+
+  <!-- Top bar -->
+  <div style="position:relative;padding:50px 18px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.4);border-radius:999px;padding:7px 13px;">
+      <span style="width:7px;height:7px;border-radius:50%;background:#E5675A;"></span>
+      <span style="font-size:12px;font-weight:600;">24:18</span>
+    </div>
+    <button aria-label="Chat" style="width:36px;height:36px;border-radius:50%;border:none;background:rgba(0,0,0,0.4);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3,5 h18 v12 H8 l-5,4 Z"></path></svg>
+    </button>
+  </div>
+
+  <!-- Self PIP -->
+  <div style="position:absolute;top:110px;right:18px;width:92px;height:122px;border-radius:14px;background:linear-gradient(160deg,#3A3E3A 0%,#14181C 100%);border:2px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;">
+    <span style="width:36px;height:36px;border-radius:50%;background:var(--pine);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:13px;">AR</span>
+  </div>
+
+  <div style="flex-grow:1;"></div>
+
+  <!-- Name label -->
+  <div style="position:relative;padding:0 20px 14px;flex-shrink:0;">
+    <span style="background:rgba(0,0,0,0.4);border-radius:999px;padding:6px 13px;font-size:12.5px;font-weight:600;">Taylor Brooks</span>
+  </div>
+
+  <!-- Controls -->
+  <div style="position:relative;flex-shrink:0;padding:0 24px 40px;display:flex;justify-content:center;gap:16px;">
+    <button class="of-ctrlbtn" style="background:rgba(255,255,255,0.14);color:#fff;">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12,2 a3.5,3.5 0 0 1 3.5,3.5 v6 a3.5,3.5 0 0 1 -7,0 v-6 A3.5,3.5 0 0 1 12,2 Z"></path><path d="M6,10.5 a6,6 0 0 0 12,0"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+    </button>
+    <button class="of-ctrlbtn" style="background:rgba(255,255,255,0.14);color:#fff;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2.5"></rect><path d="M16,10 l6,-3.5 v11 L16,14"></path></svg>
+    </button>
+    <button class="of-ctrlbtn" aria-label="Switch camera" style="background:rgba(255,255,255,0.14);color:#fff;">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17,2 l4,4 -4,4"></path><path d="M3,11 V9 a4,4 0 0 1 4,-4 h14"></path><path d="M7,22 l-4,-4 4,-4"></path><path d="M21,13 v2 a4,4 0 0 1 -4,4 H3"></path></svg>
+    </button>
+    <button class="of-ctrlbtn" aria-label="End call" style="background:var(--danger);color:#fff;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12,17 c-4,0 -9,-3.5 -9,-6.5 c0,-1 1.5,-2 3,-2.5 c1,-0.3 1.8,0 2.2,0.8 l0.8,1.6 c0.3,0.6 0.1,1.2 -0.4,1.6 c-0.5,0.4 -0.7,0.9 -0.3,1.4 c0.8,1 2.2,1.6 3.7,1.6 s2.9,-0.6 3.7,-1.6 c0.4,-0.5 0.2,-1 -0.3,-1.4 c-0.5,-0.4 -0.7,-1 -0.4,-1.6 l0.8,-1.6 c0.4,-0.8 1.2,-1.1 2.2,-0.8 c1.5,0.5 3,1.5 3,2.5 C21,13.5 16,17 12,17 Z"></path></svg>
+    </button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

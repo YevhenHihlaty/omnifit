@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Session summary</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-stat{flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:3px;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:44px 20px 0;flex-shrink:0;text-align:center;">
+      <span style="width:64px;height:64px;border-radius:50%;background:var(--pine);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 12px 24px -12px rgba(63,107,79,0.5);">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg>
+      </span>
+      <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-0.01em;">Session complete</h1>
+      <p style="margin:0;font-size:13.5px;color:var(--ink-500);">Strength training with Taylor Brooks</p>
+    </div>
+
+    <div style="padding:22px 20px 0;flex-shrink:0;display:flex;gap:10px;">
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Duration</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;">42 min</span></div>
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Exercises</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;">3 / 4</span></div>
+      <div class="of-stat"><span style="font-size:11px;color:var(--ink-500);font-weight:600;">Sets logged</span><span style="font-family:var(--font-display);font-weight:700;font-size:18px;">10</span></div>
+    </div>
+
+    <div style="padding:20px 20px 0;flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+      <span style="font-family:var(--font-display);font-weight:600;font-size:14.5px;margin-bottom:10px;display:block;">What we covered</span>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg><span style="font-size:13.5px;flex-grow:1;">Back squat — 4 × 8 @ 185 lb</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg><span style="font-size:13.5px;flex-grow:1;">Romanian deadlift — 3 × 10 @ 135 lb</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--stone-150);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg><span style="font-size:13.5px;flex-grow:1;">Walking lunges — 3 × 12 @ 40 lb</span></div>
+        <div style="display:flex;align-items:center;gap:12px;padding:9px 0;"><span style="width:16px;height:16px;border-radius:50%;border:1.5px solid var(--stone-300);flex-shrink:0;"></span><span style="font-size:13.5px;flex-grow:1;color:var(--ink-500);">Cool-down stretch — skipped</span></div>
+      </div>
+
+      <div style="background:var(--pine-tint);border-radius:14px;padding:14px 16px;margin-top:18px;">
+        <div style="font-size:11.5px;font-weight:700;color:var(--pine-dark);text-transform:uppercase;letter-spacing:0.03em;margin-bottom:6px;">Note from Taylor</div>
+        <p style="margin:0;font-size:13px;line-height:1.6;color:var(--ink-900);">Great squat depth today — let's bump the weight next session. Try to fit in that cool-down stretch before bed.</p>
+      </div>
+    </div>
+
+    <div style="flex-shrink:0;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);display:flex;flex-direction:column;gap:8px;">
+      <button style="width:100%;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Schedule next session</button>
+      <button style="width:100%;height:20px;border:none;background:transparent;color:var(--pine-dark);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;">Back to home</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

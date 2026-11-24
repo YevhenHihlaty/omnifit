@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Meal item detail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --peach:#EFC3A0; --peach-tint:#FBEDE1; --peach-dark:#A15A2E;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-stepbtn{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.of-macro{flex:1;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:10px 8px;text-align:center;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;display:flex;flex-direction:column;">
+
+    <div style="padding:48px 20px 0;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;">
+      <button aria-label="Back" style="width:32px;height:32px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+      </button>
+      <span style="font-family:var(--font-display);font-weight:600;font-size:15px;">Add to meal</span>
+      <span style="width:32px;"></span>
+    </div>
+
+    <div style="padding:20px 20px 0;flex-shrink:0;">
+      <span style="width:56px;height:56px;border-radius:16px;background:var(--peach-tint);display:flex;align-items:center;justify-content:center;margin-bottom:12px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--peach-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path><path d="M9,12 h6 M12,9 v6"></path></svg></span>
+      <div style="font-family:var(--font-display);font-weight:700;font-size:20px;">Oatmeal</div>
+      <div style="font-size:13px;color:var(--ink-500);margin-top:2px;">Quaker · dry, per serving</div>
+    </div>
+
+    <div style="padding:20px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:14px;">
+      <button class="of-stepbtn" aria-label="Decrease quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+      <div style="flex-grow:1;text-align:center;">
+        <div style="font-family:var(--font-display);font-weight:700;font-size:22px;">1/2 cup</div>
+        <div style="font-size:11px;color:var(--ink-500);margin-top:2px;">Serving size</div>
+      </div>
+      <button class="of-stepbtn" aria-label="Increase quantity"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+    <div style="padding:22px 20px 0;flex-shrink:0;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px;">
+        <span style="font-family:var(--font-display);font-weight:700;font-size:26px;">150 <span style="font-size:14px;font-weight:500;color:var(--ink-500);">cal</span></span>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <div class="of-macro"><div style="font-family:var(--font-display);font-weight:700;font-size:15px;">5g</div><div style="font-size:10.5px;color:var(--ink-500);">Protein</div></div>
+        <div class="of-macro"><div style="font-family:var(--font-display);font-weight:700;font-size:15px;">27g</div><div style="font-size:10.5px;color:var(--ink-500);">Carbs</div></div>
+        <div class="of-macro"><div style="font-family:var(--font-display);font-weight:700;font-size:15px;">3g</div><div style="font-size:10.5px;color:var(--ink-500);">Fat</div></div>
+      </div>
+    </div>
+
+    <div style="padding:20px 20px 0;flex-grow:1;overflow:hidden;">
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Meal</span>
+      <div style="display:flex;gap:8px;margin-top:9px;">
+        <button style="border:none;border-radius:999px;background:var(--pine);color:var(--cream);font-size:13px;font-weight:600;padding:7px 14px;cursor:pointer;">Breakfast</button>
+        <button style="border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:13px;font-weight:600;padding:6.5px 13px;cursor:pointer;">Lunch</button>
+      </div>
+    </div>
+
+    <div style="flex-shrink:0;padding:14px 20px 22px;border-top:1px solid var(--stone-300);background:var(--surface);">
+      <button style="width:100%;height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Add to meal</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

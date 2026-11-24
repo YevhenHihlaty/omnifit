@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log body metrics</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.header{height:64px;flex:0 0 auto;background:var(--surface);border-bottom:1px solid var(--stone-300);display:flex;align-items:center;justify-content:space-between;padding:0 32px;box-sizing:border-box;}
+.brand{display:flex;align-items:center;gap:8px;}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:18px;color:var(--ink-900);}
+.nav{display:flex;gap:28px;margin-left:36px;}
+.nav a{font-size:14px;font-weight:600;color:var(--ink-500);text-decoration:none;}
+.nav a.active{color:var(--ink-900);}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:14px;color:var(--pine-dark);}
+.main{flex:1 1 auto;overflow:hidden;}
+.container{max-width:1160px;margin:0 auto;padding:32px;box-sizing:border-box;}
+.page-title{font-family:var(--font-display);font-weight:700;font-size:26px;color:var(--ink-900);margin:0 0 6px 0;}
+.page-sub{font-size:14px;color:var(--ink-500);margin:0 0 26px 0;}
+.grid{display:grid;grid-template-columns:360px 1fr;gap:24px;align-items:start;}
+.field-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:24px;}
+.card-title{font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);margin:0 0 18px 0;}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.field:last-child{margin-bottom:0;}
+.field label{font-size:13px;font-weight:600;color:var(--ink-700);}
+.unit-input{position:relative;}
+.unit-input input{width:100%;height:46px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 44px 0 14px;font-size:14.5px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;background:var(--surface);font-variant-numeric:tabular-nums;}
+.unit-input input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.unit-input span{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--ink-500);}
+.divider{height:1px;background:var(--stone-300);margin:20px 0;}
+.sub-title{font-size:13px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-500);margin:0 0 14px 0;}
+.photo-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+.dropzone{aspect-ratio:1/1;border:1.5px dashed var(--stone-300);border-radius:12px;background:var(--stone-150);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;}
+.dropzone-icon{color:var(--ink-500);}
+.dropzone-label{font-family:var(--font-display);font-weight:600;font-size:14px;color:var(--ink-900);margin:0;}
+.dropzone-hint{font-size:12px;color:var(--ink-500);margin:0;}
+.validation-msg{display:flex;align-items:center;gap:8px;background:var(--warning-tint);color:var(--warning);border-radius:10px;padding:10px 14px;font-size:13px;font-weight:600;margin-bottom:20px;}
+.btn-disabled{width:100%;height:48px;border-radius:10px;background:var(--stone-150);color:var(--ink-500);border:none;font-family:var(--font-body);font-weight:600;font-size:15px;cursor:not-allowed;}
+</style>
+</helmet>
+<div style="width:1440px;height:900px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+  <header class="header">
+    <div style="display:flex;align-items:center;">
+      <div class="brand">
+        <svg width="24" height="24" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="var(--pine)" stroke-width="9"/><circle cx="90" cy="32" r="14" fill="var(--pine)"/></svg>
+        <span class="brand-name">OmniFit</span>
+      </div>
+      <nav class="nav">
+        <a href="#" class="active">Home</a>
+        <a href="#">Training</a>
+        <a href="#">Calendar</a>
+        <a href="#">Profile</a>
+      </nav>
+    </div>
+    <div class="avatar">JM</div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <h1 class="page-title">Log body metrics</h1>
+      <p class="page-sub">Add your weight, any measurements you're tracking, and progress photos.</p>
+      <div class="grid">
+        <div class="field-card">
+          <h2 class="card-title">Weight &amp; measurements</h2>
+          <div class="field">
+            <label for="m-weight">Weight</label>
+            <div class="unit-input"><input id="m-weight" type="text" value="78.4"><span>kg</span></div>
+          </div>
+          <div class="divider"></div>
+          <p class="sub-title">Circumferences (optional)</p>
+          <div class="field">
+            <label for="m-waist">Waist</label>
+            <div class="unit-input"><input id="m-waist" type="text" value="82" placeholder="&ndash;"><span>cm</span></div>
+          </div>
+          <div class="field">
+            <label for="m-hips">Hips</label>
+            <div class="unit-input"><input id="m-hips" type="text" placeholder="&ndash;"><span>cm</span></div>
+          </div>
+          <div class="field">
+            <label for="m-chest">Chest</label>
+            <div class="unit-input"><input id="m-chest" type="text" placeholder="&ndash;"><span>cm</span></div>
+          </div>
+          <div class="field">
+            <label for="m-arm">Arm</label>
+            <div class="unit-input"><input id="m-arm" type="text" placeholder="&ndash;"><span>cm</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="field-card" style="margin-bottom:20px;">
+            <h2 class="card-title">Progress photos <span style="color:var(--danger);font-weight:400;">(required)</span></h2>
+            <div class="photo-row">
+              <div class="dropzone">
+                <span class="dropzone-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M4 8a2 2 0 0 1 2-2h1l1.5-2h7L17 6h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="4"/></svg>
+                </span>
+                <p class="dropzone-label">Front</p>
+                <p class="dropzone-hint">Click or drag to upload</p>
+              </div>
+              <div class="dropzone">
+                <span class="dropzone-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M4 8a2 2 0 0 1 2-2h1l1.5-2h7L17 6h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="4"/></svg>
+                </span>
+                <p class="dropzone-label">Side</p>
+                <p class="dropzone-hint">Click or drag to upload</p>
+              </div>
+              <div class="dropzone">
+                <span class="dropzone-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="28" height="28"><path d="M4 8a2 2 0 0 1 2-2h1l1.5-2h7L17 6h1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="4"/></svg>
+                </span>
+                <p class="dropzone-label">Back</p>
+                <p class="dropzone-hint">Click or drag to upload</p>
+              </div>
+            </div>
+          </div>
+          <div class="validation-msg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
+            Add all 3 photos to save this entry
+          </div>
+          <button type="button" class="btn-disabled" disabled>Save entry</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

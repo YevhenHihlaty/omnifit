@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Tell us about you</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:46px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.of-seg{display:inline-flex;border:1.5px solid var(--stone-300);border-radius:999px;padding:2px;gap:2px;}
+.of-seg-btn{border:none;background:transparent;font-family:var(--font-body);font-size:12.5px;font-weight:600;color:var(--ink-500);padding:5px 13px;border-radius:999px;cursor:pointer;}
+.of-seg-btn.active{background:var(--ink-900);color:var(--cream);}
+.of-activity{text-align:left;border-radius:14px;border:2px solid var(--stone-300);background:var(--surface);padding:12px 14px;display:flex;align-items:center;gap:11px;cursor:pointer;}
+.of-activity.selected{border-color:var(--pine);background:var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:38px 24px 20px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 2 of 3</span>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:67%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;text-wrap:balance;">Tell us about you</h1>
+    <p style="margin:0 0 22px;font-size:13.5px;color:var(--ink-500);line-height:1.4;">Helps Taylor tailor your plan from day one.</p>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Height &amp; weight</span>
+        <div class="of-seg" role="group" aria-label="Units"><button class="of-seg-btn active">lb / ft</button><button class="of-seg-btn">kg / cm</button></div>
+      </div>
+
+      <div style="display:flex;gap:12px;">
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <label for="ca-h" style="font-size:11px;color:var(--ink-500);">Height</label>
+          <input id="ca-h" class="of-field" type="text" placeholder="5 ft 7 in">
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+          <label for="ca-w" style="font-size:11px;color:var(--ink-500);">Weight</label>
+          <input id="ca-w" class="of-field" type="text" placeholder="148 lb">
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <label for="ca-dob" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Date of birth</label>
+        <input id="ca-dob" class="of-field" type="text" placeholder="MM / DD / YYYY">
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Activity level</span>
+        <div role="radiogroup" aria-label="Activity level" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+          <button role="radio" aria-checked="false" class="of-activity">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="16" width="4" height="5" rx="1" fill="var(--ink-500)"></rect><rect x="10" y="12" width="4" height="9" rx="1" fill="var(--stone-300)"></rect><rect x="17" y="8" width="4" height="13" rx="1" fill="var(--stone-300)"></rect></svg>
+            <span><div style="font-weight:600;font-size:13.5px;">Sedentary</div><div style="font-size:11px;color:var(--ink-500);margin-top:1px;">Desk job, little exercise</div></span>
+          </button>
+
+          <button role="radio" aria-checked="true" class="of-activity selected">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="14" width="4" height="7" rx="1" fill="var(--pine-dark)"></rect><rect x="10" y="9" width="4" height="12" rx="1" fill="var(--pine-dark)"></rect><rect x="17" y="8" width="4" height="13" rx="1" fill="var(--stone-300)"></rect></svg>
+            <span><div style="font-weight:600;font-size:13.5px;">Light</div><div style="font-size:11px;color:var(--pine-dark);margin-top:1px;">Walks, 1–2x/week</div></span>
+          </button>
+
+          <button role="radio" aria-checked="false" class="of-activity">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="12" width="4" height="9" rx="1" fill="var(--ink-500)"></rect><rect x="10" y="7" width="4" height="14" rx="1" fill="var(--ink-500)"></rect><rect x="17" y="4" width="4" height="17" rx="1" fill="var(--stone-300)"></rect></svg>
+            <span><div style="font-weight:600;font-size:13.5px;">Moderate</div><div style="font-size:11px;color:var(--ink-500);margin-top:1px;">Trains 3–4x/week</div></span>
+          </button>
+
+          <button role="radio" aria-checked="false" class="of-activity">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="10" width="4" height="11" rx="1" fill="var(--ink-500)"></rect><rect x="10" y="5" width="4" height="16" rx="1" fill="var(--ink-500)"></rect><rect x="17" y="2" width="4" height="19" rx="1" fill="var(--ink-500)"></rect></svg>
+            <span><div style="font-weight:600;font-size:13.5px;">Very active</div><div style="font-size:11px;color:var(--ink-500);margin-top:1px;">Trains 5+x/week</div></span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div style="flex-grow:1;min-height:14px;"></div>
+
+    <button style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Continue</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Connect with your coach</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:48px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;letter-spacing:0.04em;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:38px 24px 20px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:22px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 3 of 3</span>
+        <a href="#skip" style="font-size:12px;font-weight:600;color:var(--ink-500);text-decoration:none;">Skip for now</a>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:100%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;text-wrap:balance;">Connect with your coach</h1>
+    <p style="margin:0 0 26px;font-size:13.5px;color:var(--ink-500);line-height:1.4;">Enter the invite code your coach shared with you.</p>
+
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <label for="ci-code" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Invite code</label>
+      <input id="ci-code" class="of-field" type="text" placeholder="e.g. TAYLOR-4F2K">
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:1px;background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px 16px;margin-top:14px;">
+      <span style="width:38px;height:38px;border-radius:10px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"></circle><path d="M5,20 a7,6 0 0 1 14,0"></path></svg></span>
+      <div style="flex-grow:1;padding-left:12px;"><div style="font-weight:600;font-size:13.5px;">Taylor Brooks</div><div style="font-size:11.5px;color:var(--ink-500);margin-top:1px;">Coach found — code matches</div></div>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--pine)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,13 10,18 19,7"></polyline></svg>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:22px 0;">
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+      <span style="font-size:11.5px;color:var(--ink-500);">or</span>
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+    </div>
+
+    <button style="height:48px;border-radius:10px;border:1.5px solid var(--stone-300);background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14.5px;display:flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-700)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      Browse coaches on OmniFit
+    </button>
+
+    <div style="flex-grow:1;"></div>
+
+    <button style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Continue</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

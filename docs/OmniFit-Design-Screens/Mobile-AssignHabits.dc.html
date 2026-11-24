@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Assign habit (mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.m-header{height:56px;flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:0 16px;box-sizing:border-box;border-bottom:1px solid var(--stone-300);background:var(--surface);}
+.back-btn{width:32px;height:32px;border-radius:9px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.m-title{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--ink-900);margin:0;}
+.m-body{flex:1 1 auto;overflow:hidden;padding:18px 16px 20px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:16px;}
+.breadcrumb{font-size:12.5px;color:var(--ink-500);margin:0;}
+.breadcrumb b{color:var(--ink-900);font-weight:600;}
+.section-title{font-size:12px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-500);margin:0 0 10px 0;}
+.form-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:14px;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:12.5px;font-weight:600;color:var(--ink-700);}
+.field input{height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 12px;font-size:14px;font-family:var(--font-body);color:var(--ink-900);box-sizing:border-box;background:var(--surface);width:100%;}
+.field input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tabular{font-variant-numeric:tabular-nums;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;padding-top:2px;}
+.toggle-label{font-size:13.5px;font-weight:600;color:var(--ink-900);margin:0;}
+.toggle-hint{font-size:11.5px;color:var(--ink-500);margin:2px 0 0 0;}
+.switch{position:relative;display:inline-block;width:44px;height:24px;flex:0 0 auto;}
+.switch-input{position:absolute;opacity:0;width:44px;height:24px;margin:0;cursor:pointer;z-index:1;}
+.switch-track{position:absolute;inset:0;border-radius:999px;background:var(--stone-300);transition:background .15s;}
+.switch-input:checked + .switch-track{background:var(--pine);}
+.switch-thumb{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#FFFFFF;box-shadow:0 1px 2px rgba(20,24,28,0.25);transition:left .15s;}
+.switch-input:checked ~ .switch-thumb{left:22px;}
+.preview-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:14px;padding:14px;}
+.mini-screen{background:var(--cream);border:1px solid var(--stone-300);border-radius:12px;padding:12px;}
+.mini-title{font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--ink-900);margin:0 0 8px 0;}
+.mini-habit-row{display:flex;align-items:center;gap:9px;background:var(--surface);border:1.5px solid var(--pine);box-shadow:0 0 0 3px var(--pine-tint);border-radius:10px;padding:9px 10px;}
+.mini-icon{width:26px;height:26px;border-radius:8px;background:var(--sage);display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+.mini-habit-name{font-size:12.5px;font-weight:600;color:var(--ink-900);margin:0;}
+.mini-habit-target{font-size:11px;color:var(--ink-500);margin:0;font-variant-numeric:tabular-nums;}
+.mini-checkbox{margin-left:auto;width:17px;height:17px;accent-color:var(--pine);flex:0 0 auto;}
+.actions{margin-top:auto;display:flex;gap:10px;}
+.btn-outline{flex:1;height:46px;border-radius:10px;border:1.5px solid var(--stone-300);background:transparent;color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;}
+.btn-primary{flex:1;height:46px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+  <header class="m-header">
+    <button type="button" class="back-btn" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <h1 class="m-title">Assign habit</h1>
+  </header>
+  <div class="m-body">
+    <p class="breadcrumb"><b>Maya Torres</b> &rsaquo; Habits &rsaquo; Add habit</p>
+    <div>
+      <p class="section-title">Habit details</p>
+      <div class="form-card">
+        <div class="field">
+          <label for="mh-name">Habit name</label>
+          <input id="mh-name" type="text" value="Daily steps">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="mh-target">Target value</label>
+            <input id="mh-target" type="text" value="8,000" class="tabular">
+          </div>
+          <div class="field">
+            <label for="mh-unit">Unit</label>
+            <input id="mh-unit" type="text" value="steps">
+          </div>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <p class="toggle-label">Active</p>
+            <p class="toggle-hint">Shows on client's home today</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" class="switch-input" checked aria-label="Active">
+            <span class="switch-track"></span>
+            <span class="switch-thumb"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="section-title">How this appears to the client</p>
+      <div class="preview-card">
+        <div class="mini-screen">
+          <p class="mini-title">Today's habits</p>
+          <div class="mini-habit-row">
+            <div class="mini-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--ink-900)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z"/></svg>
+            </div>
+            <div>
+              <p class="mini-habit-name">Daily steps</p>
+              <p class="mini-habit-target">Target 8,000 steps</p>
+            </div>
+            <input type="checkbox" class="mini-checkbox" aria-label="Daily steps complete">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn-outline">Cancel</button>
+      <button type="button" class="btn-primary">Assign habit</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

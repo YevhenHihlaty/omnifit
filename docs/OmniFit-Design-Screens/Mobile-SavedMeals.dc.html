@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Saved meals</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --peach:#EFC3A0; --peach-tint:#FBEDE1; --peach-dark:#A15A2E;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-addbtn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--pine);background:var(--surface);color:var(--pine);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;}
+.of-filter{border:1.5px solid var(--stone-300);border-radius:999px;background:var(--surface);color:var(--ink-700);font-size:12.5px;font-weight:600;padding:6.5px 13px;cursor:pointer;white-space:nowrap;}
+.of-filter.active{border-color:var(--ink-900);background:var(--ink-900);color:var(--cream);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="padding:52px 20px 0;flex-shrink:0;display:flex;align-items:center;gap:14px;">
+    <button aria-label="Back" style="width:36px;height:36px;border:none;background:transparent;color:var(--ink-900);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+    </button>
+    <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-0.01em;">Saved meals</h1>
+  </div>
+
+  <div style="padding:16px 20px 0;flex-shrink:0;position:relative;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="2" stroke-linecap="round" style="position:absolute;left:34px;top:50%;transform:translateY(-50%);"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="search" placeholder="Search saved meals" style="width:100%;height:44px;border-radius:10px;border:1.5px solid var(--stone-300);background:var(--surface);padding:0 14px 0 40px;font-family:var(--font-body);font-size:14px;color:var(--ink-900);box-sizing:border-box;">
+  </div>
+
+  <div style="padding:14px 20px 0;flex-shrink:0;display:flex;gap:8px;">
+    <button class="of-filter active">All</button>
+    <button class="of-filter">Breakfast</button>
+    <button class="of-filter">Lunch</button>
+    <button class="of-filter">Dinner</button>
+  </div>
+
+  <div style="padding:16px 20px 0;flex-grow:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;">
+
+    <span style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);margin-bottom:8px;">14 saved meals</span>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:40px;height:40px;border-radius:11px;background:var(--peach-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--peach-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;">Overnight oats &amp; berries</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Breakfast · 420 cal · logged 12×</div>
+      </div>
+      <button class="of-addbtn" aria-label="Add overnight oats"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:40px;height:40px;border-radius:11px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;">Grilled chicken &amp; rice bowl</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Lunch · 560 cal · logged 8×</div>
+      </div>
+      <button class="of-addbtn" aria-label="Add chicken rice bowl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:40px;height:40px;border-radius:11px;background:#EAF3F8;flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A6E8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;">Salmon, roasted veg &amp; quinoa</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Dinner · 580 cal · logged 6×</div>
+      </div>
+      <button class="of-addbtn" aria-label="Add salmon roasted veg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--stone-150);">
+      <span style="width:40px;height:40px;border-radius:11px;background:var(--peach-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--peach-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;">Greek yogurt parfait</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Breakfast · 310 cal · logged 15×</div>
+      </div>
+      <button class="of-addbtn" aria-label="Add greek yogurt parfait"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;padding:11px 0;">
+      <span style="width:40px;height:40px;border-radius:11px;background:var(--pine-tint);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--pine-dark)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path></svg></span>
+      <div style="flex-grow:1;min-width:0;">
+        <div style="font-size:14px;font-weight:600;">Turkey wrap</div>
+        <div style="font-size:12px;color:var(--ink-500);margin-top:1px;">Lunch · 440 cal · logged 5×</div>
+      </div>
+      <button class="of-addbtn" aria-label="Add turkey wrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

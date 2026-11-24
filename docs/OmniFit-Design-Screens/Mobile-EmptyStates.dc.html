@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Empty states (inline)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-empty-context{font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-500);}
+.of-empty{background:var(--surface);border:1px solid var(--stone-300);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;}
+</style>
+</helmet>
+<div style="width:390px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);overflow:hidden;">
+
+  <div style="padding:36px 24px 30px;display:flex;flex-direction:column;gap:14px;">
+
+    <h1 style="margin:0 0 2px;font-family:var(--font-display);font-weight:700;font-size:20px;letter-spacing:-0.01em;">Empty states — inline</h1>
+    <p style="margin:0 0 6px;font-size:12.5px;color:var(--ink-500);line-height:1.5;">Embedded within a parent view, not full-page. Icon + headline + body + contextual CTA.</p>
+
+    <span class="of-empty-context">In calorie tracker</span>
+    <div class="of-empty">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4,12 c0,-5 3,-8 8,-8 s8,3 8,8 -3,8 -8,8 -8,-3 -8,-8 Z"></path><path d="M9,12 h6"></path></svg>
+      <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">No meals logged yet</div><div style="font-size:12.5px;color:var(--ink-500);margin-top:4px;">Log your first meal to start tracking today.</div></div>
+      <button style="height:38px;padding:0 18px;border:none;border-radius:9px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">Log meal</button>
+    </div>
+
+    <span class="of-empty-context">In calendar</span>
+    <div class="of-empty">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="8" y1="3" x2="8" y2="6"></line><line x1="16" y1="3" x2="16" y2="6"></line></svg>
+      <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">No sessions scheduled</div><div style="font-size:12.5px;color:var(--ink-500);margin-top:4px;">Request a session to get on your coach's calendar.</div></div>
+      <button style="height:38px;padding:0 18px;border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">Request session</button>
+    </div>
+
+    <span class="of-empty-context">In client list (coach)</span>
+    <div class="of-empty">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4,21 c0,-4.5 3.5,-7.5 8,-7.5 s8,3 8,7.5"></path></svg>
+      <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">No clients yet</div><div style="font-size:12.5px;color:var(--ink-500);margin-top:4px;">Share your profile link to start filling your roster.</div></div>
+      <button style="height:38px;padding:0 18px;border:none;border-radius:9px;background:var(--pine);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">Share profile link</button>
+    </div>
+
+    <span class="of-empty-context">In find a coach</span>
+    <div class="of-empty">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--ink-500)" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <div><div style="font-family:var(--font-display);font-weight:600;font-size:15px;">No coaches found</div><div style="font-size:12.5px;color:var(--ink-500);margin-top:4px;">Try expanding your search area or specialty filter.</div></div>
+      <button style="height:38px;padding:0 18px;border:1.5px solid var(--stone-300);border-radius:9px;background:var(--surface);color:var(--ink-900);font-family:var(--font-body);font-weight:600;font-size:13px;cursor:pointer;">Expand search</button>
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":978}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Pending Invites (Mobile)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum:#7C6A9C; --plum-dark:#5C4E78; --lilac:#DDD2F3;
+  --sage:#BFE0C2; --butter:#F7E5A0; --peach:#F8D9BE; --blush:#F8CFDD; --sky:#C3DCF4;
+  --warning:#B8842A; --warning-tint:#F7E5A0; --danger:#C1503D; --danger-tint:#F6DAD3;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.m-header{display:flex;align-items:center;padding:48px 16px 10px;flex-shrink:0;position:relative;}
+.m-back{width:34px;height:34px;border-radius:10px;background:transparent;border:none;display:flex;align-items:center;justify-content:center;color:var(--ink-900);cursor:pointer;flex-shrink:0;}
+.m-title{position:absolute;left:0;right:0;text-align:center;font-family:var(--font-display);font-weight:600;font-size:15px;color:var(--ink-900);pointer-events:none;}
+.m-content{flex:1;overflow:hidden;padding:4px 16px 16px;box-sizing:border-box;display:flex;flex-direction:column;gap:14px;}
+.tabs{display:flex;background:var(--stone-150);border-radius:10px;padding:3px;gap:3px;}
+.tab{flex:1;height:32px;border-radius:8px;border:none;font-family:var(--font-body);font-weight:600;font-size:12px;cursor:pointer;}
+.tab[aria-pressed="true"]{background:var(--surface);color:var(--ink-900);box-shadow:0 1px 2px rgba(20,24,28,.08);}
+.tab[aria-pressed="false"]{background:transparent;color:var(--ink-500);}
+.banner{display:flex;align-items:center;gap:8px;background:var(--stone-150);border-radius:10px;padding:11px 12px;font-size:11.5px;color:var(--ink-700);flex-wrap:wrap;}
+.banner strong{font-variant-numeric:tabular-nums;color:var(--ink-900);}
+.invite-card{background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:14px;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;}
+.invite-card label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-500);}
+.invite-card input{height:44px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 12px;font-family:var(--font-body);font-size:14px;color:var(--ink-900);box-sizing:border-box;}
+.invite-card input:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+.btn-primary{height:44px;border-radius:10px;background:var(--pine);color:var(--surface);border:none;font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;width:100%;}
+.list{display:flex;flex-direction:column;gap:10px;}
+.inv-row{background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;}
+.inv-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.inv-email{font-size:13px;font-weight:600;color:var(--ink-900);word-break:break-all;}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 10px;font-size:10.5px;font-weight:600;flex-shrink:0;}
+.pill-warning{background:var(--warning-tint);color:var(--warning);}
+.inv-meta{font-size:11px;color:var(--ink-500);}
+.row-actions{display:flex;gap:16px;margin-top:2px;}
+.act-btn{display:inline-flex;align-items:center;gap:5px;background:transparent;border:none;color:var(--plum-dark);font-family:var(--font-body);font-weight:600;font-size:12px;cursor:pointer;padding:0;}
+.act-btn.danger{color:var(--danger);}
+.section-cap{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-500);margin:0 0 8px;}
+.empty{background:var(--surface);border:1px solid var(--stone-300);border-radius:12px;padding:18px;display:flex;align-items:center;gap:12px;box-sizing:border-box;}
+.empty-ic{width:40px;height:40px;border-radius:999px;background:var(--stone-150);display:flex;align-items:center;justify-content:center;color:var(--ink-500);flex-shrink:0;}
+.empty h3{font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--ink-900);margin:0;}
+.empty p{font-size:11px;color:var(--ink-500);margin:2px 0 0;}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div class="m-header">
+    <button class="m-back" type="button" aria-label="Go back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="m-title">My clients</span>
+  </div>
+
+  <div class="m-content">
+    <div class="tabs" role="tablist" aria-label="Client list view">
+      <button class="tab" type="button" role="tab" aria-pressed="false">Active (2)</button>
+      <button class="tab" type="button" role="tab" aria-pressed="true">Pending (2)</button>
+    </div>
+
+    <div class="banner">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      <span><strong>2 of 3</strong> client slots used on the Free plan</span>
+    </div>
+
+    <form class="invite-card">
+      <label for="m-invite-email">Invite a client by email</label>
+      <input id="m-invite-email" type="email" placeholder="client@example.com">
+      <button class="btn-primary" type="submit">Invite client</button>
+    </form>
+
+    <div class="list">
+      <div class="inv-row">
+        <div class="inv-top">
+          <span class="inv-email">jordan.lee@example.com</span>
+          <span class="pill pill-warning">Pending</span>
+        </div>
+        <span class="inv-meta">Sent Sep 18, 2026</span>
+        <div class="row-actions">
+          <button class="act-btn" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Resend
+          </button>
+          <button class="act-btn danger" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Revoke
+          </button>
+        </div>
+      </div>
+
+      <div class="inv-row">
+        <div class="inv-top">
+          <span class="inv-email">morgan.p@example.com</span>
+          <span class="pill pill-warning">Pending</span>
+        </div>
+        <span class="inv-meta">Sent Sep 15, 2026</span>
+        <div class="row-actions">
+          <button class="act-btn" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Resend
+          </button>
+          <button class="act-btn danger" type="button">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            Revoke
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-cap">Empty state</p>
+      <div class="empty">
+        <div class="empty-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+        </div>
+        <div>
+          <h3>No pending invites</h3>
+          <p>Invite a client to get them started.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

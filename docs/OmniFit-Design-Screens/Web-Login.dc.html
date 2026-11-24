@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Log in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --plum-dark:#5C4E78;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:48px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:1440px;height:900px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;overflow:hidden;">
+
+  <!-- Brand panel -->
+  <div style="width:600px;flex-shrink:0;background:var(--ink-900);color:var(--cream);padding:56px;display:flex;flex-direction:column;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <svg width="26" height="26" viewBox="0 0 120 120" aria-hidden="true"><circle cx="58" cy="62" r="31" fill="none" stroke="#8FB89B" stroke-width="9"></circle><circle cx="90" cy="32" r="14" fill="#8FB89B"></circle></svg>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:19px;">OmniFit</span>
+    </div>
+
+    <div style="max-width:420px;">
+      <svg width="30" height="23" viewBox="0 0 34 26" fill="none" style="margin-bottom:20px;opacity:0.7;"><path d="M0,26 V15.6 C0,6.8 5.2,1.2 13.6,0 L14.8,4.2 C9.4,5.4 6.8,8.6 6.4,13 H14.8 V26 H0 Z M19.2,26 V15.6 C19.2,6.8 24.4,1.2 32.8,0 L34,4.2 C28.6,5.4 26,8.6 25.6,13 H34 V26 H19.2 Z" fill="#8FB89B"></path></svg>
+      <p style="margin:0 0 24px;font-family:var(--font-display);font-weight:500;font-size:26px;line-height:1.5;">Since moving my practice to OmniFit, I can finally see which clients need a check-in before they fall off.</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;font-size:14px;">MT</span>
+        <div><div style="font-weight:600;font-size:14px;">Maya Torres</div><div style="font-size:12.5px;color:#9CA69C;">Online strength coach</div></div>
+      </div>
+    </div>
+
+    <span style="font-size:12.5px;color:#7A8378;">© 2026 OmniFit</span>
+  </div>
+
+  <!-- Form panel -->
+  <div style="flex-grow:1;display:flex;align-items:center;justify-content:center;">
+    <div style="width:380px;display:flex;flex-direction:column;gap:8px;">
+      <h1 style="margin:0 0 6px;font-family:var(--font-display);font-weight:700;font-size:28px;letter-spacing:-0.01em;">Welcome back</h1>
+      <p style="margin:0 0 28px;font-size:14.5px;color:var(--ink-500);">Log in to run your practice.</p>
+
+      <form style="display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <label for="w-email" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Email</label>
+          <input id="w-email" class="of-field" type="email" placeholder="taylor@email.com">
+        </div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <label for="w-pass" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Password</label>
+            <a href="#reset" style="font-size:12.5px;color:var(--plum-dark);text-decoration:none;font-weight:600;">Forgot password?</a>
+          </div>
+          <input id="w-pass" class="of-field" type="password" placeholder="••••••••">
+        </div>
+        <button type="submit" style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;margin-top:6px;">Log in</button>
+      </form>
+
+      <p style="text-align:center;font-size:14px;color:var(--ink-700);margin:26px 0 0;">Don't have an account? <a href="#signup" style="color:var(--pine-dark);font-weight:600;text-decoration:none;">Sign up</a></p>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

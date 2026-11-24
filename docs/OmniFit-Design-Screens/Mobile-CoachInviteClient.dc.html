@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OmniFit — Invite your first client</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{
+  --cream:#FBF7EF; --surface:#FFFFFF; --ink-900:#14181C; --ink-700:#3E443F; --ink-500:#6E7268;
+  --stone-300:#E3DECF; --stone-150:#F1ECDF;
+  --pine:#3F6B4F; --pine-dark:#2C4F39; --pine-tint:#DCEBE0;
+  --font-display:'Space Grotesk',sans-serif; --font-body:'Inter',sans-serif;
+}
+body{margin:0;background:var(--cream);}
+.of-field{height:48px;border-radius:10px;border:1.5px solid var(--stone-300);padding:0 14px;font-family:var(--font-body);font-size:15px;color:var(--ink-900);background:var(--surface);width:100%;box-sizing:border-box;}
+.of-field:focus{outline:none;border-color:var(--pine);box-shadow:0 0 0 3px var(--pine-tint);}
+</style>
+</helmet>
+<div style="width:390px;height:844px;box-sizing:border-box;background:var(--cream);font-family:var(--font-body);color:var(--ink-900);display:flex;flex-direction:column;overflow:hidden;">
+
+  <div style="flex-grow:1;overflow:hidden;padding:32px 24px 18px;display:flex;flex-direction:column;">
+
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:22px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:12px;font-weight:600;color:var(--ink-500);">Step 6 of 7</span>
+        <a href="#skip" style="font-size:12px;font-weight:600;color:var(--ink-500);text-decoration:none;">Skip for now</a>
+      </div>
+      <div style="height:4px;border-radius:999px;background:var(--stone-300);overflow:hidden;"><div style="width:86%;height:100%;background:var(--pine);"></div></div>
+    </div>
+
+    <h1 style="margin:0 0 4px;font-family:var(--font-display);font-weight:700;font-size:23px;letter-spacing:-0.01em;text-wrap:balance;">Invite your first client</h1>
+    <p style="margin:0 0 24px;font-size:13.5px;color:var(--ink-500);line-height:1.4;">Share your code, or send a direct email invite.</p>
+
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 20px;background:var(--pine-tint);border-radius:18px;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--pine-dark);">Your coach code</span>
+      <span style="font-family:var(--font-display);font-weight:700;font-size:26px;letter-spacing:0.04em;color:var(--pine-dark);">TAYLOR-4F2K</span>
+      <button style="display:flex;align-items:center;gap:7px;height:36px;padding:0 16px;border:none;border-radius:999px;background:var(--surface);color:var(--pine-dark);font-family:var(--font-body);font-weight:600;font-size:12.5px;cursor:pointer;box-shadow:0 1px 2px rgba(20,24,28,0.08);">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"></rect><path d="M5,15 H4 a2,2 0 0 1 -2,-2 V4 a2,2 0 0 1 2,-2 h9 a2,2 0 0 1 2,2 v1"></path></svg>
+        Copy code
+      </button>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:22px 0;">
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+      <span style="font-size:11.5px;color:var(--ink-500);">or invite by email</span>
+      <div style="flex-grow:1;height:1px;background:var(--stone-300);"></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <label for="ci-email" style="font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-500);">Client email</label>
+      <div style="display:flex;gap:8px;">
+        <input id="ci-email" class="of-field" type="email" placeholder="client@email.com" style="flex-grow:1;">
+        <button style="height:48px;padding:0 18px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:14px;cursor:pointer;white-space:nowrap;">Send</button>
+      </div>
+    </div>
+
+    <div style="flex-grow:1;"></div>
+
+    <button style="height:48px;border:none;border-radius:10px;background:var(--ink-900);color:var(--cream);font-family:var(--font-body);font-weight:600;font-size:15px;cursor:pointer;">Continue</button>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
